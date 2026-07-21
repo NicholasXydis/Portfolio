@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "home.title": "Nicholas Xydis — Ingénieur logiciel",
+    "home.description": "Portfolio bilingue de Nicholas Xydis, ingénieur logiciel spécialisé dans les applications web sécurisées et prêtes pour la production.",
+    "projects.title": "Projets",
+    "projects.description": "Projets logiciels choisis de Nicholas Xydis, des systèmes bancaires en production aux plateformes web bilingues.",
+    "notFound.title": "Page introuvable",
+    "notFound.description": "Cette page n'existe pas. Retournez à l'accueil du portfolio ou parcourez les projets."
+  },
+  "nav": {
+    "home": "Accueil",
+    "primary": "Navigation principale",
+    "caseStudies": "Études de cas",
+    "experience": "Expérience",
+    "contact": "Contact",
+    "skipToContent": "Aller au contenu"
+  },
+  "language": {
+    "toggle": "Langue",
+    "en": "English",
+    "fr": "Français"
+  },
+  "home": {
+    "about": "À propos",
+    "aboutBody": "Je suis étudiant en informatique à l'Université Concordia, passionné par le génie logiciel, la cybersécurité, le DevOps et l'intelligence artificielle. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python et TypeScript.\n\nÀ la recherche de stages en génie logiciel, cybersécurité, DevOps ou IA/apprentissage automatique.",
+    "location": "Montréal, Québec, Canada",
+    "viewOnMap": "Voir Montréal, Québec, Canada sur Google Maps",
+    "resume": "CV",
+    "experiences": "Expériences",
+    "education": "Formation",
+    "projects": "Projets",
+    "stack": "Stack"
+  },
+  "projects": {
+    "title": "Projets",
+    "empty": "Aucun projet à afficher pour le moment.",
+    "viewCaseStudy": "Voir l'étude de cas",
+    "viewWebsite": "Voir le site web",
+    "viewRepo": "Voir le dépôt GitHub",
+    "lastUpdated": "Dernière mise à jour",
+    "visitLink": "Visiter",
+    "present": "Présent",
+    "showMore": "Afficher {{count}} de plus",
+    "showLess": "Voir moins"
+  },
+  "experience": {
+    "empty": "Aucune expérience à afficher pour le moment."
+  },
+  "education": {
+    "empty": "Aucune formation à afficher pour le moment."
+  },
+  "contact": {
+    "email": "Courriel",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copied": "Copié !"
+  },
+  "notFound": {
+    "code": "Erreur 404",
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas.",
+    "backHome": "Retour à l'accueil"
+  }
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "banklite",
+    "title": {
+      "en": "BankLite",
+      "fr": "BankLite"
+    },
+    "subtitle": {
+      "en": "Full-Stack FinTech Banking Application",
+      "fr": "Application bancaire FinTech complète"
+    },
+    "startDate": "2026-03-01",
+    "endDate": "2026-07-01",
+    "lastUpdated": "2026-07-01",
+    "tags": ["C#", ".NET", "JavaScript", "Docker", "PostgreSQL", "Linux"],
+    "summary": {
+      "en": "A secure, production-deployed banking application showcasing Clean Architecture, JWT auth, and 479 automated tests.",
+      "fr": "Une application bancaire sécurisée et déployée en production illustrant l'architecture propre, l'authentification JWT et 479 tests automatisés."
+    },
+    "body": {
+      "en": "Independently designed, built, and deployed a full-stack banking application featuring secure authentication, real-time account updates, peer-to-peer transactions, and an AI-powered financial assistant with bilingual (English/French) support.\nScale & Performance: Load tested with k6, processing 533,000+ requests at 1,184 requests/second with a 0.00% request failure rate under 1,000+ concurrent users.\nProduction Engineering: Architected and operated a hardened Linux VPS using Docker, PostgreSQL, Nginx, Cloudflare, and GitHub Actions CI/CD, with 24/7 monitoring and 7 specialized rate-limiting policies protecting critical workflows.\nQuality & Reliability: Implemented ACID-compliant PostgreSQL transactions, 479 automated tests (445 backend + 34 end-to-end), and OWASP ZAP penetration testing for secure, reliable financial operations.",
+      "fr": "Conçu, développé et déployé de façon autonome une application bancaire complète offrant une authentification sécurisée, des mises à jour de comptes en temps réel, des transactions entre pairs et un assistant financier propulsé par l'IA avec prise en charge bilingue (anglais/français).\nÉchelle et performance : testée en charge avec k6, traitant plus de 533 000 requêtes à 1 184 requêtes/seconde avec un taux d'échec de 0,00 % sous plus de 1 000 utilisateurs simultanés.\nIngénierie de production : architecturé et exploité un VPS Linux renforcé avec Docker, PostgreSQL, Nginx, Cloudflare et CI/CD GitHub Actions, avec une surveillance 24/7 et 7 politiques de limitation de débit spécialisées protégeant les flux critiques.\nQualité et fiabilité : mise en œuvre de transactions PostgreSQL conformes ACID, de 479 tests automatisés (445 backend + 34 de bout en bout) et de tests d'intrusion OWASP ZAP pour des opérations financières sûres et fiables."
+    },
+    "website": "https://banklite.ca",
+    "repo": "https://github.com/NicholasXydis/BankLite",
+    "icon": "/project-icons/banklite.ico",
+    "links": [],
+    "images": [],
+    "featured": true
+  },
+  {
+    "slug": "cs-resource-hub",
+    "title": {
+      "en": "CS Resource Hub",
+      "fr": "CS Resource Hub"
+    },
+    "subtitle": {
+      "en": "Data Engineering System for CS Students",
+      "fr": "Système d'ingénierie de données pour étudiants en informatique"
+    },
+    "startDate": "2026-06-01",
+    "endDate": "2026-07-01",
+    "lastUpdated": "2026-07-01",
+    "tags": ["Python", "TypeScript", "React", "Vite", "GitHub Actions"],
+    "summary": {
+      "en": "A curated, automated dataset of Canadian Computer Science student resources, built around a single validated source of truth.",
+      "fr": "Un répertoire organisé et automatisé de ressources pour étudiants en informatique au Canada, bâti autour d'une source de vérité unique et validée."
+    },
+    "body": {
+      "en": "Engineered a Python-powered data platform helping Canadian Computer Science students discover 334+ curated resources, with a single JSON dataset that deterministically generates the website and project artifacts.\nAutomation & Data Engineering: Developed a data pipeline that validates a curated dataset against a JSON Schema, performs duplicate and link health checks, generates 6 project artifacts, and enforces CI quality gates for open-source contributions.\nProduction Engineering: Architected and operated a CI/CD pipeline using 14 GitHub Actions workflows, approval-gated Cloudflare Pages deployments, scheduled health checks, and UptimeRobot monitoring.\nQuality & Reliability: Implemented 375 automated tests (220 end-to-end, 105 frontend unit, 50 pipeline) across 5 browsers and 22 viewports, with CodeQL and perfect Lighthouse scores across all categories.",
+      "fr": "Conçu une plateforme de données propulsée par Python aidant les étudiants canadiens en informatique à découvrir plus de 334 ressources organisées, à partir d'un jeu de données JSON unique qui génère de façon déterministe le site web et les artefacts du projet.\nAutomatisation et ingénierie des données : développé un pipeline de données qui valide un jeu de données organisé selon un schéma JSON, effectue des vérifications de doublons et de santé des liens, génère 6 artefacts de projet et applique des barrières de qualité CI pour les contributions open source.\nIngénierie de production : architecturé et exploité un pipeline CI/CD utilisant 14 flux de travail GitHub Actions, des déploiements Cloudflare Pages soumis à approbation, des vérifications de santé planifiées et une surveillance UptimeRobot.\nQualité et fiabilité : mise en œuvre de 375 tests automatisés (220 de bout en bout, 105 tests unitaires frontend, 50 de pipeline) sur 5 navigateurs et 22 tailles d'écran, avec CodeQL et des scores Lighthouse parfaits dans toutes les catégories."
+    },
+    "website": "https://csresourcehub.ca",
+    "repo": "https://github.com/NicholasXydis/CSResourceHub",
+    "icon": "/project-icons/cs-resource-hub.svg",
+    "links": [],
+    "images": [],
+    "featured": false
+  },
+  {
+    "slug": "centre-auto-allard",
+    "title": {
+      "en": "Centre D'Auto Allard",
+      "fr": "Centre D'Auto Allard"
+    },
+    "subtitle": {
+      "en": "Production Business Website",
+      "fr": "Site web d'entreprise de production"
+    },
+    "lastUpdated": "2025-09-10",
+    "tags": ["TypeScript", "Next.js", "React", "Docker", "Linux"],
+    "summary": {
+      "en": "A fast, accessible, bilingual website for a family-owned Montreal automotive service centre, statically generated and deployed on a hardened Nginx container.",
+      "fr": "Un site web rapide, accessible et bilingue pour un centre de service automobile familial de Montréal, généré statiquement et déployé dans un conteneur Nginx renforcé."
+    },
+    "body": {
+      "en": "Designed, developed, and deployed the production website for a family-owned automotive service center using TypeScript, Next.js, and React. Delivered a fully bilingual (English/French), mobile-first experience.\nUser Experience: Built a fast, responsive website serving 50+ daily users, achieving Lighthouse scores of 99 Performance and 100 Accessibility, Best Practices, and SEO.\nProduction Engineering: Architected and operated a hardened Linux VPS using Docker, Nginx, Cloudflare, and GitHub Actions CI/CD, with 24/7 monitoring and container health checks.\nQuality & Maintainability: Implemented 70 automated tests (34 unit/component + 36 end-to-end), CodeQL and Trivy security scanning, and automated quality checks for reliable deployments.",
+      "fr": "Conçu, développé et déployé le site web de production d'un centre de service automobile familial avec TypeScript, Next.js et React. Livré une expérience entièrement bilingue (anglais/français) et pensée d'abord pour le mobile.\nExpérience utilisateur : créé un site web rapide et réactif servant plus de 50 utilisateurs par jour, atteignant des scores Lighthouse de 99 en performance et 100 en accessibilité, bonnes pratiques et SEO.\nIngénierie de production : architecturé et exploité un VPS Linux renforcé avec Docker, Nginx, Cloudflare et CI/CD GitHub Actions, avec une surveillance 24/7 et des vérifications de santé des conteneurs.\nQualité et maintenabilité : mise en œuvre de 70 tests automatisés (34 unitaires/composant + 36 de bout en bout), analyse de sécurité CodeQL et Trivy, et vérifications de qualité automatisées pour des déploiements fiables."
+    },
+    "website": "https://centredautoallard.ca",
+    "repo": "https://github.com/NicholasXydis/CentreAutoAllard",
+    "icon": "/project-icons/centre-auto-allard.ico",
+    "links": [],
+    "images": [],
+    "featured": true
+  }
+]

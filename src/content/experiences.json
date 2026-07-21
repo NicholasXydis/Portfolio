@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "centre-auto-allard-it",
+    "role": {
+      "en": "IT Administrator & Operations",
+      "fr": "Administrateur TI et opérations"
+    },
+    "company": "Centre D'Auto Allard",
+    "companyUrl": "https://centredautoallard.ca",
+    "logo": "/project-icons/cda.webp",
+    "location": {
+      "en": "Montreal, QC · On-site",
+      "fr": "Montréal, QC · Sur place"
+    },
+    "startDate": "2022-04-01",
+    "endDate": "2026-02-01",
+    "description": {
+      "en": "Designed, developed, and deployed the company's production website, serving 50+ daily users and contributing to a 55% increase in customer appointments.\nImplemented a SQL database to manage inventory, operational records, and internal business data, reducing manual tracking time by 7 hours per week.\nMaintained and troubleshot company computers, networking equipment, and security systems, resolving hardware and connectivity issues to support daily business operations.\nLiaised with customers, automotive parts suppliers, and service vendors to coordinate parts procurement, scheduling, and operational communication, ensuring smooth day-to-day business operations.\nManaged Google Business Profile and Google Analytics, generating 40+ new customer reviews and 1,200+ additional monthly profile views.",
+      "fr": "Conçu, développé et déployé le site web de production de l'entreprise, servant plus de 50 utilisateurs par jour et contribuant à une augmentation de 55 % des rendez-vous clients.\nImplémenté une base de données SQL pour gérer l'inventaire, les registres opérationnels et les données internes de l'entreprise, réduisant le temps de suivi manuel de 7 heures par semaine.\nEntretenu et dépanné les ordinateurs, les équipements réseau et les systèmes de sécurité de l'entreprise, résolvant les problèmes matériels et de connectivité pour soutenir les opérations quotidiennes.\nAssuré la liaison avec les clients, les fournisseurs de pièces automobiles et les prestataires de services pour coordonner l'approvisionnement en pièces, la planification et la communication opérationnelle, garantissant le bon déroulement des activités quotidiennes.\nGéré le profil Google Business et Google Analytics, générant plus de 40 nouveaux avis clients et plus de 1 200 vues de profil mensuelles supplémentaires."
+    }
+  }
+]

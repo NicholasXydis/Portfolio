@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "concordia-university",
+    "institution": "Concordia University",
+    "institutionUrl": "https://www.concordia.ca",
+    "logo": "/project-icons/concordia.png",
+    "credential": {
+      "en": "Computer Science",
+      "fr": "Informatique"
+    },
+    "note": {
+      "en": "Member of the Software Engineering & Computer Science Student Society (SCS)",
+      "fr": "Membre de la Société étudiante de génie logiciel et d'informatique (SCS)"
+    },
+    "startDate": "2026-09-01",
+    "endDate": null
+  }
+]

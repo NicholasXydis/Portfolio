@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "home.title": "Nicholas Xydis — Software Engineer",
+    "home.description": "Bilingual portfolio of Nicholas Xydis, a software engineer building secure, production-grade web applications.",
+    "projects.title": "Projects",
+    "projects.description": "Selected software projects by Nicholas Xydis, from production banking systems to bilingual web platforms.",
+    "notFound.title": "Page not found",
+    "notFound.description": "This page does not exist. Return to the portfolio home or browse the projects."
+  },
+  "nav": {
+    "home": "Home",
+    "primary": "Primary",
+    "caseStudies": "Case Studies",
+    "experience": "Experience",
+    "contact": "Contact",
+    "skipToContent": "Skip to content"
+  },
+  "language": {
+    "toggle": "Language",
+    "en": "English",
+    "fr": "Français"
+  },
+  "home": {
+    "about": "About",
+    "aboutBody": "I'm a Computer Science student at Concordia University passionate about Software Engineering, Cybersecurity, DevOps, and Artificial Intelligence. I enjoy solving complex problems and challenging myself through hands-on projects, primarily in Python and TypeScript.\n\nSeeking internship opportunities in Software Engineering, Cybersecurity, DevOps, or AI/ML.",
+    "location": "Montreal, Quebec, Canada",
+    "viewOnMap": "View Montreal, Quebec, Canada on Google Maps",
+    "resume": "CV",
+    "experiences": "Experiences",
+    "education": "Education",
+    "projects": "Projects",
+    "stack": "Stack"
+  },
+  "projects": {
+    "title": "Projects",
+    "empty": "No projects to show yet.",
+    "viewCaseStudy": "View case study",
+    "viewWebsite": "View website",
+    "viewRepo": "View GitHub Repository",
+    "lastUpdated": "Last updated",
+    "visitLink": "Visit",
+    "present": "Present",
+    "showMore": "Show {{count}} more",
+    "showLess": "Show less"
+  },
+  "experience": {
+    "empty": "No experience to show yet."
+  },
+  "education": {
+    "empty": "No education to show yet."
+  },
+  "contact": {
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copied": "Copied!"
+  },
+  "notFound": {
+    "code": "Error 404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "backHome": "Back to home"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "label": { "en": "Languages", "fr": "Langages" },
+    "items": ["C#", "Python", "TypeScript", "JavaScript", "SQL"]
+  },
+  {
+    "label": {
+      "en": "Frameworks & Libraries",
+      "fr": "Cadriciels et bibliothèques"
+    },
+    "items": [".NET", "React", "Next.js", "Vite", "Tailwind CSS"]
+  },
+  {
+    "label": {
+      "en": "Tools & Infrastructure",
+      "fr": "Outils et infrastructure"
+    },
+    "items": ["Linux", "Docker", "Git", "PostgreSQL", "GitHub Actions", "Unity"]
+  }
+]
