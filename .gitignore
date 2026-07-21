@@ -1,0 +1,50 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Test / coverage output
+coverage
+playwright-report
+test-results
+blob-report
+.playwright
+playwright/.cache
+
+# Lighthouse CI
+.lighthouseci
+
+# Cloudflare / Wrangler
+.wrangler
+.dev.vars
+
+# Caches
+.vite
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
