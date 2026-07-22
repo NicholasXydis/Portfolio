@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { buildSeo } from "@/lib/meta";
 import { useLocale } from "@/hooks/useLocale";
+
+const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export interface SeoProps {
   title: string;
@@ -41,6 +43,10 @@ export function Seo({
       <meta property="og:title" content={meta.fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={meta.canonical} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={SITE_NAME} />
       <meta property="og:locale" content={meta.ogLocale} />
       {meta.ogLocaleAlternates.map((ogLocale) => (
         <meta
@@ -50,9 +56,10 @@ export function Seo({
         />
       ))}
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={meta.fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
 
       <meta httpEquiv="content-language" content={i18n.language} />
     </>

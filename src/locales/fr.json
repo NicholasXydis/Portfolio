@@ -1,7 +1,7 @@
 {
   "meta": {
-    "home.title": "Nicholas Xydis — Ingénieur logiciel",
-    "home.description": "Portfolio bilingue de Nicholas Xydis, ingénieur logiciel spécialisé dans les applications web sécurisées et prêtes pour la production.",
+    "home.title": "Nicholas Xydis | Développeur logiciel",
+    "home.description": "Portfolio bilingue de Nicholas Xydis | étudiant en informatique @ Concordia et Développeur logiciel",
     "projects.title": "Projets",
     "projects.description": "Projets logiciels choisis de Nicholas Xydis, des systèmes bancaires en production aux plateformes web bilingues.",
     "notFound.title": "Page introuvable",
@@ -29,7 +29,7 @@
     "experiences": "Expériences",
     "education": "Formation",
     "projects": "Projets",
-    "stack": "Stack"
+    "stack": "Tech Stack"
   },
   "projects": {
     "title": "Projets",

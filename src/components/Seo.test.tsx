@@ -12,7 +12,7 @@ describe("Seo", () => {
     );
 
     await waitFor(() =>
-      expect(document.title).toBe("Projects — Nicholas Xydis"),
+      expect(document.title).toBe("Projects | Nicholas Xydis"),
     );
     const canonical = document.head.querySelector("link[rel='canonical']");
     expect(canonical).toHaveAttribute("href", `${SITE_URL}/en/projects`);

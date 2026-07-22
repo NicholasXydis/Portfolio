@@ -1,7 +1,7 @@
 {
   "meta": {
-    "home.title": "Nicholas Xydis — Software Engineer",
-    "home.description": "Bilingual portfolio of Nicholas Xydis, a software engineer building secure, production-grade web applications.",
+    "home.title": "Nicholas Xydis | Software Developer",
+    "home.description": "Bilingual portfolio of Nicholas Xydis | Computer Science student @ Concordia & Software Developer",
     "projects.title": "Projects",
     "projects.description": "Selected software projects by Nicholas Xydis, from production banking systems to bilingual web platforms.",
     "notFound.title": "Page not found",
@@ -29,7 +29,7 @@
     "experiences": "Experiences",
     "education": "Education",
     "projects": "Projects",
-    "stack": "Stack"
+    "stack": "Tech Stack"
   },
   "projects": {
     "title": "Projects",
