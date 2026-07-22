@@ -5,7 +5,6 @@ import { useLocale } from "@/hooks/useLocale";
 import { localizedPath, pickLocalized } from "@/lib/localized";
 import {
   ArrowLeftIcon,
-  BulletList,
   ExternalLink,
   GithubIcon,
   GlobeIcon,
@@ -28,7 +27,7 @@ export function ProjectDetailPage() {
   const subtitle = project.subtitle
     ? pickLocalized(project.subtitle, locale)
     : "";
-  const metaTitle = subtitle ? `${name} — ${subtitle}` : name;
+  const metaTitle = subtitle ? `${name} | ${subtitle}` : name;
 
   return (
     <article className="pt-8">
@@ -38,11 +37,11 @@ export function ProjectDetailPage() {
         path={`projects/${project.slug}`}
       />
       <Link
-        to={localizedPath(locale, "projects")}
+        to={localizedPath(locale)}
         className="inline-flex items-center gap-1.5 font-mono text-sm text-white/60 transition-colors hover:text-white"
       >
         <ArrowLeftIcon size={16} />
-        {t("nav.caseStudies")}
+        {t("nav.home")}
       </Link>
       <h1 className="mt-4 text-3xl font-bold">{name}</h1>
       {subtitle && <p className="mt-2 text-lg text-white/70">{subtitle}</p>}
@@ -63,24 +62,47 @@ export function ProjectDetailPage() {
         ))}
       </ul>
 
+      {project.images[0] && (
+        <img
+          src={project.images[0].src}
+          alt={pickLocalized(project.images[0].alt, locale)}
+          width={project.images[0].width}
+          height={project.images[0].height}
+          className="mt-6 w-full rounded-lg border border-white/10"
+        />
+      )}
+
       <p className="mt-6 text-lg text-white/80">
         {pickLocalized(project.summary, locale)}
       </p>
 
-      <BulletList
-        text={pickLocalized(project.body, locale)}
-        className="mt-6 max-w-prose space-y-3 leading-relaxed text-white/80"
-      />
+      {project.caseStudy && (
+        <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-white/80">
+          {pickLocalized(project.caseStudy, locale)
+            .split("\n\n")
+            .map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+        </div>
+      )}
 
       <div className="mt-8 flex flex-wrap gap-2">
         {project.website && (
-          <ExternalLink href={project.website} className={actionClass}>
+          <ExternalLink
+            href={project.website}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewWebsite")}`}
+          >
             <GlobeIcon size={14} />
             {t("projects.viewWebsite")}
           </ExternalLink>
         )}
         {project.repo && (
-          <ExternalLink href={project.repo} className={actionClass}>
+          <ExternalLink
+            href={project.repo}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewRepo")}`}
+          >
             <GithubIcon size={14} />
             {t("projects.viewRepo")}
           </ExternalLink>

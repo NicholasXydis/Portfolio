@@ -31,20 +31,17 @@ describe("App routing", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the projects list page with its heading", async () => {
-    renderApp("/en/projects");
+  it("renders a project detail page directly", async () => {
+    renderApp("/en/projects/banklite");
     expect(
-      await screen.findByRole("heading", { level: 1, name: "Projects" }),
+      await screen.findByRole("heading", { level: 1, name: /BankLite/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /BankLite/i })).toBeInTheDocument();
   });
 
   it("syncs the html lang attribute to the active locale", async () => {
     renderApp("/fr");
     await waitFor(() => expect(document.documentElement.lang).toBe("fr"));
-    expect(
-      screen.getByRole("navigation", { name: "Navigation principale" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("main")).toBeInTheDocument();
   });
 
   it("renders the 404 page for an unknown path under a valid locale", async () => {
@@ -67,7 +64,7 @@ describe("App routing", () => {
     const user = userEvent.setup();
     renderApp("/en");
     const links = await screen.findAllByRole("link", {
-      name: /View case study/i,
+      name: /case study/i,
     });
     await user.click(links[0]!);
     expect(await screen.findByText(/Last updated/i)).toBeInTheDocument();

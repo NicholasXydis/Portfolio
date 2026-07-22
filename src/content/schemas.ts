@@ -33,6 +33,7 @@ export const ProjectSchema = z.object({
   tags: z.array(z.string().min(1)).min(1),
   summary: LocalizedTextSchema,
   body: LocalizedTextSchema,
+  caseStudy: LocalizedTextSchema.optional(),
   website: z.string().url().optional(),
   repo: z.string().url().optional(),
   icon: z.string().optional(),

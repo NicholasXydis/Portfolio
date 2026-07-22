@@ -17,7 +17,6 @@ const today = new Date().toISOString().slice(0, 10);
 
 const pages: PageEntry[] = [
   { path: "", lastmod: today },
-  { path: "projects", lastmod: today },
   ...projects.map((project) => ({
     path: `projects/${project.slug}`,
     lastmod: project.lastUpdated,

@@ -4,8 +4,6 @@ import AxeBuilder from "@axe-core/playwright";
 const routes = [
   "/en",
   "/fr",
-  "/en/projects",
-  "/fr/projects",
   "/en/projects/banklite",
   "/fr/projects/banklite",
   "/en/does-not-exist",

@@ -19,6 +19,6 @@ describe("HomePage", () => {
 
   it("renders project cards from validated content", () => {
     renderWithProviders(<HomePage />, { locale: "en" });
-    expect(screen.getByRole("link", { name: /BankLite/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "BankLite" })).toBeInTheDocument();
   });
 });

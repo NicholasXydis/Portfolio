@@ -16,10 +16,8 @@ test.describe("navigation", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "fr");
   });
 
-  test("navigates to a project detail page from the projects list", async ({
-    page,
-  }) => {
-    await page.goto("/en/projects");
+  test("navigates to a project detail page from home", async ({ page }) => {
+    await page.goto("/en");
     await page
       .getByRole("link", { name: /BankLite/i })
       .first()
@@ -32,11 +30,11 @@ test.describe("navigation", () => {
   });
 
   test("toggles language and preserves the current path", async ({ page }) => {
-    await page.goto("/en/projects");
+    await page.goto("/en/projects/banklite");
     await page.getByRole("button", { name: "Français" }).click();
-    await expect(page).toHaveURL(/\/fr\/projects$/);
+    await expect(page).toHaveURL(/\/fr\/projects\/banklite$/);
     await expect(
-      page.getByRole("heading", { level: 1, name: "Projets" }),
+      page.getByRole("heading", { level: 1, name: /BankLite/i }),
     ).toBeVisible();
   });
 
@@ -44,7 +42,7 @@ test.describe("navigation", () => {
     page,
   }) => {
     await page.goto("/en/projects/banklite");
-    const liveLink = page.getByRole("link", { name: /View website/i });
+    const liveLink = page.getByRole("link", { name: /Website/i });
     await expect(liveLink).toHaveAttribute("target", "_blank");
     await expect(liveLink).toHaveAttribute("rel", /noopener/);
     await expect(liveLink).toHaveAttribute("rel", /noreferrer/);

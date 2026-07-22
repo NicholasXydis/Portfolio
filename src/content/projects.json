@@ -25,7 +25,17 @@
     "repo": "https://github.com/NicholasXydis/BankLite",
     "icon": "/project-icons/banklite.ico",
     "links": [],
-    "images": [],
+    "images": [
+      {
+        "src": "/case-studies/banklite.png",
+        "alt": {
+          "en": "Screenshot of the BankLite web application",
+          "fr": "Capture d'écran de l'application web BankLite"
+        },
+        "width": 2480,
+        "height": 1676
+      }
+    ],
     "featured": true
   },
   {
@@ -54,7 +64,17 @@
     "repo": "https://github.com/NicholasXydis/CSResourceHub",
     "icon": "/project-icons/cs-resource-hub.svg",
     "links": [],
-    "images": [],
+    "images": [
+      {
+        "src": "/case-studies/cs-resource-hub.png",
+        "alt": {
+          "en": "Screenshot of the CS Resource Hub website",
+          "fr": "Capture d'écran du site web CS Resource Hub"
+        },
+        "width": 2480,
+        "height": 1676
+      }
+    ],
     "featured": false
   },
   {
@@ -81,7 +101,17 @@
     "repo": "https://github.com/NicholasXydis/CentreAutoAllard",
     "icon": "/project-icons/centre-auto-allard.ico",
     "links": [],
-    "images": [],
+    "images": [
+      {
+        "src": "/case-studies/centre-auto-allard.png",
+        "alt": {
+          "en": "Screenshot of the Centre D'Auto Allard website",
+          "fr": "Capture d'écran du site web Centre D'Auto Allard"
+        },
+        "width": 2480,
+        "height": 1676
+      }
+    ],
     "featured": true
   }
 ]
