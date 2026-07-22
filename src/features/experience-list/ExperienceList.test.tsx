@@ -34,13 +34,14 @@ describe("ExperienceList", () => {
     expect(screen.getByText("Engineer")).toBeInTheDocument();
     expect(screen.getByText(/Present/i)).toBeInTheDocument();
     expect(screen.getByText("Montreal, QC")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /View website/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Website/i })).toHaveAttribute(
       "href",
       "https://acme.example.com",
     );
-    expect(
-      screen.getByRole("link", { name: /View GitHub Repository/i }),
-    ).toHaveAttribute("href", "https://github.com/example/acme");
+    expect(screen.getByRole("link", { name: /GitHub/i })).toHaveAttribute(
+      "href",
+      "https://github.com/example/acme",
+    );
   });
 
   it("localizes role and present label to French", () => {

@@ -76,13 +76,18 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
                 <ExternalLink
                   href={experience.companyUrl}
                   className={actionClass}
+                  aria-label={`${experience.company} ${t("projects.viewWebsite")}`}
                 >
                   <GlobeIcon size={14} />
                   {t("projects.viewWebsite")}
                 </ExternalLink>
               )}
               {experience.repo && (
-                <ExternalLink href={experience.repo} className={actionClass}>
+                <ExternalLink
+                  href={experience.repo}
+                  className={actionClass}
+                  aria-label={`${experience.company} ${t("projects.viewRepo")}`}
+                >
                   <GithubIcon size={14} />
                   {t("projects.viewRepo")}
                 </ExternalLink>

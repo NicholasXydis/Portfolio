@@ -9,8 +9,6 @@
   },
   "nav": {
     "home": "Accueil",
-    "primary": "Navigation principale",
-    "caseStudies": "Études de cas",
     "experience": "Expérience",
     "contact": "Contact",
     "skipToContent": "Aller au contenu"
@@ -32,11 +30,10 @@
     "stack": "Tech Stack"
   },
   "projects": {
-    "title": "Projets",
     "empty": "Aucun projet à afficher pour le moment.",
-    "viewCaseStudy": "Voir l'étude de cas",
-    "viewWebsite": "Voir le site web",
-    "viewRepo": "Voir le dépôt GitHub",
+    "viewCaseStudy": "Étude de cas",
+    "viewWebsite": "Site web",
+    "viewRepo": "GitHub",
     "lastUpdated": "Dernière mise à jour",
     "visitLink": "Visiter",
     "present": "Présent",

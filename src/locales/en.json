@@ -9,8 +9,6 @@
   },
   "nav": {
     "home": "Home",
-    "primary": "Primary",
-    "caseStudies": "Case Studies",
     "experience": "Experience",
     "contact": "Contact",
     "skipToContent": "Skip to content"
@@ -32,11 +30,10 @@
     "stack": "Tech Stack"
   },
   "projects": {
-    "title": "Projects",
     "empty": "No projects to show yet.",
-    "viewCaseStudy": "View case study",
-    "viewWebsite": "View website",
-    "viewRepo": "View GitHub Repository",
+    "viewCaseStudy": "Case study",
+    "viewWebsite": "Website",
+    "viewRepo": "GitHub",
     "lastUpdated": "Last updated",
     "visitLink": "Visit",
     "present": "Present",

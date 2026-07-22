@@ -78,18 +78,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="mt-4 flex flex-wrap gap-2">
         {project.website && (
-          <ExternalLink href={project.website} className={actionClass}>
+          <ExternalLink
+            href={project.website}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewWebsite")}`}
+          >
             <GlobeIcon size={14} />
             {t("projects.viewWebsite")}
           </ExternalLink>
         )}
         {project.repo && (
-          <ExternalLink href={project.repo} className={actionClass}>
+          <ExternalLink
+            href={project.repo}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewRepo")}`}
+          >
             <GithubIcon size={14} />
             {t("projects.viewRepo")}
           </ExternalLink>
         )}
-        <Link to={caseStudyPath} className={actionClass}>
+        <Link
+          to={caseStudyPath}
+          className={`${actionClass} uppercase`}
+          aria-label={`${name} ${t("projects.viewCaseStudy")}`}
+        >
           <CaseStudyIcon size={14} />
           {t("projects.viewCaseStudy")}
         </Link>

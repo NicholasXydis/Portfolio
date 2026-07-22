@@ -53,11 +53,11 @@ describe("ProjectCard", () => {
       "/project-icons/banklite.ico",
     );
 
-    const website = screen.getByRole("link", { name: /View website/i });
+    const website = screen.getByRole("link", { name: /Website/i });
     expect(website).toHaveAttribute("href", "https://banklite.ca");
     expect(website).toHaveAttribute("target", "_blank");
 
-    const repo = screen.getByRole("link", { name: /View GitHub Repository/i });
+    const repo = screen.getByRole("link", { name: /GitHub/i });
     expect(repo).toHaveAttribute(
       "href",
       "https://github.com/NicholasXydis/BankLite",
