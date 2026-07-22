@@ -38,7 +38,9 @@ export function buildSeo({
   noindex = false,
 }: SeoInput): SeoMeta {
   const canonical = `${SITE_URL}${localizedPath(locale, path)}`;
-  const fullTitle = title.startsWith(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const fullTitle = title.startsWith(SITE_NAME)
+    ? title
+    : `${title} | ${SITE_NAME}`;
 
   const alternates: HrefLangAlternate[] = [
     ...SUPPORTED_LOCALES.map((alt) => ({
