@@ -7,7 +7,6 @@
       "url": [
         "http://localhost:4173/en",
         "http://localhost:4173/fr",
-        "http://localhost:4173/en/projects",
         "http://localhost:4173/en/projects/banklite"
       ],
       "numberOfRuns": 3,

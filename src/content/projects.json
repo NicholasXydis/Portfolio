@@ -27,13 +27,13 @@
     "links": [],
     "images": [
       {
-        "src": "/case-studies/banklite.png",
+        "src": "/case-studies/banklite.jpg",
         "alt": {
           "en": "Screenshot of the BankLite web application",
           "fr": "Capture d'écran de l'application web BankLite"
         },
-        "width": 2480,
-        "height": 1676
+        "width": 1860,
+        "height": 1254
       }
     ],
     "featured": true
@@ -66,13 +66,13 @@
     "links": [],
     "images": [
       {
-        "src": "/case-studies/cs-resource-hub.png",
+        "src": "/case-studies/cs-resource-hub.jpg",
         "alt": {
           "en": "Screenshot of the CS Resource Hub website",
           "fr": "Capture d'écran du site web CS Resource Hub"
         },
-        "width": 2480,
-        "height": 1676
+        "width": 1860,
+        "height": 1254
       }
     ],
     "featured": false
@@ -103,13 +103,13 @@
     "links": [],
     "images": [
       {
-        "src": "/case-studies/centre-auto-allard.png",
+        "src": "/case-studies/centre-auto-allard.jpg",
         "alt": {
           "en": "Screenshot of the Centre D'Auto Allard website",
           "fr": "Capture d'écran du site web Centre D'Auto Allard"
         },
-        "width": 2480,
-        "height": 1676
+        "width": 1860,
+        "height": 1254
       }
     ],
     "featured": true
