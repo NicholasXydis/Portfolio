@@ -178,7 +178,7 @@ Unit and component coverage includes the happy path plus edge cases — malforme
 
 ### Prerequisites
 
-- Node.js 20+ (22 recommended)
+- Node.js 22+ (24 recommended)
 - npm 10+
 
 ### Install and run
