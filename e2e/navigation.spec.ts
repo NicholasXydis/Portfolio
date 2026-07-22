@@ -28,7 +28,7 @@ test.describe("navigation", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: /BankLite/i }),
     ).toBeVisible();
-    await expect(page.getByText("ASP.NET Core")).toBeVisible();
+    await expect(page.getByText("C#", { exact: true })).toBeVisible();
   });
 
   test("toggles language and preserves the current path", async ({ page }) => {

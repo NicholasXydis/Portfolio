@@ -14,7 +14,7 @@ export function TechStack({ groups }: TechStackProps) {
     <dl className="space-y-5">
       {groups.map((group) => (
         <div key={group.label.en}>
-          <dt className="mb-2 font-mono text-xs uppercase tracking-wide text-white/40">
+          <dt className="mb-2 font-mono text-xs uppercase tracking-wide text-white/60">
             {pickLocalized(group.label, locale)}
           </dt>
           <dd>
