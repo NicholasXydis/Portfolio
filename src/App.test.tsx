@@ -67,6 +67,8 @@ describe("App routing", () => {
       name: /case study/i,
     });
     await user.click(links[0]!);
-    expect(await screen.findByText(/Last updated/i)).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { level: 1, name: /BankLite/i }),
+    ).toBeInTheDocument();
   });
 });

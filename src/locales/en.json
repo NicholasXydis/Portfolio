@@ -31,10 +31,9 @@
   },
   "projects": {
     "empty": "No projects to show yet.",
-    "viewCaseStudy": "Case study",
+    "viewCaseStudy": "Case Study",
     "viewWebsite": "Website",
     "viewRepo": "GitHub",
-    "lastUpdated": "Last updated",
     "visitLink": "Visit",
     "present": "Present",
     "showMore": "Show {{count}} more",

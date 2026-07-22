@@ -99,7 +99,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
         <Link
           to={caseStudyPath}
-          className={`${actionClass} uppercase`}
+          className={actionClass}
           aria-label={`${name} ${t("projects.viewCaseStudy")}`}
         >
           <CaseStudyIcon size={14} />
