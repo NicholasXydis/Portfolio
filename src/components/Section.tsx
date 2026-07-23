@@ -11,7 +11,7 @@ export function Section({ id, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="grid scroll-mt-24 gap-4 sm:grid-cols-[8rem_1fr] sm:gap-8"
+      className="grid scroll-mt-24 gap-4 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-8"
     >
       <h2
         id={`${id}-heading`}
@@ -19,7 +19,7 @@ export function Section({ id, title, children }: SectionProps) {
       >
         {title}
       </h2>
-      <div>{children}</div>
+      <div className="min-w-0">{children}</div>
     </section>
   );
 }

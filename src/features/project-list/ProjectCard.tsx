@@ -32,7 +32,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     : "";
 
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.03] p-5">
+    <article className="min-w-0 rounded-lg border border-white/10 bg-white/[0.03] p-5">
       <div className="flex items-start gap-3">
         <EntryLogo src={project.icon} />
         <div className="min-w-0 flex-1">
