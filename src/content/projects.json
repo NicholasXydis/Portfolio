@@ -12,7 +12,14 @@
     "startDate": "2026-03-01",
     "endDate": "2026-07-01",
     "lastUpdated": "2026-07-01",
-    "tags": ["C#", ".NET", "JavaScript", "Docker", "PostgreSQL", "Linux"],
+    "tags": [
+      "C#",
+      "ASP.NET Core",
+      "JavaScript",
+      "Docker",
+      "PostgreSQL",
+      "Linux"
+    ],
     "summary": {
       "en": "A secure, production-deployed banking application showcasing Clean Architecture, JWT auth, and 479 automated tests.",
       "fr": "Une application bancaire sécurisée et déployée en production illustrant l'architecture propre, l'authentification JWT et 479 tests automatisés."
@@ -51,7 +58,7 @@
     "startDate": "2026-06-01",
     "endDate": "2026-07-01",
     "lastUpdated": "2026-07-01",
-    "tags": ["Python", "TypeScript", "React", "Vite", "GitHub Actions"],
+    "tags": ["Python", "TypeScript", "React", "GitHub Actions"],
     "summary": {
       "en": "A curated, automated dataset of Canadian Computer Science student resources, built around a single validated source of truth.",
       "fr": "Un répertoire organisé et automatisé de ressources pour étudiants en informatique au Canada, bâti autour d'une source de vérité unique et validée."

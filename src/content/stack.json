@@ -1,20 +1,32 @@
 [
   {
     "label": { "en": "Languages", "fr": "Langages" },
-    "items": ["C#", "Python", "TypeScript", "JavaScript", "SQL"]
+    "items": ["C#", "Python", "TypeScript", "JavaScript", "SQL", "Java"]
   },
   {
     "label": {
       "en": "Frameworks & Libraries",
       "fr": "Cadriciels et bibliothèques"
     },
-    "items": [".NET", "React", "Next.js", "Vite", "Tailwind CSS"]
+    "items": ["ASP.NET Core", "EF Core", "React", "Next.js", "Tailwind CSS"]
   },
   {
     "label": {
-      "en": "Tools & Infrastructure",
-      "fr": "Outils et infrastructure"
+      "en": "Databases & Systems",
+      "fr": "Bases de données et systèmes"
     },
-    "items": ["Linux", "Docker", "Git", "PostgreSQL", "GitHub Actions", "Unity"]
+    "items": ["Linux", "PostgreSQL", "SQL Server"]
+  },
+  {
+    "label": { "en": "Tools & DevOps", "fr": "Outils et DevOps" },
+    "items": [
+      "Docker",
+      "Git",
+      "Azure",
+      "Bash",
+      "PowerShell",
+      "GitHub Actions",
+      "Unity"
+    ]
   }
 ]
