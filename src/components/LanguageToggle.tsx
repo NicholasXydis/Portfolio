@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { SUPPORTED_LOCALES } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
+import { track } from "@/lib/analytics";
 
 function QuebecFlag() {
   const fleur =
@@ -53,6 +54,7 @@ export function LanguageToggle() {
   const label = activeLocale === "fr" ? "EN" : "FR";
 
   function handleSwitch() {
+    track.languageSwitch(nextLocale);
     const localePrefix = new RegExp(`^/(${SUPPORTED_LOCALES.join("|")})`);
     const rest = location.pathname.replace(localePrefix, "");
     navigate(`/${nextLocale}${rest}${location.search}${location.hash}`);

@@ -4,7 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import "@/lib/i18n";
 import { App } from "@/App";
 import { ErrorBoundary } from "@/components";
+import { initAnalytics } from "@/lib/analytics";
 import "./index.css";
+
+initAnalytics();
 
 const container = document.getElementById("root");
 if (!container) {

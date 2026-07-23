@@ -8,9 +8,12 @@ import {
   MailIcon,
 } from "@/components";
 import { CONTACT } from "@/lib/site";
+import { track } from "@/lib/analytics";
+
+type ContactChannel = "email" | "github" | "linkedin";
 
 interface ContactItem {
-  key: string;
+  key: ContactChannel;
   href: string;
   label: string;
   external: boolean;
@@ -78,6 +81,7 @@ export function ContactLinks() {
                 href={item.href}
                 aria-label={item.label}
                 className={className}
+                onClick={() => track.contact(item.key)}
               >
                 {icon}
               </ExternalLink>
@@ -86,11 +90,10 @@ export function ContactLinks() {
                 href={item.href}
                 aria-label={item.label}
                 className={className}
-                onClick={
-                  item.copyValue
-                    ? () => copy(item.key, item.copyValue as string)
-                    : undefined
-                }
+                onClick={() => {
+                  track.contact(item.key);
+                  if (item.copyValue) copy(item.key, item.copyValue);
+                }}
               >
                 {icon}
               </a>

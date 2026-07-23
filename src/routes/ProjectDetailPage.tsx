@@ -4,6 +4,7 @@ import { getProjectBySlug } from "@/content";
 import { useLocale } from "@/hooks/useLocale";
 import { formatDateRange } from "@/lib/dates";
 import { localizedPath, pickLocalized } from "@/lib/localized";
+import { track } from "@/lib/analytics";
 import {
   ArrowLeftIcon,
   ExternalLink,
@@ -101,6 +102,7 @@ export function ProjectDetailPage() {
             href={project.website}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewWebsite")}`}
+            onClick={() => track.projectLink(project.slug, "website", "detail")}
           >
             <GlobeIcon size={14} />
             {t("projects.viewWebsite")}
@@ -111,6 +113,7 @@ export function ProjectDetailPage() {
             href={project.repo}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewRepo")}`}
+            onClick={() => track.projectLink(project.slug, "repo", "detail")}
           >
             <GithubIcon size={14} />
             {t("projects.viewRepo")}

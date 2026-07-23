@@ -4,6 +4,7 @@ import type { Project } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { formatDateRange } from "@/lib/dates";
 import { localizedPath, pickLocalized } from "@/lib/localized";
+import { track } from "@/lib/analytics";
 import {
   CaseStudyIcon,
   CollapsibleBullets,
@@ -82,6 +83,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.website}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewWebsite")}`}
+            onClick={() => track.projectLink(project.slug, "website", "card")}
           >
             <GlobeIcon size={14} />
             {t("projects.viewWebsite")}
@@ -92,6 +94,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.repo}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewRepo")}`}
+            onClick={() => track.projectLink(project.slug, "repo", "card")}
           >
             <GithubIcon size={14} />
             {t("projects.viewRepo")}
@@ -101,6 +104,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           to={caseStudyPath}
           className={actionClass}
           aria-label={`${name} ${t("projects.viewCaseStudy")}`}
+          onClick={() => track.projectLink(project.slug, "case_study", "card")}
         >
           <CaseStudyIcon size={14} />
           {t("projects.viewCaseStudy")}

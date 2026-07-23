@@ -4,11 +4,14 @@ import { useTranslation } from "react-i18next";
 import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";
 import { LanguageToggle, SkipToContent, WaveBackground } from "@/components";
+import { usePageViews } from "@/hooks/usePageViews";
 
 export function LocaleLayout() {
   const { locale } = useParams();
   const { i18n } = useTranslation();
   const location = useLocation();
+
+  usePageViews();
 
   useEffect(() => {
     if (isLocale(locale)) {

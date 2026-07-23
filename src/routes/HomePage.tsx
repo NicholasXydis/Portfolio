@@ -13,6 +13,7 @@ import { ExperienceList } from "@/features/experience-list";
 import { EducationList } from "@/features/education-list";
 import { TechStack } from "@/features/tech-stack";
 import { ContactLinks } from "@/features/contact";
+import { track } from "@/lib/analytics";
 
 export function HomePage() {
   const { t } = useTranslation();
@@ -58,6 +59,7 @@ export function HomePage() {
           </div>
           <ExternalLink
             href="/resume.pdf"
+            onClick={() => track.resumeDownload()}
             className="mt-5 inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 font-mono text-sm font-medium text-black transition-colors hover:bg-white/85"
           >
             <DownloadIcon size={16} />

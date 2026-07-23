@@ -21,6 +21,7 @@
   "dependencies": {
     "framer-motion": "^12.42.2",
     "i18next": "^26.3.6",
+    "posthog-js": "^1.407.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.10",
