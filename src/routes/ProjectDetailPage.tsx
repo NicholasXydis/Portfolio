@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getProjectBySlug } from "@/content";
 import { useLocale } from "@/hooks/useLocale";
@@ -20,8 +20,6 @@ export function ProjectDetailPage() {
   const { slug } = useParams();
   const { t } = useTranslation();
   const locale = useLocale();
-  const navigate = useNavigate();
-  const location = useLocation();
   const project = slug ? getProjectBySlug(slug) : undefined;
 
   if (!project) {
@@ -42,13 +40,7 @@ export function ProjectDetailPage() {
         path={`projects/${project.slug}`}
       />
       <Link
-        to={localizedPath(locale)}
-        onClick={(event) => {
-          if (location.key !== "default") {
-            event.preventDefault();
-            navigate(-1);
-          }
-        }}
+        to={`${localizedPath(locale)}#project-${project.slug}`}
         className="inline-flex items-center gap-1.5 font-mono text-sm text-white/60 transition-colors hover:text-white"
       >
         <ArrowLeftIcon size={16} />

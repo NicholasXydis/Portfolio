@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 
 export function useScrollRestoration(): void {
@@ -20,10 +20,11 @@ export function useScrollRestoration(): void {
     return () => window.removeEventListener("scroll", track);
   }, [location.key]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (location.hash) {
       const target = document.getElementById(location.hash.slice(1));
-      if (target) target.scrollIntoView({ block: "start" });
+      if (target)
+        target.scrollIntoView({ block: "start", behavior: "instant" });
       return;
     }
 
