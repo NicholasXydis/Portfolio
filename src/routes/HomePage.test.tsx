@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { screen } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { HomePage } from "./HomePage";
 import { renderWithProviders } from "@/test/render";
 
@@ -20,5 +20,12 @@ describe("HomePage", () => {
   it("renders project cards from validated content", () => {
     renderWithProviders(<HomePage />, { locale: "en" });
     expect(screen.getByRole("link", { name: "BankLite" })).toBeInTheDocument();
+  });
+
+  it("handles a click on the resume link", () => {
+    renderWithProviders(<HomePage />, { locale: "en" });
+    const resume = screen.getByRole("link", { name: /resume|cv/i });
+    fireEvent.click(resume);
+    expect(resume).toHaveAttribute("href", "/resume.pdf");
   });
 });

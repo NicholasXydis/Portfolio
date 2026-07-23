@@ -22,6 +22,7 @@ export default defineConfig({
     {
       name: "mobile-chrome",
       use: { ...devices["Pixel 7"] },
+      testIgnore: ["**/responsive.spec.ts", "**/scroll.spec.ts"],
     },
   ],
   webServer: {

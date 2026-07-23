@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { screen } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import { ProjectCard } from "./ProjectCard";
 import { renderWithProviders } from "@/test/render";
 import type { Project } from "@/content/schemas";
@@ -63,5 +64,15 @@ describe("ProjectCard", () => {
       "https://github.com/NicholasXydis/BankLite",
     );
     expect(repo).toHaveAttribute("rel", expect.stringContaining("noopener"));
+  });
+
+  it("handles clicks on the website, repo, and case study actions", () => {
+    renderWithProviders(<ProjectCard project={project} />, { locale: "en" });
+    fireEvent.click(screen.getByRole("link", { name: /Website/i }));
+    fireEvent.click(screen.getByRole("link", { name: /GitHub/i }));
+    fireEvent.click(screen.getByRole("link", { name: /Case study/i }));
+    expect(
+      screen.getByRole("link", { name: /Case study/i }),
+    ).toBeInTheDocument();
   });
 });

@@ -1,17 +1,18 @@
 import { useEffect } from "react";
-import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
+import { Navigate, Outlet, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";
 import { LanguageToggle, SkipToContent, WaveBackground } from "@/components";
 import { usePageViews } from "@/hooks/usePageViews";
+import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 
 export function LocaleLayout() {
   const { locale } = useParams();
   const { i18n } = useTranslation();
-  const location = useLocation();
 
   usePageViews();
+  useScrollRestoration();
 
   useEffect(() => {
     if (isLocale(locale)) {
@@ -19,14 +20,6 @@ export function LocaleLayout() {
       document.documentElement.lang = locale;
     }
   }, [locale, i18n]);
-
-  useEffect(() => {
-    if (!location.hash) return;
-    const target = document.getElementById(location.hash.slice(1));
-    if (target) {
-      target.scrollIntoView({ block: "start" });
-    }
-  }, [location.hash, location.pathname]);
 
   if (!isLocale(locale)) {
     return <Navigate to={localizedPath(DEFAULT_LOCALE)} replace />;

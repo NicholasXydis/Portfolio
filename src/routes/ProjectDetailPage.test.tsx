@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { screen } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { ProjectDetailPage } from "./ProjectDetailPage";
 import { renderWithProviders } from "@/test/render";
 
@@ -16,6 +16,19 @@ describe("ProjectDetailPage", () => {
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("C#")).toBeInTheDocument();
+  });
+
+  it("handles clicks on the website and repo actions", () => {
+    renderWithProviders(<ProjectDetailPage />, {
+      route: "/en/projects/banklite",
+      path: "/:locale/projects/:slug",
+    });
+    fireEvent.click(screen.getByRole("link", { name: /Website/i }));
+    fireEvent.click(screen.getByRole("link", { name: /GitHub/i }));
+    expect(screen.getByRole("link", { name: /Website/i })).toHaveAttribute(
+      "href",
+      "https://banklite.ca",
+    );
   });
 
   it("shows the 404 page for an unknown slug", () => {
