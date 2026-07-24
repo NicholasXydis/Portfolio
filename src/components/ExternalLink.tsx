@@ -1,14 +1,22 @@
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
+import { tapPress } from "@/lib/motion";
 
-export interface ExternalLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ExternalLinkProps extends HTMLMotionProps<"a"> {
   href: string;
   children: ReactNode;
 }
 
 export function ExternalLink({ href, children, ...rest }: ExternalLinkProps) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileTap={tapPress}
+      {...rest}
+    >
       {children}
-    </a>
+    </motion.a>
   );
 }
