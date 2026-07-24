@@ -10,6 +10,11 @@ export { CollapsibleBullets } from "./CollapsibleBullets";
 export { TechIcon } from "./TechIcon";
 export { HeroPhoto } from "./HeroPhoto";
 export { WaveBackground } from "./WaveBackground";
+export { ScrollProgress } from "./ScrollProgress";
+export { CursorGlow } from "./CursorGlow";
+export { RevealText } from "./motion/RevealText";
+export { MotionLink } from "./motion/MotionLink";
+export { PageTransition } from "./motion/PageTransition";
 export {
   MailIcon,
   GithubIcon,
