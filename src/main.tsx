@@ -1,13 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import "@/lib/i18n";
 import { App } from "@/App";
 import { ErrorBoundary } from "@/components";
 import { initAnalytics } from "@/lib/analytics";
+import { printConsoleGreeting } from "@/lib/consoleGreeting";
 import "./index.css";
 
 initAnalytics();
+printConsoleGreeting();
 
 const container = document.getElementById("root");
 if (!container) {
@@ -17,9 +20,11 @@ if (!container) {
 createRoot(container).render(
   <StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </MotionConfig>
     </ErrorBoundary>
   </StrictMode>,
 );
