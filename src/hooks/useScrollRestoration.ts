@@ -5,22 +5,22 @@ export function useScrollRestoration(): void {
   const location = useLocation();
   const navigationType = useNavigationType();
   const positions = useRef<Map<string, number>>(new Map());
+  const currentKey = useRef(location.key);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-  }, []);
-
-  useEffect(() => {
-    const key = location.key;
-    const track = () => positions.current.set(key, window.scrollY);
+    const track = () =>
+      positions.current.set(currentKey.current, window.scrollY);
     window.addEventListener("scroll", track, { passive: true });
     return () => window.removeEventListener("scroll", track);
-  }, [location.key]);
+  }, []);
 
   useLayoutEffect(() => {
+    currentKey.current = location.key;
+
     if (location.hash) {
       const target = document.getElementById(location.hash.slice(1));
       if (target)
@@ -28,7 +28,7 @@ export function useScrollRestoration(): void {
       window.history.replaceState(
         window.history.state,
         "",
-        location.pathname + location.search,
+        window.location.pathname + window.location.search,
       );
       return;
     }
