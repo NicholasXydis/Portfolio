@@ -25,6 +25,11 @@ export function useScrollRestoration(): void {
       const target = document.getElementById(location.hash.slice(1));
       if (target)
         target.scrollIntoView({ block: "start", behavior: "instant" });
+      window.history.replaceState(
+        window.history.state,
+        "",
+        location.pathname + location.search,
+      );
       return;
     }
 
