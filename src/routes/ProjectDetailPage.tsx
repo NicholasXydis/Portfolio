@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { getProjectBySlug } from "@/content";
 import { useLocale } from "@/hooks/useLocale";
@@ -6,10 +7,18 @@ import { formatDateRange } from "@/lib/dates";
 import { localizedPath, pickLocalized } from "@/lib/localized";
 import { track } from "@/lib/analytics";
 import {
+  buttonHover,
+  pageContainerFast,
+  staggerItem,
+  tagHover,
+  tapPress,
+} from "@/lib/motion";
+import {
   ArrowLeftIcon,
   ExternalLink,
   GithubIcon,
   GlobeIcon,
+  MotionLink,
   Seo,
   TechIcon,
 } from "@/components";
@@ -33,47 +42,71 @@ export function ProjectDetailPage() {
   const metaTitle = subtitle ? `${name} | ${subtitle}` : name;
 
   return (
-    <article className="pt-8">
+    <motion.article
+      className="pt-8"
+      variants={pageContainerFast}
+      initial="hidden"
+      animate="visible"
+    >
       <Seo
         title={metaTitle}
         description={pickLocalized(project.summary, locale)}
         path={`projects/${project.slug}`}
       />
-      <Link
+      <MotionLink
         to={`${localizedPath(locale)}#project-${project.slug}`}
         className="inline-flex items-center gap-1.5 font-mono text-sm text-white/60 transition-colors hover:text-white"
+        variants={staggerItem}
+        whileHover={{ x: -3 }}
+        whileTap={tapPress}
       >
         <ArrowLeftIcon size={16} />
         {t("nav.home")}
-      </Link>
-      <h1 className="mt-4 text-3xl font-bold">{name}</h1>
-      {subtitle && <p className="mt-2 text-lg text-white/70">{subtitle}</p>}
+      </MotionLink>
+      <motion.h1 variants={staggerItem} className="mt-4 text-3xl font-bold">
+        {name}
+      </motion.h1>
+      {subtitle && (
+        <motion.p variants={staggerItem} className="mt-2 text-lg text-white/70">
+          {subtitle}
+        </motion.p>
+      )}
 
       {project.startDate && (
-        <p className="mt-2 font-mono text-xs text-white/50">
+        <motion.p
+          variants={staggerItem}
+          className="mt-2 font-mono text-xs text-white/50"
+        >
           {formatDateRange(
             project.startDate,
             project.endDate ?? null,
             locale,
             t("projects.present"),
           )}
-        </p>
+        </motion.p>
       )}
 
-      <ul className="mt-4 flex flex-wrap gap-2" aria-label="tags">
+      <motion.ul
+        variants={staggerItem}
+        className="mt-4 flex flex-wrap gap-2"
+        aria-label="tags"
+      >
         {project.tags.map((tag) => (
-          <li
+          <motion.li
             key={tag}
-            className="inline-flex items-center gap-1.5 rounded bg-white/5 px-2 py-0.5 font-mono text-xs text-white/60"
+            className="inline-flex items-center gap-1.5 rounded bg-white/5 px-2 py-0.5 font-mono text-xs text-white/60 transition-colors hover:bg-white/10 hover:text-white/90"
+            whileHover={tagHover}
+            whileTap={tapPress}
           >
             <TechIcon name={tag} className="h-3.5 w-3.5" />
             {tag}
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
 
       {project.images[0] && (
-        <img
+        <motion.img
+          variants={staggerItem}
           src={project.images[0].src}
           alt={pickLocalized(project.images[0].alt, locale)}
           width={project.images[0].width}
@@ -82,27 +115,31 @@ export function ProjectDetailPage() {
         />
       )}
 
-      <p className="mt-6 text-lg text-white/80">
+      <motion.p variants={staggerItem} className="mt-6 text-lg text-white/80">
         {pickLocalized(project.summary, locale)}
-      </p>
+      </motion.p>
 
       {project.caseStudy && (
-        <div className="mt-6 max-w-prose space-y-4 leading-relaxed text-white/80">
+        <motion.div
+          variants={staggerItem}
+          className="mt-6 max-w-prose space-y-4 leading-relaxed text-white/80"
+        >
           {pickLocalized(project.caseStudy, locale)
             .split("\n\n")
             .map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
-        </div>
+        </motion.div>
       )}
 
-      <div className="mt-8 flex flex-wrap gap-2">
+      <motion.div variants={staggerItem} className="mt-8 flex flex-wrap gap-2">
         {project.website && (
           <ExternalLink
             href={project.website}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewWebsite")}`}
             onClick={() => track.projectLink(project.slug, "website", "detail")}
+            whileHover={buttonHover}
           >
             <GlobeIcon size={14} />
             {t("projects.viewWebsite")}
@@ -114,6 +151,7 @@ export function ProjectDetailPage() {
             className={actionClass}
             aria-label={`${name} ${t("projects.viewRepo")}`}
             onClick={() => track.projectLink(project.slug, "repo", "detail")}
+            whileHover={buttonHover}
           >
             <GithubIcon size={14} />
             {t("projects.viewRepo")}
@@ -124,11 +162,12 @@ export function ProjectDetailPage() {
             key={link.href}
             href={link.href}
             className={actionClass}
+            whileHover={buttonHover}
           >
             {pickLocalized(link.label, locale)} ↗
           </ExternalLink>
         ))}
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 }

@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { SUPPORTED_LOCALES } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { track } from "@/lib/analytics";
+import { buttonHover, tapPress, transition } from "@/lib/motion";
 
 function QuebecFlag() {
   const fleur =
@@ -57,7 +58,7 @@ export function LanguageToggle() {
     track.languageSwitch(nextLocale);
     const localePrefix = new RegExp(`^/(${SUPPORTED_LOCALES.join("|")})`);
     const rest = location.pathname.replace(localePrefix, "");
-    navigate(`/${nextLocale}${rest}${location.search}${location.hash}`);
+    navigate(`/${nextLocale}${rest}${location.search}`);
   }
 
   return (
@@ -65,8 +66,8 @@ export function LanguageToggle() {
       type="button"
       onClick={handleSwitch}
       aria-label={t(`language.${nextLocale}`)}
-      whileHover={shouldReduceMotion ? undefined : { y: -1, scale: 1.03 }}
-      whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+      whileHover={shouldReduceMotion ? undefined : buttonHover}
+      whileTap={shouldReduceMotion ? undefined : tapPress}
       className="flex h-[38px] touch-manipulation items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-3 text-[13px] font-bold text-white shadow-[0_4px_16px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-colors hover:bg-white/10"
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -75,7 +76,7 @@ export function LanguageToggle() {
           initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.85 }}
-          transition={{ duration: 0.15 }}
+          transition={transition.fast}
           className="flex items-center"
         >
           {nextLocale === "fr" ? <QuebecFlag /> : <CanadaFlag />}

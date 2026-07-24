@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/hooks/useLocale";
 import { localizedPath } from "@/lib/localized";
-import { Seo } from "@/components";
+import { buttonHover, fadeInUp, tapPress } from "@/lib/motion";
+import { MotionLink, Seo } from "@/components";
 
 export function NotFoundPage() {
   const { t } = useTranslation();
@@ -15,7 +16,12 @@ export function NotFoundPage() {
         description={t("meta.notFound.description")}
         noindex
       />
-      <div className="w-full max-w-md rounded-xl border border-white/10 bg-white/[0.04] p-8 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] backdrop-blur-sm">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        animate="visible"
+        className="w-full max-w-md rounded-xl border border-white/10 bg-white/[0.04] p-8 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] backdrop-blur-sm"
+      >
         <p className="font-mono text-sm font-semibold text-red-500">
           {t("notFound.code")}
         </p>
@@ -23,13 +29,15 @@ export function NotFoundPage() {
         <p className="mt-3 text-sm text-white/70">
           {t("notFound.description")}
         </p>
-        <Link
+        <MotionLink
           to={localizedPath(locale)}
           className="mt-6 inline-flex items-center rounded-md bg-white px-4 py-2 font-mono text-sm font-medium text-black transition-colors hover:bg-white/85"
+          whileHover={buttonHover}
+          whileTap={tapPress}
         >
           {t("notFound.backHome")}
-        </Link>
-      </div>
+        </MotionLink>
+      </motion.div>
     </div>
   );
 }
