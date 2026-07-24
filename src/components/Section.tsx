@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { staggerItem } from "@/lib/motion";
 
 export interface SectionProps {
   id: string;
@@ -8,10 +10,11 @@ export interface SectionProps {
 
 export function Section({ id, title, children }: SectionProps) {
   return (
-    <section
+    <motion.section
       id={id}
       aria-labelledby={`${id}-heading`}
       className="grid scroll-mt-24 gap-4 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-8"
+      variants={staggerItem}
     >
       <h2
         id={`${id}-heading`}
@@ -20,6 +23,6 @@ export function Section({ id, title, children }: SectionProps) {
         {title}
       </h2>
       <div className="min-w-0">{children}</div>
-    </section>
+    </motion.section>
   );
 }
