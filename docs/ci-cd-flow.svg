@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="220" viewBox="0 0 1000 220" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio CI/CD flow</title>
+  <desc id="desc">A push to main runs CI and security checks. Passing checks deploy the site to Cloudflare Pages. Failed checks block the release.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#FFFFFF"/>
+    </marker>
+    <marker id="fail-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#F85149"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="220" rx="18" fill="#0A0A0A"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+    <rect x="90" y="42" width="150" height="58" rx="12" fill="#161616" stroke="#333333" stroke-width="2"/>
+    <text x="165" y="77" fill="#F5F5F5">Push to main</text>
+
+    <path d="M240 71H290" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="300" y="42" width="170" height="58" rx="12" fill="#1C1C1C" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="385" y="77" fill="#F5F5F5">CI + Security</text>
+
+    <path d="M470 71H520" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="530" y="42" width="180" height="58" rx="12" fill="#161616" stroke="#333333" stroke-width="2"/>
+    <text x="620" y="68" fill="#F5F5F5" font-size="14">Deploy to</text>
+    <text x="620" y="86" fill="#F5F5F5" font-size="14">Cloudflare Pages</text>
+
+    <path d="M710 71H760" stroke="#FFFFFF" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="770" y="42" width="140" height="58" rx="12" fill="#102A1C" stroke="#238636" stroke-width="2"/>
+    <text x="840" y="77" fill="#F5F5F5">Live site</text>
+
+    <path d="M385 100V140" stroke="#F85149" stroke-width="3" marker-end="url(#fail-arrow)"/>
+
+    <rect x="300" y="150" width="170" height="44" rx="12" fill="#2D1619" stroke="#DA3633" stroke-width="2"/>
+    <text x="385" y="178" fill="#F5F5F5" font-size="15">Release blocked</text>
+  </g>
+</svg>
