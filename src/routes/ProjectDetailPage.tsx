@@ -115,9 +115,11 @@ export function ProjectDetailPage() {
         />
       )}
 
-      <motion.p variants={staggerItem} className="mt-6 text-lg text-white/80">
-        {pickLocalized(project.summary, locale)}
-      </motion.p>
+      {!project.caseStudy && (
+        <motion.p variants={staggerItem} className="mt-6 text-lg text-white/80">
+          {pickLocalized(project.summary, locale)}
+        </motion.p>
+      )}
 
       {project.caseStudy && (
         <motion.div
@@ -126,9 +128,22 @@ export function ProjectDetailPage() {
         >
           {pickLocalized(project.caseStudy, locale)
             .split("\n\n")
-            .map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            .map((paragraph, index) => {
+              const match = paragraph.match(/^([^:]{1,40}:)(\s*)([\s\S]*)$/);
+              return (
+                <p key={index}>
+                  {match ? (
+                    <>
+                      <strong className="text-lg text-white">{match[1]}</strong>
+                      {match[2]}
+                      {match[3]}
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                </p>
+              );
+            })}
         </motion.div>
       )}
 
