@@ -1,6 +1,6 @@
 <div align="center">
 
-# Nicholas Xydis — Portfolio
+# Nicholas Xydis | Portfolio
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Bilingual+Developer+Portfolio;React+19+%7C+TypeScript+%7C+Vite;English+%2F+French+%7C+SEO+%7C+Motion;188+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages)](https://git.io/typing-svg)
 
@@ -16,14 +16,8 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" width="52" height="52">
   &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/xandemon/developer-icons@main/icons/tailwindcss.svg" alt="Tailwind CSS" width="52" height="52">
-</p>
-
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer Motion" width="52" height="52">
   &nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" alt="Playwright" width="52" height="52">
-  &nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg" alt="Vitest" width="52" height="52">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" width="52" height="52">
   &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/xandemon/developer-icons@main/icons/cloudflare.svg" alt="Cloudflare Pages" width="52" height="52">
 </p>
@@ -75,30 +69,29 @@ Portfolio/
 <div align="center">
 <pre>
 ┌─────────────────────────────────────────────────────────┐
-│                    Visitor Browser                      │
-│      Bilingual UI, SEO metadata, PostHog analytics       │
+│                     Visitor Browser                     │
+│      Bilingual UI, SEO metadata, PostHog analytics      │
 └────────────────────────────┬────────────────────────────┘
                              │ HTTPS
 ┌────────────────────────────▼────────────────────────────┐
 │                  Cloudflare Pages Edge                  │
-│     Global CDN, TLS, static asset serving, redirects     │
+│    Global CDN, TLS, static asset serving, redirects     │
 └────────────────────────────┬────────────────────────────┘
                              │ Build artifact
 ┌────────────────────────────▼────────────────────────────┐
-│                  Vite Static Build                      │
-│         Localized HTML, CSS, JavaScript, assets          │
+│                    Vite Static Build                    │
+│         Localized HTML, CSS, JavaScript, assets         │
 └─────────────────────────────────────────────────────────┘
 </pre>
 </div>
 
 ## Tech Stack
 
-| Area     | Stack                                    |
-| -------- | ---------------------------------------- |
-| Frontend | React 19, TypeScript, Vite, Tailwind CSS |
-| Motion   | Framer Motion                            |
-| Testing  | Vitest, Testing Library, Playwright      |
-| Hosting  | Cloudflare Pages                         |
+| Area     | Stack                                         |
+| -------- | --------------------------------------------- |
+| Frontend | React 19, TypeScript, Tailwind CSS, Vite      |
+| Testing  | Vitest, Testing Library, Playwright           |
+| DevOps   | GitHub Actions, Cloudflare Pages, UptimeRobot |
 
 ## Testing
 
