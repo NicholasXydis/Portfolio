@@ -71,4 +71,32 @@ describe("App routing", () => {
       await screen.findByRole("heading", { level: 1, name: /BankLite/i }),
     ).toBeInTheDocument();
   });
+
+  it("shows 404 for a case-sensitive slug mismatch", async () => {
+    renderApp("/en/projects/BankLite");
+    expect(
+      await screen.findByRole("heading", { name: /Page not found/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("redirects to the default locale when an unsupported locale is combined with a valid slug", async () => {
+    renderApp("/de/projects/banklite");
+    expect(
+      await screen.findByRole("heading", { level: 1, name: "Nicholas Xydis" }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders the home page for a trailing slash on the locale root", async () => {
+    renderApp("/en/");
+    expect(
+      await screen.findByRole("heading", { level: 1, name: "Nicholas Xydis" }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders a project detail page for a trailing slash on the project route", async () => {
+    renderApp("/en/projects/banklite/");
+    expect(
+      await screen.findByRole("heading", { level: 1, name: /BankLite/i }),
+    ).toBeInTheDocument();
+  });
 });

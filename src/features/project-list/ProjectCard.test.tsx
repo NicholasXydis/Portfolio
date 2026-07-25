@@ -75,4 +75,26 @@ describe("ProjectCard", () => {
       screen.getByRole("link", { name: /Case study/i }),
     ).toBeInTheDocument();
   });
+
+  it("renders without website, repo, subtitle, or icon when they are absent", () => {
+    const minimalProject: Project = {
+      ...project,
+      subtitle: undefined,
+      website: undefined,
+      repo: undefined,
+      icon: undefined,
+    };
+    renderWithProviders(<ProjectCard project={minimalProject} />, {
+      locale: "en",
+    });
+    expect(
+      screen.queryByRole("link", { name: /Website/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("link", { name: /GitHub/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Case study/i }),
+    ).toBeInTheDocument();
+  });
 });

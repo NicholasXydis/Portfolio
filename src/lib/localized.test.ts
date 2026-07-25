@@ -21,4 +21,12 @@ describe("localizedPath", () => {
       "/fr/projects/banklite",
     );
   });
+
+  it("strips multiple leading slashes from the sub-path", () => {
+    expect(localizedPath("en", "///projects")).toBe("/en/projects");
+  });
+
+  it("treats an empty string path the same as no path", () => {
+    expect(localizedPath("en", "")).toBe("/en");
+  });
 });
