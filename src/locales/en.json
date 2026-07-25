@@ -18,6 +18,9 @@
     "en": "English",
     "fr": "Français"
   },
+  "footer": {
+    "rights": "All rights reserved"
+  },
   "home": {
     "about": "About",
     "aboutBody": "I'm a Computer Science student at Concordia University passionate about Software Engineering, Cybersecurity, DevOps, and Artificial Intelligence. I enjoy solving complex problems and challenging myself through hands-on projects, primarily in Python and TypeScript.\n\nSeeking internship opportunities in Software Engineering, Cybersecurity, DevOps, or AI/ML.",

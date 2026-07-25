@@ -18,6 +18,9 @@
     "en": "English",
     "fr": "Français"
   },
+  "footer": {
+    "rights": "Tous droits réservés"
+  },
   "home": {
     "about": "À propos",
     "aboutBody": "Je suis étudiant en informatique à l'Université Concordia, passionné par le génie logiciel, la cybersécurité, le DevOps et l'intelligence artificielle. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python et TypeScript.\n\nÀ la recherche de stages en génie logiciel, cybersécurité, DevOps ou IA/apprentissage automatique.",

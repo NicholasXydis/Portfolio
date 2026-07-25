@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";
 import {
   CursorGlow,
+  Footer,
   LanguageToggle,
   PageTransition,
   ScrollProgress,
@@ -34,7 +35,7 @@ export function LocaleLayout() {
   }
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen-dyn text-white">
       <ScrollProgress />
       <WaveBackground />
       <CursorGlow />
@@ -47,6 +48,7 @@ export function LocaleLayout() {
           <Outlet />
         </PageTransition>
       </main>
+      <Footer />
     </div>
   );
 }

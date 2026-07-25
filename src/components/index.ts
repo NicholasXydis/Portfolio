@@ -1,4 +1,5 @@
 export { SkipToContent } from "./SkipToContent";
+export { Footer } from "./Footer";
 export { ExternalLink } from "./ExternalLink";
 export { LanguageToggle } from "./LanguageToggle";
 export { Seo } from "./Seo";
