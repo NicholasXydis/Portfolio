@@ -32,8 +32,7 @@ describe("ExperienceList", () => {
       "https://acme.example.com",
     );
     expect(screen.getByText("Engineer")).toBeInTheDocument();
-    expect(screen.getByText(/Present/i)).toBeInTheDocument();
-    expect(screen.getByText("Montreal, QC")).toBeInTheDocument();
+    expect(screen.getByText(/Present \| Montreal, QC/i)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Website/i })).toHaveAttribute(
       "href",
       "https://acme.example.com",

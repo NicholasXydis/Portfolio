@@ -66,6 +66,7 @@ export const EducationSchema = z.object({
   logo: z.string().optional(),
   credential: LocalizedTextSchema,
   field: LocalizedTextSchema.optional(),
+  location: LocalizedTextSchema.optional(),
   note: LocalizedTextSchema.optional(),
   startDate: isoDate,
   endDate: isoDate.nullable(),

@@ -33,42 +33,43 @@ function EducationCard({ education }: { education: Education }) {
       <div className="flex items-start gap-3">
         <EntryLogo src={education.logo} />
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-semibold">
-              {education.institutionUrl ? (
-                <ExternalLink
-                  href={education.institutionUrl}
-                  className="hover:underline"
-                >
-                  {education.institution}
-                </ExternalLink>
-              ) : (
-                education.institution
-              )}
-            </h3>
-            <span className="font-mono text-xs text-white/50">
-              {formatDateRange(
-                education.startDate,
-                education.endDate,
-                locale,
-                t("projects.present"),
-              )}
-            </span>
-          </div>
+          <h3 className="font-semibold">
+            {education.institutionUrl ? (
+              <ExternalLink
+                href={education.institutionUrl}
+                className="hover:underline"
+              >
+                {education.institution}
+              </ExternalLink>
+            ) : (
+              education.institution
+            )}
+          </h3>
           <p className="text-sm text-white/80">
             {pickLocalized(education.credential, locale)}
             {education.field
               ? ` · ${pickLocalized(education.field, locale)}`
               : ""}
           </p>
-          {education.note && (
-            <p className="mt-1 text-sm text-white/80">
-              <span aria-hidden="true">· </span>
-              {pickLocalized(education.note, locale)}
-            </p>
-          )}
+          <p className="mt-1 font-mono text-xs text-white/50">
+            {formatDateRange(
+              education.startDate,
+              education.endDate,
+              locale,
+              t("projects.present"),
+            )}
+            {education.location &&
+              ` | ${pickLocalized(education.location, locale)}`}
+          </p>
         </div>
       </div>
+
+      {education.note && (
+        <p className="mt-3 text-sm text-white/80">
+          <span aria-hidden="true">· </span>
+          {pickLocalized(education.note, locale)}
+        </p>
+      )}
     </motion.li>
   );
 }

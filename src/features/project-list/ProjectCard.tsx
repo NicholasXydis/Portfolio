@@ -60,85 +60,86 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="flex items-start gap-3">
         <EntryLogo src={project.icon} />
         <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <h3 className="text-base font-semibold">
-                <Link to={caseStudyPath} className="hover:underline">
-                  {name}
-                </Link>
-              </h3>
-              {subtitle && (
-                <p className="mt-0.5 text-sm text-white/80">{subtitle}</p>
+          <h3 className="text-base font-semibold">
+            <Link to={caseStudyPath} className="hover:underline">
+              {name}
+            </Link>
+          </h3>
+          {subtitle && (
+            <p className="mt-0.5 text-sm text-white/80">{subtitle}</p>
+          )}
+          {project.startDate && (
+            <p className="mt-1 font-mono text-xs text-white/50">
+              {formatDateRange(
+                project.startDate,
+                project.endDate ?? null,
+                locale,
+                t("projects.present"),
               )}
-            </div>
-            {project.startDate && (
-              <span className="mt-1 shrink-0 whitespace-nowrap font-mono text-xs text-white/50">
-                {formatDateRange(
-                  project.startDate,
-                  project.endDate ?? null,
-                  locale,
-                  t("projects.present"),
-                )}
-              </span>
-            )}
-          </div>
-          <CollapsibleBullets
-            text={pickLocalized(project.body, locale)}
-            className="mt-3 space-y-2 text-sm text-white/80"
-          />
+            </p>
+          )}
         </div>
       </div>
 
-      <ul className="mt-3 flex flex-wrap gap-2" aria-label="tags">
-        {project.tags.map((tag) => (
-          <motion.li
-            key={tag}
-            className="inline-flex items-center gap-1.5 rounded bg-white/5 px-2 py-0.5 font-mono text-xs text-white/60 transition-colors hover:bg-white/10 hover:text-white/90"
-            whileHover={tagHover}
+      <div>
+        <CollapsibleBullets
+          text={pickLocalized(project.body, locale)}
+          className="mt-3 space-y-2 text-sm text-white/80"
+        />
+
+        <ul className="mt-3 flex flex-wrap gap-2" aria-label="tags">
+          {project.tags.map((tag) => (
+            <motion.li
+              key={tag}
+              className="inline-flex items-center gap-1.5 rounded bg-white/5 px-2 py-0.5 font-mono text-xs text-white/60 transition-colors hover:bg-white/10 hover:text-white/90"
+              whileHover={tagHover}
+              whileTap={tapPress}
+            >
+              <TechIcon name={tag} className="h-3.5 w-3.5" />
+              {tag}
+            </motion.li>
+          ))}
+        </ul>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.website && (
+            <ExternalLink
+              href={project.website}
+              className={actionClass}
+              aria-label={`${name} ${t("projects.viewWebsite")}`}
+              onClick={() => track.projectLink(project.slug, "website", "card")}
+              whileHover={buttonHover}
+            >
+              <GlobeIcon size={14} />
+              {t("projects.viewWebsite")}
+            </ExternalLink>
+          )}
+          {project.repo && (
+            <ExternalLink
+              href={project.repo}
+              className={actionClass}
+              aria-label={`${name} ${t("projects.viewRepo")}`}
+              onClick={() => track.projectLink(project.slug, "repo", "card")}
+              whileHover={buttonHover}
+            >
+              <GithubIcon size={14} />
+              {t("projects.viewRepo")}
+            </ExternalLink>
+          )}
+          <MotionLink
+            to={caseStudyPath}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewCaseStudy")}`}
+            onClick={() =>
+              track.projectLink(project.slug, "case_study", "card")
+            }
+            whileHover={buttonHover}
             whileTap={tapPress}
           >
-            <TechIcon name={tag} className="h-3.5 w-3.5" />
-            {tag}
-          </motion.li>
-        ))}
-      </ul>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.website && (
-          <ExternalLink
-            href={project.website}
-            className={actionClass}
-            aria-label={`${name} ${t("projects.viewWebsite")}`}
-            onClick={() => track.projectLink(project.slug, "website", "card")}
-            whileHover={buttonHover}
-          >
-            <GlobeIcon size={14} />
-            {t("projects.viewWebsite")}
-          </ExternalLink>
-        )}
-        {project.repo && (
-          <ExternalLink
-            href={project.repo}
-            className={actionClass}
-            aria-label={`${name} ${t("projects.viewRepo")}`}
-            onClick={() => track.projectLink(project.slug, "repo", "card")}
-            whileHover={buttonHover}
-          >
-            <GithubIcon size={14} />
-            {t("projects.viewRepo")}
-          </ExternalLink>
-        )}
-        <MotionLink
-          to={caseStudyPath}
-          className={actionClass}
-          aria-label={`${name} ${t("projects.viewCaseStudy")}`}
-          onClick={() => track.projectLink(project.slug, "case_study", "card")}
-          whileHover={buttonHover}
-          whileTap={tapPress}
-        >
-          <CaseStudyIcon size={14} />
-          {t("projects.viewCaseStudy")}
-        </MotionLink>
+            <CaseStudyIcon size={14} />
+            {t("projects.viewCaseStudy")}
+          </MotionLink>
+        </div>
       </div>
     </motion.article>
   );
