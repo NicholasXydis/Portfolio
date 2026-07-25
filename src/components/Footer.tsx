@@ -6,7 +6,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mx-auto max-w-3xl px-6 pb-10 text-center font-mono text-xs text-white/40">
+    <footer className="mx-auto max-w-3xl px-6 pb-10 text-center font-mono text-xs text-white/60">
       © {year} {SITE_NAME} · {t("footer.rights")}
     </footer>
   );

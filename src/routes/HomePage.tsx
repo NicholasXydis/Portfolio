@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { educations, experiences, projects, stack } from "@/content";
 import {

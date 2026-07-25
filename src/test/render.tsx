@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { render, type RenderOptions } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router";
 import i18n from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 

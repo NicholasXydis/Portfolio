@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router";
 import { DEFAULT_LOCALE } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";
 import { LocaleLayout } from "@/routes/LocaleLayout";

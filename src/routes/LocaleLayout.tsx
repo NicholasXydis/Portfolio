@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";

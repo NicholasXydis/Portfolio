@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n";
 
 export function useLocale(): Locale {

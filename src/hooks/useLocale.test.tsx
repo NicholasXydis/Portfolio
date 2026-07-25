@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router";
 import { useLocale } from "./useLocale";
 
 function withRoute(initialRoute: string) {

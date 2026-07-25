@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { getProjectBySlug } from "@/content";
