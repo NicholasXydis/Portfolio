@@ -10,7 +10,7 @@ export function NotFoundPage() {
   const locale = useLocale();
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center">
+    <div className="flex min-h-70-dyn items-center justify-center">
       <Seo
         title={t("meta.notFound.title")}
         description={t("meta.notFound.description")}

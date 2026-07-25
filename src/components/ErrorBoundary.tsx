@@ -28,7 +28,7 @@ export class ErrorBoundary extends Component<
     }
 
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-black px-6 text-center text-white">
+      <div className="flex min-h-screen-dyn flex-col items-center justify-center gap-4 bg-black px-6 text-center text-white">
         <h1 className="text-2xl font-bold">Something went wrong</h1>
         <p className="max-w-prose text-sm text-white/70">
           An unexpected error occurred. Please reload the page.

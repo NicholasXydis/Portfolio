@@ -17,3 +17,15 @@
     @apply bg-black text-white font-sans antialiased;
   }
 }
+
+@layer utilities {
+  .min-h-screen-dyn {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .min-h-70-dyn {
+    min-height: 70vh;
+    min-height: 70dvh;
+  }
+}
