@@ -55,9 +55,10 @@ export function ProjectDetailPage() {
       />
       <MotionLink
         to={`${localizedPath(locale)}#project-${project.slug}`}
-        className="inline-flex items-center gap-1.5 font-mono text-sm text-white/60 transition-colors hover:text-white"
+        className="inline-flex h-[38px] items-center gap-2 rounded-md border border-white/20 bg-white/[0.06] px-3.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-colors hover:bg-white/10"
+        aria-label={t("nav.home")}
         variants={staggerItem}
-        whileHover={{ x: -3 }}
+        whileHover={buttonHover}
         whileTap={tapPress}
       >
         <ArrowLeftIcon size={16} />
