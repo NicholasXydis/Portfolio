@@ -40,6 +40,8 @@ if (typeof window.matchMedia !== "function") {
   });
 }
 
+window.scrollTo = (() => {}) as typeof window.scrollTo;
+
 afterEach(() => {
   cleanup();
 });
