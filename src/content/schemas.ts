@@ -84,8 +84,6 @@ export const StackFileSchema = z.array(StackGroupSchema);
 
 export type { Locale } from "@/lib/i18n";
 export type LocalizedText = z.infer<typeof LocalizedTextSchema>;
-export type ProjectLink = z.infer<typeof LinkSchema>;
-export type ProjectImage = z.infer<typeof ImageSchema>;
 export type Project = z.infer<typeof ProjectSchema>;
 export type Experience = z.infer<typeof ExperienceSchema>;
 export type Education = z.infer<typeof EducationSchema>;

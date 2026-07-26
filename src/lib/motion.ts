@@ -8,7 +8,7 @@ export const duration = {
   slow: 0.6,
 } as const;
 
-export const distance = 16;
+const distance = 16;
 
 export const spring = {
   soft: { type: "spring", stiffness: 170, damping: 24, mass: 1 },
