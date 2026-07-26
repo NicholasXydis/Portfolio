@@ -14,6 +14,7 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (!id.includes("node_modules")) return undefined;
+          if (id.includes("posthog-js")) return "analytics";
           if (id.includes("framer-motion")) return "motion";
           if (id.includes("simplex-noise")) return "noise";
           if (id.includes("i18next") || id.includes("react-i18next"))

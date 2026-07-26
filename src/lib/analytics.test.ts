@@ -53,6 +53,7 @@ describe("analytics with a key", () => {
   beforeEach(async () => {
     mod = await loadWithKey("phc_test");
     mod.initAnalytics();
+    await vi.waitFor(() => expect(init).toHaveBeenCalled());
   });
 
   it("initializes posthog once", () => {

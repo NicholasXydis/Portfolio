@@ -1,26 +1,43 @@
-import posthog from "posthog-js";
+import type { PostHog } from "posthog-js";
 
 const KEY = import.meta.env.VITE_POSTHOG_KEY;
 const HOST = import.meta.env.VITE_POSTHOG_HOST ?? "https://us.i.posthog.com";
 
+let client: PostHog | null = null;
 let initialized = false;
+const pending: Array<(ph: PostHog) => void> = [];
+
+function withClient(fn: (ph: PostHog) => void): void {
+  if (client) {
+    fn(client);
+  } else {
+    pending.push(fn);
+  }
+}
 
 export function initAnalytics(): void {
   if (initialized || !KEY || typeof window === "undefined") return;
-  posthog.init(KEY, {
-    api_host: HOST,
-    persistence: "memory",
-    person_profiles: "identified_only",
-    capture_pageview: false,
-    capture_pageleave: true,
-    autocapture: false,
-  });
   initialized = true;
+  void import("posthog-js").then(({ default: posthog }) => {
+    posthog.init(KEY, {
+      api_host: HOST,
+      persistence: "memory",
+      person_profiles: "identified_only",
+      capture_pageview: false,
+      capture_pageleave: true,
+      autocapture: false,
+    });
+    client = posthog;
+    for (const fn of pending) fn(posthog);
+    pending.length = 0;
+  });
 }
 
 export function capturePageView(path: string): void {
   if (!initialized) return;
-  posthog.capture("$pageview", { $current_url: window.location.origin + path });
+  withClient((ph) =>
+    ph.capture("$pageview", { $current_url: window.location.origin + path }),
+  );
 }
 
 export function captureEvent(
@@ -28,7 +45,7 @@ export function captureEvent(
   properties?: Record<string, unknown>,
 ): void {
   if (!initialized) return;
-  posthog.capture(name, properties);
+  withClient((ph) => ph.capture(name, properties));
 }
 
 export const track = {
