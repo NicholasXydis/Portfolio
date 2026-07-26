@@ -2,20 +2,20 @@
 
 # Nicholas Xydis | Portfolio
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Bilingual+Developer+Portfolio;React+19+%7C+TypeScript+%7C+Vite;English+%2F+French+%7C+SEO+%7C+Motion;188+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Bilingual+Developer+Portfolio;TypeScript+%7C+React+%7C+Vite;English+%2F+French+%7C+SEO+%7C+Motion;217+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages)](https://git.io/typing-svg)
 
 A bilingual personal portfolio built to showcase my work, case studies, and engineering practices.
 
 <br>
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" width="52" height="52">
-  &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/xandemon/developer-icons@main/icons/typescript.svg" alt="TypeScript" width="52" height="52">
   &nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" width="52" height="52">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" width="52" height="52">
   &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/xandemon/developer-icons@main/icons/tailwindcss.svg" alt="Tailwind CSS" width="52" height="52">
+  &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" width="52" height="52">
   &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" width="52" height="52">
   &nbsp;&nbsp;
@@ -24,9 +24,8 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
 
 <p align="center">
   <strong>English + French</strong> &nbsp;|&nbsp;
-  <strong>188 automated tests</strong> &nbsp;|&nbsp;
-  <strong>Lighthouse 90+</strong> &nbsp;|&nbsp;
-  <strong>Cloudflare Pages deployed</strong>
+  <strong>217 automated tests</strong> &nbsp;|&nbsp;
+  <strong>Lighthouse 90+</strong>
 </p>
 
 <a href="https://nicholasxydis.ca">
@@ -37,16 +36,16 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
 
 ## About
 
-This is my personal portfolio: home page, project case studies, experience, and education, in English and French. It's a fully static single-page app, deployed to Cloudflare Pages behind GitHub Actions CI.
+This is my portfolio. Projects, case studies, experience, and education, in English and French. It's a fully static single-page app, auto-deployed to Cloudflare Pages through GitHub Actions CI/CD.
 
 ## Features
 
-- **Bilingual:** complete English and French routes with a language toggle that keeps you on the same page and preserves your place.
-- **Case studies:** a dedicated page for each project, with the story, the tech, and links to the live site and source.
-- **SEO:** clean titles, canonical URLs, language alternates, social share cards, and a generated sitemap so every page is discoverable.
-- **Motion:** smooth page transitions and scroll effects that respect a visitor's reduced-motion preference.
-- **Analytics:** lightweight, privacy-conscious visit tracking that only turns on when configured.
-- **Resilience:** a friendly bilingual 404 page and an error boundary so an unexpected failure never shows a blank screen.
+- **Bilingual:** Complete English and French routes with a language toggle that keeps you on the same page and preserves your place.
+- **Case studies:** A dedicated page for each project, with the story, the tech, and links to the live site and source.
+- **SEO:** Clean titles, canonical URLs, language alternates, social share cards, and a generated sitemap so every page is discoverable.
+- **Motion:** Smooth page transitions and scroll effects that respect a visitor's reduced-motion preference.
+- **Analytics:** Lightweight, privacy-conscious visit tracking that only turns on when configured.
+- **Resilience:** A friendly bilingual 404 page and an error boundary so an unexpected failure never shows a blank screen.
 
 ## Architecture
 
@@ -97,9 +96,9 @@ Portfolio/
 
 | Suite                  |   Count | Tools                                           |
 | ---------------------- | ------: | ----------------------------------------------- |
-| Unit / component tests |     120 | Vitest, Testing Library                         |
-| End-to-end checks      |      68 | Playwright, axe-core, desktop + mobile Chromium |
-| **Total**              | **188** | CI-enforced                                     |
+| Unit / component tests |     123 | Vitest, Testing Library                         |
+| End-to-end checks      |      94 | Playwright, axe-core, desktop + mobile Chromium |
+| **Total**              | **217** | CI-enforced                                     |
 
 End-to-end coverage includes automated accessibility scans against WCAG 2.1 A/AA on every public route, the 404 page, and both locales.
 
