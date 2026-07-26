@@ -26,6 +26,12 @@ describe("HomePage", () => {
     renderWithProviders(<HomePage />, { locale: "en" });
     const resume = screen.getByRole("link", { name: /resume|cv/i });
     fireEvent.click(resume);
-    expect(resume).toHaveAttribute("href", "/resume.pdf");
+    expect(resume).toHaveAttribute("href", "/cv-en.html");
+  });
+
+  it("links to the French CV on the French locale", () => {
+    renderWithProviders(<HomePage />, { locale: "fr" });
+    const resume = screen.getByRole("link", { name: /resume|cv/i });
+    expect(resume).toHaveAttribute("href", "/cv-fr.html");
   });
 });

@@ -49,6 +49,30 @@ test.describe("SEO metadata", () => {
   });
 });
 
+test.describe("CV assets", () => {
+  for (const locale of ["en", "fr"] as const) {
+    test(`serves the ${locale} CV wrapper with favicon and PDF embed`, async ({
+      request,
+    }) => {
+      const wrapper = await request.get(`/cv-${locale}.html`);
+      expect(wrapper.ok()).toBeTruthy();
+      const html = await wrapper.text();
+      expect(html).toContain('href="/favicon.svg"');
+      expect(html).toContain(`src="/cv-${locale}.pdf"`);
+
+      const pdf = await request.get(`/cv-${locale}.pdf`);
+      expect(pdf.ok()).toBeTruthy();
+      expect(pdf.headers()["content-type"]).toContain("pdf");
+    });
+  }
+
+  test("serves the site favicon", async ({ request }) => {
+    const favicon = await request.get("/favicon.svg");
+    expect(favicon.ok()).toBeTruthy();
+    expect(favicon.headers()["content-type"]).toContain("image");
+  });
+});
+
 test.describe("contact", () => {
   test("home shows safe contact links", async ({ page }) => {
     await page.goto("/en");

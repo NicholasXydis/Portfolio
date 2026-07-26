@@ -16,6 +16,7 @@ import { ExperienceList } from "@/features/experience-list";
 import { EducationList } from "@/features/education-list";
 import { TechStack } from "@/features/tech-stack";
 import { ContactLinks } from "@/features/contact";
+import { useLocale } from "@/hooks/useLocale";
 import { track } from "@/lib/analytics";
 import {
   buttonHover,
@@ -27,6 +28,7 @@ import {
 export function HomePage() {
   const { t } = useTranslation();
   const { hash } = useLocation();
+  const locale = useLocale();
   const aboutParagraphs = t("home.aboutBody").split("\n\n");
   const playIntro = !hash;
 
@@ -85,7 +87,7 @@ export function HomePage() {
             ))}
           </motion.div>
           <ExternalLink
-            href="/resume.pdf"
+            href={`/cv-${locale}.html`}
             variants={staggerItem}
             whileHover={buttonHover}
             onClick={() => track.resumeDownload()}
