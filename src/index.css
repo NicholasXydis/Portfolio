@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -15,6 +16,7 @@
 
   body {
     @apply bg-black text-white font-sans antialiased;
+    overscroll-behavior-y: contain;
   }
 }
 
