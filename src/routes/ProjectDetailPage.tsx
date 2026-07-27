@@ -15,6 +15,7 @@ import {
 } from "@/lib/motion";
 import {
   ArrowLeftIcon,
+  BackToTop,
   ExternalLink,
   GithubIcon,
   GlobeIcon,
@@ -105,6 +106,43 @@ export function ProjectDetailPage() {
         ))}
       </motion.ul>
 
+      <motion.div variants={staggerItem} className="mt-6 flex flex-wrap gap-2">
+        {project.website && (
+          <ExternalLink
+            href={project.website}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewWebsite")}`}
+            onClick={() => track.projectLink(project.slug, "website", "detail")}
+            whileHover={buttonHover}
+          >
+            <GlobeIcon size={14} />
+            {t("projects.viewWebsite")}
+          </ExternalLink>
+        )}
+        {project.repo && (
+          <ExternalLink
+            href={project.repo}
+            className={actionClass}
+            aria-label={`${name} ${t("projects.viewRepo")}`}
+            onClick={() => track.projectLink(project.slug, "repo", "detail")}
+            whileHover={buttonHover}
+          >
+            <GithubIcon size={14} />
+            {t("projects.viewRepo")}
+          </ExternalLink>
+        )}
+        {project.links.map((link) => (
+          <ExternalLink
+            key={link.href}
+            href={link.href}
+            className={actionClass}
+            whileHover={buttonHover}
+          >
+            {pickLocalized(link.label, locale)} ↗
+          </ExternalLink>
+        ))}
+      </motion.div>
+
       {project.images[0] && (
         <motion.img
           variants={staggerItem}
@@ -148,42 +186,7 @@ export function ProjectDetailPage() {
         </motion.div>
       )}
 
-      <motion.div variants={staggerItem} className="mt-8 flex flex-wrap gap-2">
-        {project.website && (
-          <ExternalLink
-            href={project.website}
-            className={actionClass}
-            aria-label={`${name} ${t("projects.viewWebsite")}`}
-            onClick={() => track.projectLink(project.slug, "website", "detail")}
-            whileHover={buttonHover}
-          >
-            <GlobeIcon size={14} />
-            {t("projects.viewWebsite")}
-          </ExternalLink>
-        )}
-        {project.repo && (
-          <ExternalLink
-            href={project.repo}
-            className={actionClass}
-            aria-label={`${name} ${t("projects.viewRepo")}`}
-            onClick={() => track.projectLink(project.slug, "repo", "detail")}
-            whileHover={buttonHover}
-          >
-            <GithubIcon size={14} />
-            {t("projects.viewRepo")}
-          </ExternalLink>
-        )}
-        {project.links.map((link) => (
-          <ExternalLink
-            key={link.href}
-            href={link.href}
-            className={actionClass}
-            whileHover={buttonHover}
-          >
-            {pickLocalized(link.label, locale)} ↗
-          </ExternalLink>
-        ))}
-      </motion.div>
+      <BackToTop />
     </motion.article>
   );
 }

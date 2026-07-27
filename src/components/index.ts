@@ -1,5 +1,6 @@
 export { SkipToContent } from "./SkipToContent";
 export { Footer } from "./Footer";
+export { BackToTop } from "./BackToTop";
 export { ExternalLink } from "./ExternalLink";
 export { LanguageToggle } from "./LanguageToggle";
 export { Seo } from "./Seo";
@@ -25,6 +26,7 @@ export {
   MapPinIcon,
   DownloadIcon,
   ArrowLeftIcon,
+  ArrowUpIcon,
   ChevronDownIcon,
   CheckIcon,
 } from "./icons";

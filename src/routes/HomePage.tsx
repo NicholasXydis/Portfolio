@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { educations, experiences, projects, stack } from "@/content";
 import {
+  BackToTop,
   DownloadIcon,
   ExternalLink,
   HeroPhoto,
@@ -128,6 +129,8 @@ export function HomePage() {
           <TechStack groups={stack} />
         </Section>
       )}
+
+      <BackToTop className="sm:pl-40" />
     </motion.div>
   );
 }

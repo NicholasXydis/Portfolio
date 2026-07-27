@@ -87,6 +87,14 @@ export function ArrowLeftIcon(props: IconProps) {
   );
 }
 
+export function ArrowUpIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M12 3.6 5.3 10.3l1.4 1.4L11 7.4V20h2V7.4l4.3 4.3 1.4-1.4L12 3.6z" />
+    </Icon>
+  );
+}
+
 export function DownloadIcon(props: IconProps) {
   return (
     <Icon {...props}>
