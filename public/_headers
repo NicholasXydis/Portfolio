@@ -9,3 +9,15 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/portrait.*
+  Cache-Control: public, max-age=2592000
+
+/og.png
+  Cache-Control: public, max-age=2592000
+
+/project-icons/*
+  Cache-Control: public, max-age=2592000
+
+/tech-icons/*
+  Cache-Control: public, max-age=2592000

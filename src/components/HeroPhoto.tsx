@@ -20,6 +20,7 @@ export function HeroPhoto() {
           alt="Nicholas Xydis"
           width={208}
           height={208}
+          fetchPriority="high"
           onError={() => setFailed(true)}
           className="h-44 w-44 rounded-2xl object-cover sm:h-52 sm:w-52"
         />
