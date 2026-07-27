@@ -5,7 +5,7 @@ export interface BulletListProps {
 }
 
 function renderPoint(point: string) {
-  const match = point.match(/^([^:]{1,40}): (.+)$/);
+  const match = point.match(/^([^:]{1,60}): (.+)$/);
   if (!match) {
     return point;
   }
