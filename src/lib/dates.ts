@@ -8,7 +8,7 @@ const INTL_LOCALE: Record<Locale, string> = {
 export function formatMonthYear(isoDate: string, locale: Locale): string {
   const date = new Date(`${isoDate}T00:00:00`);
   return new Intl.DateTimeFormat(INTL_LOCALE[locale], {
-    month: "short",
+    month: locale === "fr" ? "long" : "short",
     year: "numeric",
   }).format(date);
 }
