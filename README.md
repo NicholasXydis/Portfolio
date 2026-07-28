@@ -119,6 +119,8 @@ Lighthouse CI enforces a minimum score of 90 across Performance, Accessibility, 
   <img src="docs/screenshots/lighthouse.png" alt="Lighthouse scores" width="100%">
 </div>
 
+**100 across Performance, Accessibility, and SEO** (96 Best Practices), enforced in CI on every push.
+
 ### SSL Labs
 
 <div align="center">
@@ -133,7 +135,7 @@ Lighthouse CI enforces a minimum score of 90 across Performance, Accessibility, 
   <img src="docs/screenshots/uptime-robot.png" alt="UptimeRobot production availability monitor" width="100%">
 </div>
 
-**External monitoring:** UptimeRobot checks the production site every five minutes — **100% availability, zero incidents**.
+**External monitoring:** UptimeRobot checks the production site every five minutes.
 
 ## License
 
