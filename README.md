@@ -32,6 +32,11 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
   <img src="docs/portfolio-btn.svg" alt="View live site">
 </a>
 
+<br>
+<br>
+
+<img src="docs/demo.gif" alt="Portfolio site walkthrough" width="100%">
+
 </div>
 
 ## Features
