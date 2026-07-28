@@ -28,14 +28,6 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
   <strong>Lighthouse 90+</strong>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Lighthouse-100%20%C2%B7%20100%20%C2%B7%2096%20%C2%B7%20100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white" alt="Lighthouse: Performance 100, Accessibility 100, Best Practices 96, SEO 100">
-  &nbsp;
-  <img src="https://img.shields.io/badge/SSL%20Labs-A%2B-brightgreen?style=flat-square&logo=letsencrypt&logoColor=white" alt="SSL Labs grade A+">
-  &nbsp;
-  <img src="https://img.shields.io/badge/Uptime-100%25-brightgreen?style=flat-square&logo=uptimerobot&logoColor=white" alt="UptimeRobot 100% uptime">
-</p>
-
 <a href="https://nicholasxydis.ca">
   <img src="docs/portfolio-btn.svg" alt="View live site">
 </a>
@@ -123,49 +115,25 @@ Lighthouse CI enforces a minimum score of 90 across Performance, Accessibility, 
 
 ### Lighthouse
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Performance-100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white" alt="Performance 100">
-  &nbsp;
-  <img src="https://img.shields.io/badge/Accessibility-100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white" alt="Accessibility 100">
-  &nbsp;
-  <img src="https://img.shields.io/badge/Best%20Practices-96-green?style=flat-square&logo=lighthouse&logoColor=white" alt="Best Practices 96">
-  &nbsp;
-  <img src="https://img.shields.io/badge/SEO-100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white" alt="SEO 100">
-</p>
-
 <div align="center">
   <img src="docs/screenshots/lighthouse.png" alt="Lighthouse scores" width="100%">
 </div>
 
-<!-- TODO: add docs/screenshots/lighthouse.png -->
-
 ### SSL Labs
-
-<p align="center">
-  <img src="https://img.shields.io/badge/SSL%20Labs-A%2B-brightgreen?style=flat-square&logo=letsencrypt&logoColor=white" alt="SSL Labs grade A+">
-</p>
 
 <div align="center">
   <img src="docs/screenshots/ssl-report.png" alt="SSL Labs report for nicholasxydis.ca" width="100%">
 </div>
 
-<!-- TODO: add docs/screenshots/ssl-report.png -->
-
 **Grade A+** across all four Cloudflare edge servers (IPv4 and IPv6).
 
 ### Uptime Monitoring
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Uptime-100%25-brightgreen?style=flat-square&logo=uptimerobot&logoColor=white" alt="UptimeRobot 100% uptime">
-</p>
 
 <div align="center">
   <img src="docs/screenshots/uptime-robot.png" alt="UptimeRobot production availability monitor" width="100%">
 </div>
 
 **External monitoring:** UptimeRobot checks the production site every five minutes — **100% availability, zero incidents**.
-
-<!-- TODO: add docs/screenshots/uptime-robot.png -->
 
 ## License
 
