@@ -54,8 +54,11 @@ export function Waves({
     let raf = 0;
 
     const coverHeight = () =>
-      Math.max(bounding.height, window.innerHeight, window.screen?.height ?? 0) +
-      120;
+      Math.max(
+        bounding.height,
+        window.innerHeight,
+        window.screen?.height ?? 0,
+      ) + 120;
 
     const setSize = () => {
       bounding = container.getBoundingClientRect();
