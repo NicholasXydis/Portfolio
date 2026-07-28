@@ -53,14 +53,18 @@ export function Waves({
     let lastWidth = bounding.width;
     let raf = 0;
 
+    const coverHeight = () =>
+      Math.max(bounding.height, window.innerHeight, window.screen?.height ?? 0) +
+      120;
+
     const setSize = () => {
       bounding = container.getBoundingClientRect();
       svg.style.width = `${bounding.width}px`;
-      svg.style.height = `${bounding.height}px`;
+      svg.style.height = `${coverHeight()}px`;
     };
 
     const setLines = () => {
-      const { width, height } = bounding;
+      const { width } = bounding;
       lines = [];
       paths.forEach((path) => path.remove());
       paths = [];
@@ -68,11 +72,10 @@ export function Waves({
       const xGap = width < 640 ? 12 : 8;
       const yGap = width < 640 ? 12 : 8;
       const oWidth = width + 200;
-      const oHeight = height + 30;
       const totalLines = Math.ceil(oWidth / xGap);
-      const totalPoints = Math.ceil(oHeight / yGap);
+      const totalPoints = Math.ceil(coverHeight() / yGap);
       const xStart = (width - xGap * totalLines) / 2;
-      const yStart = (height - yGap * totalPoints) / 2;
+      const yStart = -yGap;
 
       for (let i = 0; i < totalLines; i += 1) {
         const points: Point[] = [];
