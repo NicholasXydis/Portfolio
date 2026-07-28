@@ -50,6 +50,7 @@ export function Waves({
     let paths: SVGPathElement[] = [];
     let lines: Point[][] = [];
     let bounding = container.getBoundingClientRect();
+    let lastWidth = bounding.width;
     let raf = 0;
 
     const setSize = () => {
@@ -179,6 +180,8 @@ export function Waves({
       cancelAnimationFrame(resizeRaf);
       resizeRaf = requestAnimationFrame(() => {
         setSize();
+        if (Math.abs(bounding.width - lastWidth) < 1) return;
+        lastWidth = bounding.width;
         setLines();
       });
     };
