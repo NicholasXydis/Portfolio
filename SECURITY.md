@@ -39,4 +39,4 @@ Out of scope:
 
 ## Handling of Secrets
 
-This is a static site with no backend. No secrets are committed to the repository. Runtime configuration (for example the PostHog key) is provided through Cloudflare Pages environment variables, never checked into source control.
+This is a static site with no backend. No secrets are committed to the repository. Build-time configuration (for example the PostHog key) is provided through encrypted CI/CD secrets in GitHub Actions, never checked into source control.
