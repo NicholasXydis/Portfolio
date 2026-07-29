@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+z.config({ jitless: true });
+
 const LocalizedTextSchema = z.object({
   en: z.string().min(1),
   fr: z.string().min(1),
