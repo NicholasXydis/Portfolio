@@ -1,21 +1,24 @@
 [
   {
     "label": { "en": "Languages", "fr": "Langages" },
-    "items": ["C#", "Python", "TypeScript", "JavaScript", "SQL", "Java"]
+    "items": ["C#", "Python", "TypeScript", "SQL", "JavaScript", "Java"]
+  },
+  {
+    "label": { "en": "Frameworks", "fr": "Frameworks" },
+    "items": [
+      "ASP.NET Core",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Entity Framework Core"
+    ]
   },
   {
     "label": {
-      "en": "Frameworks & Libraries",
-      "fr": "Cadriciels et bibliothèques"
+      "en": "Systems & Databases",
+      "fr": "Systèmes et bases de données"
     },
-    "items": ["ASP.NET Core", "EF Core", "React", "Next.js", "Tailwind CSS"]
-  },
-  {
-    "label": {
-      "en": "Databases & Systems",
-      "fr": "Bases de données et systèmes"
-    },
-    "items": ["Linux", "PostgreSQL", "SQL Server"]
+    "items": ["Linux", "Windows", "PostgreSQL", "SQL Server"]
   },
   {
     "label": { "en": "Tools & DevOps", "fr": "Outils et DevOps" },
@@ -27,6 +30,17 @@
       "PowerShell",
       "GitHub Actions",
       "Unity"
+    ]
+  },
+  {
+    "label": { "en": "Cybersecurity", "fr": "Cybersécurité" },
+    "items": [
+      "Nmap",
+      "Wireshark",
+      "Burp Suite",
+      "Metasploit",
+      "Splunk",
+      "OWASP ZAP"
     ]
   }
 ]
