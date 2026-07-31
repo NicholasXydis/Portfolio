@@ -51,6 +51,13 @@ export const staggerContainer: Variants = {
   },
 };
 
+export const staggerContainerFast: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.04, delayChildren: 0.04 },
+  },
+};
+
 export const staggerItem: Variants = {
   hidden: { y: distance, filter: "blur(6px)" },
   visible: {

@@ -5,6 +5,7 @@ import { pickLocalized } from "@/lib/localized";
 import {
   buttonHover,
   staggerContainer,
+  staggerContainerFast,
   staggerItem,
   tapPress,
 } from "@/lib/motion";
@@ -18,16 +19,19 @@ export function TechStack({ groups }: TechStackProps) {
   const locale = useLocale();
 
   return (
-    <dl className="space-y-5">
+    <motion.dl className="space-y-5" variants={staggerContainer}>
       {groups.map((group) => (
-        <div key={group.label.en}>
-          <dt className="mb-2 font-mono text-xs uppercase tracking-wide text-white/60">
+        <motion.div key={group.label.en} variants={staggerContainer}>
+          <motion.dt
+            className="mb-2 font-mono text-xs uppercase tracking-wide text-white/60"
+            variants={staggerItem}
+          >
             {pickLocalized(group.label, locale)}
-          </dt>
+          </motion.dt>
           <dd>
             <motion.ul
               className="flex flex-wrap gap-2"
-              variants={staggerContainer}
+              variants={staggerContainerFast}
             >
               {group.items.map((item) => (
                 <motion.li
@@ -43,8 +47,8 @@ export function TechStack({ groups }: TechStackProps) {
               ))}
             </motion.ul>
           </dd>
-        </div>
+        </motion.div>
       ))}
-    </dl>
+    </motion.dl>
   );
 }
