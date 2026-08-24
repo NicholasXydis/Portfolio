@@ -20,11 +20,11 @@
   },
   "dependencies": {
     "framer-motion": "^12.43.0",
-    "i18next": "^26.3.6",
+    "i18next": "^26.4.0",
     "posthog-js": "^1.417.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-i18next": "^17.0.11",
+    "react-i18next": "^17.0.12",
     "react-router": "^8.3.0",
     "simplex-noise": "^4.0.3",
     "zod": "^4.4.3"
