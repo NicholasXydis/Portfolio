@@ -23,3 +23,15 @@ export function formatDateRange(
   const end = endDate ? formatMonthYear(endDate, locale) : presentLabel;
   return `${start} — ${end}`;
 }
+
+export function formatYearRange(
+  startDate: string,
+  endDate: string | null,
+  presentLabel: string,
+): string {
+  const start = new Date(`${startDate}T00:00:00`).getFullYear();
+  const end = endDate
+    ? String(new Date(`${endDate}T00:00:00`).getFullYear())
+    : presentLabel;
+  return `${start} — ${end}`;
+}

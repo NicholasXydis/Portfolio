@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { Education } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
-import { formatDateRange } from "@/lib/dates";
+import { formatYearRange } from "@/lib/dates";
 import { pickLocalized } from "@/lib/localized";
 import { duration, ease, staggerContainer, staggerItem } from "@/lib/motion";
 import { EntryLogo, ExternalLink } from "@/components";
@@ -52,10 +52,9 @@ function EducationCard({ education }: { education: Education }) {
               : ""}
           </p>
           <p className="mt-1 font-mono text-xs text-white/50">
-            {formatDateRange(
+            {formatYearRange(
               education.startDate,
               education.endDate,
-              locale,
               t("projects.present"),
             )}
             {education.location &&
