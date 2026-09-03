@@ -14,6 +14,8 @@ export const TECH_ICON_FILES: Record<string, string> = {
   Docker: "docker",
   PostgreSQL: "postgresql",
   "SQL Server": "sqlserver",
+  SQLite: "sqlite",
+  Textual: "textual",
   Azure: "azure",
   Bash: "bash",
   PowerShell: "powershell",

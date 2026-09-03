@@ -1,27 +1,30 @@
 [
   {
-    "label": { "en": "Languages", "fr": "Langages" },
-    "items": ["C#", "Python", "TypeScript", "SQL", "JavaScript", "Java"]
+    "label": {
+      "en": "Languages",
+      "fr": "Langages"
+    },
+    "items": ["C#", "Python", "TypeScript", "SQL", "JavaScript"]
   },
   {
-    "label": { "en": "Frameworks", "fr": "Frameworks" },
-    "items": [
-      "ASP.NET Core",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Entity Framework Core"
-    ]
+    "label": {
+      "en": "Frameworks",
+      "fr": "Frameworks"
+    },
+    "items": ["ASP.NET Core", "React", "Next.js", "Tailwind CSS"]
   },
   {
     "label": {
       "en": "Systems & Databases",
       "fr": "Systèmes et bases de données"
     },
-    "items": ["Linux", "Windows", "PostgreSQL", "SQL Server"]
+    "items": ["Linux", "Windows", "PostgreSQL", "SQL Server", "SQLite"]
   },
   {
-    "label": { "en": "Tools & DevOps", "fr": "Outils et DevOps" },
+    "label": {
+      "en": "Tools & DevOps",
+      "fr": "Outils et DevOps"
+    },
     "items": [
       "Docker",
       "Git",
@@ -33,14 +36,10 @@
     ]
   },
   {
-    "label": { "en": "Cybersecurity", "fr": "Cybersécurité" },
-    "items": [
-      "Nmap",
-      "Wireshark",
-      "Burp Suite",
-      "Metasploit",
-      "Splunk",
-      "OWASP ZAP"
-    ]
+    "label": {
+      "en": "Cybersecurity",
+      "fr": "Cybersécurité"
+    },
+    "items": ["Nmap", "Wireshark", "Burp Suite", "Metasploit", "OWASP ZAP"]
   }
 ]
