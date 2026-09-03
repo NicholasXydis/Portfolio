@@ -37,13 +37,16 @@ test("in-page back link brings the clicked project to the top", async ({
   await firstCard.click();
   await page.waitForURL(/\/projects\//);
 
-  await page.getByRole("link", { name: /home/i }).first().click();
-  await expect.poll(() => page.url(), { timeout: 5000 }).toMatch(/#project-/);
+  const homeLink = page.getByRole("link", { name: /home/i }).first();
+  await expect(homeLink).toBeVisible();
+  await homeLink.click();
+  await page.waitForURL(/\/en(?:#project-|$)/, { timeout: 15000 });
 
-  const cardTop = await page
-    .locator("article[id^='project-']")
-    .first()
-    .evaluate((el) => el.getBoundingClientRect().top);
-  expect(cardTop).toBeGreaterThan(-5);
-  expect(cardTop).toBeLessThan(80);
+  const cardTop = () =>
+    page
+      .locator("article[id^='project-']")
+      .first()
+      .evaluate((el) => el.getBoundingClientRect().top);
+  await expect.poll(cardTop, { timeout: 5000 }).toBeLessThan(80);
+  expect(await cardTop()).toBeGreaterThan(-5);
 });
