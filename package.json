@@ -53,7 +53,7 @@
     "jsdom": "^25.0.1",
     "postcss": "^8.5.28",
     "prettier": "^3.9.9",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.70.1",
     "vite": "^7.3.6",
