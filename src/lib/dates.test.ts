@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatDateRange, formatMonthYear } from "./dates";
+import { formatDateRange, formatMonthYear, futureYear } from "./dates";
 
 describe("formatMonthYear", () => {
   it("formats an ISO date as a short month and year", () => {
@@ -23,5 +23,22 @@ describe("formatDateRange", () => {
   it("uses the present label when there is no end date", () => {
     const range = formatDateRange("2025-01-01", null, "en", "Present");
     expect(range).toContain("Present");
+  });
+
+  it("shows a single date when start and end are the same", () => {
+    const range = formatDateRange("2025-03-01", "2025-03-01", "en", "Present");
+    expect(range).toMatch(/Mar.*2025/);
+    expect(range).not.toContain("—");
+  });
+});
+
+describe("futureYear", () => {
+  it("returns the year of a future date", () => {
+    expect(futureYear("2099-05-01")).toBe(2099);
+  });
+
+  it("returns null for a past or missing date", () => {
+    expect(futureYear("2020-05-01")).toBeNull();
+    expect(futureYear(null)).toBeNull();
   });
 });

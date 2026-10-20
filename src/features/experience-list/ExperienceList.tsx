@@ -23,12 +23,28 @@ import { actionClass } from "@/features/project-list";
 
 export interface ExperienceListProps {
   experiences: Experience[];
+  showActions?: boolean;
 }
 
-function ExperienceCard({ experience }: { experience: Experience }) {
+function ExperienceCard({
+  experience,
+  showActions,
+}: {
+  experience: Experience;
+  showActions: boolean;
+}) {
   const { t } = useTranslation();
   const locale = useLocale();
   const card = useCardHover<HTMLLIElement>();
+  const company = pickLocalized(experience.company, locale);
+  const role = pickLocalized(experience.role, locale);
+  const companyName = experience.companyUrl ? (
+    <ExternalLink href={experience.companyUrl} className="hover:underline">
+      {company}
+    </ExternalLink>
+  ) : (
+    company
+  );
 
   return (
     <motion.li
@@ -47,19 +63,10 @@ function ExperienceCard({ experience }: { experience: Experience }) {
         <EntryLogo src={experience.logo} />
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold">
-            {experience.companyUrl ? (
-              <ExternalLink
-                href={experience.companyUrl}
-                className="hover:underline"
-              >
-                {experience.company}
-              </ExternalLink>
-            ) : (
-              experience.company
-            )}
+            {experience.companyFirst ? companyName : role}
           </h3>
           <p className="text-sm text-white/80">
-            {pickLocalized(experience.role, locale)}
+            {experience.companyFirst ? role : companyName}
           </p>
           <p className="mt-1 font-mono text-xs text-white/50">
             {formatDateRange(
@@ -75,17 +82,19 @@ function ExperienceCard({ experience }: { experience: Experience }) {
       </div>
 
       <div>
-        <CollapsibleBullets
-          text={pickLocalized(experience.description, locale)}
-          className="mt-3 space-y-2 text-sm text-white/80"
-        />
-        {(experience.companyUrl || experience.repo) && (
+        {experience.description && (
+          <CollapsibleBullets
+            text={pickLocalized(experience.description, locale)}
+            className="mt-3 space-y-2 text-sm text-white/80"
+          />
+        )}
+        {showActions && (experience.companyUrl || experience.repo) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {experience.companyUrl && (
               <ExternalLink
                 href={experience.companyUrl}
                 className={actionClass}
-                aria-label={`${experience.company} ${t("projects.viewWebsite")}`}
+                aria-label={`${company} ${t("projects.viewWebsite")}`}
                 whileHover={buttonHover}
               >
                 <GlobeIcon size={14} />
@@ -96,7 +105,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
               <ExternalLink
                 href={experience.repo}
                 className={actionClass}
-                aria-label={`${experience.company} ${t("projects.viewRepo")}`}
+                aria-label={`${company} ${t("projects.viewRepo")}`}
                 whileHover={buttonHover}
               >
                 <GithubIcon size={14} />
@@ -110,7 +119,10 @@ function ExperienceCard({ experience }: { experience: Experience }) {
   );
 }
 
-export function ExperienceList({ experiences }: ExperienceListProps) {
+export function ExperienceList({
+  experiences,
+  showActions = true,
+}: ExperienceListProps) {
   const { t } = useTranslation();
 
   if (experiences.length === 0) {
@@ -120,7 +132,11 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
   return (
     <motion.ul className="space-y-4" variants={staggerContainer}>
       {experiences.map((experience) => (
-        <ExperienceCard key={experience.slug} experience={experience} />
+        <ExperienceCard
+          key={experience.slug}
+          experience={experience}
+          showActions={showActions}
+        />
       ))}
     </motion.ul>
   );

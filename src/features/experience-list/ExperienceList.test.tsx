@@ -7,7 +7,7 @@ import type { Experience } from "@/content/schemas";
 const experience: Experience = {
   slug: "acme",
   role: { en: "Engineer", fr: "Ingénieur" },
-  company: "Acme",
+  company: { en: "Acme", fr: "Acme" },
   companyUrl: "https://acme.example.com",
   location: { en: "Montreal, QC", fr: "Montréal, QC" },
   repo: "https://github.com/example/acme",
@@ -48,6 +48,56 @@ describe("ExperienceList", () => {
       locale: "fr",
     });
     expect(screen.getByText("Ingénieur")).toBeInTheDocument();
-    expect(screen.getByText(/Présent/i)).toBeInTheDocument();
+    expect(screen.getByText(/Aujourd'hui/i)).toBeInTheDocument();
+  });
+
+  it("puts the role in the heading by default", () => {
+    renderWithProviders(<ExperienceList experiences={[experience]} />, {
+      locale: "en",
+    });
+    expect(
+      screen.getByRole("heading", { name: "Engineer" }),
+    ).toBeInTheDocument();
+  });
+
+  it("puts the company in the heading when companyFirst is set", () => {
+    renderWithProviders(
+      <ExperienceList experiences={[{ ...experience, companyFirst: true }]} />,
+      { locale: "en" },
+    );
+    expect(screen.getByRole("heading", { name: "Acme" })).toBeInTheDocument();
+  });
+
+  it("keeps the name linked but hides the buttons when showActions is off", () => {
+    renderWithProviders(
+      <ExperienceList experiences={[experience]} showActions={false} />,
+      { locale: "en" },
+    );
+    expect(screen.getByRole("link", { name: "Acme" })).toHaveAttribute(
+      "href",
+      "https://acme.example.com",
+    );
+    expect(screen.queryByRole("link", { name: /Website/i })).toBeNull();
+    expect(screen.queryByRole("link", { name: /GitHub/i })).toBeNull();
+  });
+
+  it("renders a single date and no bullets for an entry without a description", () => {
+    renderWithProviders(
+      <ExperienceList
+        experiences={[
+          {
+            slug: "acme-course",
+            role: { en: "Course", fr: "Cours" },
+            company: { en: "Acme", fr: "Acme" },
+            startDate: "2024-03-01",
+            endDate: "2024-03-01",
+          },
+        ]}
+      />,
+      { locale: "en" },
+    );
+    expect(screen.getByText("Course")).toBeInTheDocument();
+    expect(screen.getByText(/Mar.*2024/)).not.toHaveTextContent("—");
+    expect(screen.getAllByRole("list")).toHaveLength(1);
   });
 });

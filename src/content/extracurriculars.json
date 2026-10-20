@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "mcgill-fiam-hackathon",
+    "role": {
+      "en": "International Finalist",
+      "fr": "Finaliste international"
+    },
+    "company": {
+      "en": "McGill-FIAM Asset Management Hackathon",
+      "fr": "Hackathon en gestion d'actifs McGill-FIAM"
+    },
+    "companyUrl": "https://hackathonfiam-ia.com/",
+    "logo": "/project-icons/mcgill.png",
+    "location": {
+      "en": "Montreal, QC",
+      "fr": "Montréal, QC"
+    },
+    "startDate": "2026-09-01",
+    "endDate": null,
+    "description": {
+      "en": "Designed a LightGBM market neutral equity strategy, backtesting 12.8% net annualized returns over 5.5 years.\nDeployed 7 AI agents acting as rival investors across 265K trades, catching hidden risk in 42% of our stocks.",
+      "fr": "Élaboré une stratégie actions neutre au marché via LightGBM, avec 12,8 % net annualisé sur 5,5 ans de backtest.\nDéployé 7 agents IA imitant des fonds rivaux sur 265 000 transactions, décelant un risque caché dans 42 % des titres."
+    }
+  },
+  {
+    "slug": "quarcc",
+    "role": {
+      "en": "Quantitative Analyst",
+      "fr": "Analyste quantitatif"
+    },
+    "company": {
+      "en": "Quantitative Research and Competitions Club (QUARCC)",
+      "fr": "Quantitative Research and Competitions Club (QUARCC)"
+    },
+    "companyUrl": "https://www.quarcc.com/",
+    "logo": "/project-icons/quarcc.jpg",
+    "location": {
+      "en": "Montreal, QC",
+      "fr": "Montréal, QC"
+    },
+    "startDate": "2026-09-01",
+    "endDate": null,
+    "description": {
+      "en": "Developing HeapStreet, a C++ quant game where players outcode 12 AI rivals in 470+ algorithmic challenges.\nContribute to weekly research meetings, helping organize club events for the quant finance community.",
+      "fr": "Crée HeapStreet, un jeu quant en C++ où le joueur affronte 12 rivaux IA dans plus de 470 défis algorithmiques.\nParticipe aux réunions de recherche hebdomadaires et coorganise les activités de finance quantitative du club."
+    }
+  }
+]

@@ -49,21 +49,22 @@ export const ExperienceSchema = z.object({
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be kebab-case"),
   role: LocalizedTextSchema,
-  company: z.string().min(1),
+  company: LocalizedTextSchema,
   companyUrl: z.string().url().optional(),
   location: LocalizedTextSchema.optional(),
   repo: z.string().url().optional(),
   logo: z.string().optional(),
   startDate: isoDate,
   endDate: isoDate.nullable(),
-  description: LocalizedTextSchema,
+  description: LocalizedTextSchema.optional(),
+  companyFirst: z.boolean().optional(),
 });
 
 export const EducationSchema = z.object({
   slug: z
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be kebab-case"),
-  institution: z.string().min(1),
+  institution: LocalizedTextSchema,
   institutionUrl: z.string().url().optional(),
   logo: z.string().optional(),
   credential: LocalizedTextSchema,

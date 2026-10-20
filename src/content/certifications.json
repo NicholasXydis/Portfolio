@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "akuna-options-101",
+    "role": {
+      "en": "Options 101",
+      "fr": "Options 101"
+    },
+    "company": {
+      "en": "Akuna Capital",
+      "fr": "Akuna Capital"
+    },
+    "companyUrl": "https://akunacapital.teachable.com/p/options101",
+    "logo": "/project-icons/akuna.png",
+    "companyFirst": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-01"
+  },
+  {
+    "slug": "unity-junior-programmer",
+    "role": {
+      "en": "Junior Programmer Pathway",
+      "fr": "Junior Programmer Pathway"
+    },
+    "company": {
+      "en": "Unity",
+      "fr": "Unity"
+    },
+    "companyUrl": "https://learn.unity.com/pathway/junior-programmer",
+    "logo": "/project-icons/unity.svg",
+    "companyFirst": true,
+    "startDate": "2026-03-01",
+    "endDate": "2026-03-01"
+  }
+]

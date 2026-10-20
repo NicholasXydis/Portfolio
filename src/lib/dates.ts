@@ -20,8 +20,15 @@ export function formatDateRange(
   presentLabel: string,
 ): string {
   const start = formatMonthYear(startDate, locale);
+  if (endDate === startDate) return start;
   const end = endDate ? formatMonthYear(endDate, locale) : presentLabel;
   return `${start} — ${end}`;
+}
+
+export function futureYear(isoDate: string | null): number | null {
+  if (!isoDate) return null;
+  const date = new Date(`${isoDate}T00:00:00`);
+  return date > new Date() ? date.getFullYear() : null;
 }
 
 export function formatYearRange(

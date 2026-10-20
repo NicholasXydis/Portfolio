@@ -1,7 +1,7 @@
 {
   "meta": {
     "home.title": "Nicholas Xydis | Software Developer",
-    "home.description": "Bilingual portfolio of Nicholas Xydis | Computer Science student @ Concordia & Software Developer",
+    "home.description": "Bilingual portfolio of Nicholas Xydis | Student @ Concordia & Software Developer",
     "projects.title": "Projects",
     "projects.description": "Selected software projects by Nicholas Xydis, from production banking systems to bilingual web platforms.",
     "notFound.title": "Page not found",
@@ -24,13 +24,15 @@
   },
   "home": {
     "about": "About",
-    "aboutBody": "I'm a Computer Science student at Concordia University passionate about Software Engineering, Cybersecurity, DevOps, and Artificial Intelligence. I enjoy solving complex problems and challenging myself through hands-on projects, primarily in Python and TypeScript.\n\nSeeking internship opportunities in Software Engineering, Cybersecurity, DevOps, or AI/ML.",
+    "aboutBody": "I'm a student at Concordia University passionate about Software Engineering, Cybersecurity, and Artificial Intelligence. I enjoy solving complex problems and challenging myself through hands-on projects, primarily in Python.\n\nSeeking internship opportunities in Software Engineering, Cybersecurity, or AI/ML.",
     "location": "Montreal, Quebec, Canada",
     "viewOnMap": "View Montreal, Quebec, Canada on Google Maps",
     "resume": "CV",
     "experiences": "Experiences",
     "education": "Education",
     "projects": "Projects",
+    "extracurriculars": "Extra\u00adcurriculars",
+    "certifications": "Certifications",
     "stack": "Tech Stack"
   },
   "projects": {
@@ -47,7 +49,8 @@
     "empty": "No experience to show yet."
   },
   "education": {
-    "empty": "No education to show yet."
+    "empty": "No education to show yet.",
+    "expected": "Expected {{year}}"
   },
   "contact": {
     "email": "Email",

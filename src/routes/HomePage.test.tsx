@@ -15,6 +15,14 @@ describe("HomePage", () => {
     expect(
       screen.getByRole("heading", { name: "Projects" }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: "Extra\u00adcurriculars",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Certifications" }),
+    ).toBeInTheDocument();
   });
 
   it("renders project cards from validated content", () => {

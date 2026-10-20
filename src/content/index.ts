@@ -11,7 +11,9 @@ import {
 import { parseOrThrow } from "@/lib/parseContent";
 import projectsData from "./projects.json";
 import experiencesData from "./experiences.json";
+import certificationsData from "./certifications.json";
 import educationsData from "./educations.json";
+import extracurricularsData from "./extracurriculars.json";
 import stackData from "./stack.json";
 
 export const projects: Project[] = parseOrThrow(
@@ -30,6 +32,18 @@ export const educations: Education[] = parseOrThrow(
   EducationsFileSchema,
   educationsData,
   "educations",
+);
+
+export const extracurriculars: Experience[] = parseOrThrow(
+  ExperiencesFileSchema,
+  extracurricularsData,
+  "extracurriculars",
+);
+
+export const certifications: Experience[] = parseOrThrow(
+  ExperiencesFileSchema,
+  certificationsData,
+  "certifications",
 );
 
 export const stack: StackGroup[] = parseOrThrow(

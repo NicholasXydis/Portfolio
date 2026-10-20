@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
-import { educations, experiences, projects, stack } from "@/content";
+import {
+  certifications,
+  educations,
+  experiences,
+  extracurriculars,
+  projects,
+  stack,
+} from "@/content";
 import {
   BackToTop,
   DownloadIcon,
@@ -100,15 +107,15 @@ export function HomePage() {
         </motion.div>
       </motion.header>
 
-      {experiences.length > 0 && (
-        <Section id="experiences" title={t("home.experiences")}>
-          <ExperienceList experiences={experiences} />
-        </Section>
-      )}
-
       {educations.length > 0 && (
         <Section id="education" title={t("home.education")}>
           <EducationList educations={educations} />
+        </Section>
+      )}
+
+      {experiences.length > 0 && (
+        <Section id="experiences" title={t("home.experiences")}>
+          <ExperienceList experiences={experiences} />
         </Section>
       )}
 
@@ -123,6 +130,18 @@ export function HomePage() {
           </motion.div>
         )}
       </Section>
+
+      {extracurriculars.length > 0 && (
+        <Section id="extracurriculars" title={t("home.extracurriculars")}>
+          <ExperienceList experiences={extracurriculars} showActions={false} />
+        </Section>
+      )}
+
+      {certifications.length > 0 && (
+        <Section id="certifications" title={t("home.certifications")}>
+          <ExperienceList experiences={certifications} showActions={false} />
+        </Section>
+      )}
 
       {stack.length > 0 && (
         <Section id="stack" title={t("home.stack")}>

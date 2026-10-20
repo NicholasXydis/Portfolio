@@ -1,7 +1,7 @@
 {
   "meta": {
     "home.title": "Nicholas Xydis | Développeur logiciel",
-    "home.description": "Portfolio bilingue de Nicholas Xydis | étudiant en informatique @ Concordia et Développeur logiciel",
+    "home.description": "Portfolio bilingue de Nicholas Xydis | étudiant @ Concordia et Développeur logiciel",
     "projects.title": "Projets",
     "projects.description": "Projets logiciels choisis de Nicholas Xydis, des systèmes bancaires en production aux plateformes web bilingues.",
     "notFound.title": "Page introuvable",
@@ -24,13 +24,15 @@
   },
   "home": {
     "about": "À propos",
-    "aboutBody": "Je suis étudiant en informatique à l'Université Concordia, passionné par le génie logiciel, la cybersécurité, le DevOps et l'intelligence artificielle. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python et TypeScript.\n\nÀ la recherche de stages en génie logiciel, cybersécurité, DevOps ou IA/apprentissage automatique.",
+    "aboutBody": "Je suis étudiant à l'Université Concordia, passionné par le génie logiciel, la cybersécurité et l'intelligence artificielle. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python.\n\nÀ la recherche de stages en génie logiciel, cybersécurité ou IA/apprentissage automatique.",
     "location": "Montréal, Québec, Canada",
     "viewOnMap": "Voir Montréal, Québec, Canada sur Google Maps",
     "resume": "CV",
     "experiences": "Expériences",
     "education": "Formation",
     "projects": "Projets",
+    "extracurriculars": "Activités parascolaires",
+    "certifications": "Certifications",
     "stack": "Tech Stack"
   },
   "projects": {
@@ -39,7 +41,7 @@
     "viewWebsite": "Site web",
     "viewRepo": "GitHub",
     "visitLink": "Visiter",
-    "present": "Présent",
+    "present": "Aujourd'hui",
     "showMore": "Afficher {{count}} de plus",
     "showLess": "Voir moins"
   },
@@ -47,7 +49,8 @@
     "empty": "Aucune expérience à afficher pour le moment."
   },
   "education": {
-    "empty": "Aucune formation à afficher pour le moment."
+    "empty": "Aucune formation à afficher pour le moment.",
+    "expected": "Prévu en {{year}}"
   },
   "contact": {
     "email": "Courriel",

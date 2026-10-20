@@ -6,7 +6,7 @@ import type { Education } from "@/content/schemas";
 
 const education: Education = {
   slug: "mcgill",
-  institution: "McGill University",
+  institution: { en: "McGill University", fr: "Université McGill" },
   institutionUrl: "https://www.mcgill.ca",
   credential: { en: "B.Sc. Computer Science", fr: "B.Sc. Informatique" },
   field: { en: "Software", fr: "Logiciel" },
@@ -39,5 +39,24 @@ describe("EducationList", () => {
     expect(
       screen.getByText(/B\.Sc\. Informatique · Logiciel/),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Université McGill" }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows the expected graduation year for a future end date", () => {
+    const upcoming = { ...education, endDate: "2099-05-01" };
+    renderWithProviders(<EducationList educations={[upcoming]} />, {
+      locale: "en",
+    });
+    expect(screen.getByText(/Expected 2099/)).toBeInTheDocument();
+  });
+
+  it("localizes the expected graduation year to French", () => {
+    const upcoming = { ...education, endDate: "2099-05-01" };
+    renderWithProviders(<EducationList educations={[upcoming]} />, {
+      locale: "fr",
+    });
+    expect(screen.getByText(/Prévu en 2099/)).toBeInTheDocument();
   });
 });

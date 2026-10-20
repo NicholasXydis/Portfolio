@@ -3,9 +3,12 @@
     "slug": "centre-auto-allard-it",
     "role": {
       "en": "IT Administrator & Operations",
-      "fr": "Administrateur TI et opérations"
+      "fr": "Administrateur informatique et opérations"
     },
-    "company": "Centre D'Auto Allard",
+    "company": {
+      "en": "Centre D'Auto Allard",
+      "fr": "Centre D'Auto Allard"
+    },
     "companyUrl": "https://centredautoallard.ca",
     "logo": "/project-icons/cda.webp",
     "location": {
@@ -15,8 +18,8 @@
     "startDate": "2022-04-01",
     "endDate": "2026-02-01",
     "description": {
-      "en": "Developed the company website using TypeScript and React, serving 50+ daily users and contributing to a 55% increase in customer appointments.\nImplemented a SQL database for inventory and operational data, reducing manual tracking by 7 hours per week.\nMaintained computers, networking equipment, and security systems, resolving hardware and connectivity issues.\nCoordinated customers, parts suppliers, and service vendors across procurement and scheduling.\nManaged Google Business Profile and analytics, generating 40+ reviews and 1,200+ monthly profile views.",
-      "fr": "Développé le site Web de l'entreprise en TypeScript et React, servant 50+ utilisateurs par jour et faisant croître les rendez-vous clients de 55 %.\nImplanté une base de données SQL pour l'inventaire, éliminant 7 heures de suivi manuel par semaine.\nMaintenu les ordinateurs, les équipements réseau et les systèmes de sécurité en service continu.\nCoordonné clients, fournisseurs de pièces et prestataires pour l'approvisionnement et la planification.\nGéré le profil Google Business et les analyses, générant 40+ avis et 1 200+ vues mensuelles."
+      "en": "Developed the company website using TypeScript and React, serving 50+ daily users and contributing to a 55% increase in customer appointments.\nImplemented a SQL database for inventory and operational data, reducing manual tracking by 7 hours per week.\nManaged Google Business Profile and analytics, generating 40+ reviews and 1,200+ monthly profile views.\nCoordinated customers, parts suppliers, and service vendors across procurement and scheduling.\nMaintained computers, networking equipment, and security systems, resolving hardware and connectivity issues.",
+      "fr": "Développé le site Web de l'entreprise en TypeScript et React, servant 50+ utilisateurs par jour et faisant croître les rendez-vous clients de 55 %.\nImplanté une base de données SQL pour l'inventaire, éliminant 7 heures de suivi manuel par semaine.\nGéré le profil Google Business et les analyses, générant 40+ avis et 1 200+ vues mensuelles.\nCoordonné clients, fournisseurs de pièces et prestataires pour l'approvisionnement et la planification.\nMaintenu les ordinateurs, les équipements réseau et les systèmes de sécurité en service continu."
     }
   }
 ]

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { Education } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
-import { formatYearRange } from "@/lib/dates";
+import { formatYearRange, futureYear } from "@/lib/dates";
 import { pickLocalized } from "@/lib/localized";
 import { duration, ease, staggerContainer, staggerItem } from "@/lib/motion";
 import { EntryLogo, ExternalLink } from "@/components";
@@ -16,6 +16,8 @@ function EducationCard({ education }: { education: Education }) {
   const { t } = useTranslation();
   const locale = useLocale();
   const card = useCardHover<HTMLLIElement>();
+  const institution = pickLocalized(education.institution, locale);
+  const expectedYear = futureYear(education.endDate);
 
   return (
     <motion.li
@@ -39,10 +41,10 @@ function EducationCard({ education }: { education: Education }) {
                 href={education.institutionUrl}
                 className="hover:underline"
               >
-                {education.institution}
+                {institution}
               </ExternalLink>
             ) : (
-              education.institution
+              institution
             )}
           </h3>
           <p className="text-sm text-white/80">
@@ -52,11 +54,13 @@ function EducationCard({ education }: { education: Education }) {
               : ""}
           </p>
           <p className="mt-1 font-mono text-xs text-white/50">
-            {formatYearRange(
-              education.startDate,
-              education.endDate,
-              t("projects.present"),
-            )}
+            {expectedYear
+              ? t("education.expected", { year: expectedYear })
+              : formatYearRange(
+                  education.startDate,
+                  education.endDate,
+                  t("projects.present"),
+                )}
             {education.location &&
               ` | ${pickLocalized(education.location, locale)}`}
           </p>

@@ -4,34 +4,55 @@
       "en": "Languages",
       "fr": "Langages"
     },
-    "items": ["C#", "Python", "TypeScript", "SQL", "JavaScript"]
+    "items": ["Python", "C#", "C++", "SQL", "TypeScript", "JavaScript"]
   },
   {
     "label": {
-      "en": "Frameworks",
-      "fr": "Frameworks"
-    },
-    "items": ["ASP.NET Core", "React", "Next.js", "Tailwind CSS"]
-  },
-  {
-    "label": {
-      "en": "Systems & Databases",
-      "fr": "Systèmes et bases de données"
-    },
-    "items": ["Linux", "Windows", "PostgreSQL", "SQL Server", "SQLite"]
-  },
-  {
-    "label": {
-      "en": "Tools & DevOps",
-      "fr": "Outils et DevOps"
+      "en": "Data & ML",
+      "fr": "Données et ML"
     },
     "items": [
+      "PyTorch",
+      "scikit-learn",
+      "Pandas",
+      "NumPy",
+      "XGBoost",
+      "LightGBM",
+      "Matplotlib",
+      "Jupyter"
+    ]
+  },
+  {
+    "label": {
+      "en": "Frameworks & Databases",
+      "fr": "Frameworks et BD"
+    },
+    "items": [
+      ".NET",
+      "ASP.NET Core",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "SQL Server",
+      "SQLite"
+    ]
+  },
+  {
+    "label": {
+      "en": "DevOps & Tools",
+      "fr": "DevOps et outils"
+    },
+    "items": [
+      "Linux",
       "Docker",
       "Git",
-      "Azure",
       "Bash",
-      "PowerShell",
+      "Azure",
       "GitHub Actions",
+      "PowerShell",
+      "Nginx",
+      "Playwright",
       "Unity"
     ]
   },

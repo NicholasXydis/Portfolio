@@ -128,7 +128,7 @@ describe("ExperienceSchema", () => {
     const result = ExperienceSchema.safeParse({
       slug: "acme",
       role: { en: "Engineer", fr: "Ingénieur" },
-      company: "Acme",
+      company: { en: "Acme", fr: "Acme" },
       startDate: "2024-01-01",
       endDate: null,
       description: { en: "Did things", fr: "Fait des choses" },
@@ -140,7 +140,7 @@ describe("ExperienceSchema", () => {
     const result = ExperienceSchema.safeParse({
       slug: "acme",
       role: { en: "Engineer", fr: "Ingénieur" },
-      company: "Acme",
+      company: { en: "Acme", fr: "Acme" },
       companyUrl: "acme",
       startDate: "2024-01-01",
       endDate: null,
@@ -148,12 +148,23 @@ describe("ExperienceSchema", () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it("accepts an entry without a description", () => {
+    const result = ExperienceSchema.safeParse({
+      slug: "acme-course",
+      role: { en: "Course", fr: "Cours" },
+      company: { en: "Acme", fr: "Acme" },
+      startDate: "2024-01-01",
+      endDate: "2024-01-01",
+    });
+    expect(result.success).toBe(true);
+  });
 });
 
 describe("EducationSchema", () => {
   const validEducation = {
     slug: "some-university",
-    institution: "Some University",
+    institution: { en: "Some University", fr: "Université Some" },
     credential: { en: "B.Sc. Computer Science", fr: "B.Sc. Informatique" },
     startDate: "2022-09-01",
     endDate: null,
