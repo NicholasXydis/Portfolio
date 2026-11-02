@@ -31,7 +31,7 @@ export interface ProjectCardProps {
 }
 
 export const actionClass =
-  "inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-white/80 transition-colors hover:border-white/20 hover:text-white";
+  "inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-white/80 transition-colors hover:border-white/20 hover:text-white max-sm:gap-1 max-sm:px-1.5 max-sm:text-[11px] max-sm:tracking-[-0.02em] max-sm:[&>svg]:h-[11px] max-sm:[&>svg]:w-[11px]";
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { t } = useTranslation();
@@ -112,7 +112,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </ul>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2 max-sm:gap-1 max-sm:[&>*]:flex-auto max-sm:[&>*]:justify-center">
           {project.website && (
             <ExternalLink
               href={pickUrl(project.website, locale)}
