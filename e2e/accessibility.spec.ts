@@ -1,11 +1,22 @@
+import { readFileSync } from "node:fs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+const locales = ["en", "fr"];
+const projectSlugs = (
+  JSON.parse(
+    readFileSync(
+      new URL("../src/content/projects.json", import.meta.url),
+      "utf8",
+    ),
+  ) as { slug: string }[]
+).map((project) => project.slug);
+
 const routes = [
-  "/en",
-  "/fr",
-  "/en/projects/banklite",
-  "/fr/projects/banklite",
+  ...locales.map((locale) => `/${locale}`),
+  ...locales.flatMap((locale) =>
+    projectSlugs.map((slug) => `/${locale}/projects/${slug}`),
+  ),
   "/en/does-not-exist",
 ];
 

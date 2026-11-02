@@ -4,7 +4,7 @@ import type { Experience } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
 import { formatDateRange } from "@/lib/dates";
-import { pickLocalized } from "@/lib/localized";
+import { pickLocalized, pickUrl } from "@/lib/localized";
 import {
   buttonHover,
   duration,
@@ -39,7 +39,10 @@ function ExperienceCard({
   const company = pickLocalized(experience.company, locale);
   const role = pickLocalized(experience.role, locale);
   const companyName = experience.companyUrl ? (
-    <ExternalLink href={experience.companyUrl} className="hover:underline">
+    <ExternalLink
+      href={pickUrl(experience.companyUrl, locale)}
+      className="hover:underline"
+    >
       {company}
     </ExternalLink>
   ) : (
@@ -92,7 +95,7 @@ function ExperienceCard({
           <div className="mt-3 flex flex-wrap gap-2">
             {experience.companyUrl && (
               <ExternalLink
-                href={experience.companyUrl}
+                href={pickUrl(experience.companyUrl, locale)}
                 className={actionClass}
                 aria-label={`${company} ${t("projects.viewWebsite")}`}
                 whileHover={buttonHover}

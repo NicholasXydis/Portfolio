@@ -17,7 +17,7 @@ describe("formatDateRange", () => {
     const range = formatDateRange("2024-01-01", "2025-06-01", "en", "Present");
     expect(range).toMatch(/2024/);
     expect(range).toMatch(/2025/);
-    expect(range).toContain("—");
+    expect(range).toContain("–");
   });
 
   it("uses the present label when there is no end date", () => {
@@ -28,7 +28,7 @@ describe("formatDateRange", () => {
   it("shows a single date when start and end are the same", () => {
     const range = formatDateRange("2025-03-01", "2025-03-01", "en", "Present");
     expect(range).toMatch(/Mar.*2025/);
-    expect(range).not.toContain("—");
+    expect(range).not.toContain("–");
   });
 });
 

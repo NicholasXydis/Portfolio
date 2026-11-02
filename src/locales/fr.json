@@ -24,21 +24,21 @@
   },
   "home": {
     "about": "À propos",
-    "aboutBody": "Je suis étudiant à l'Université Concordia, passionné par le génie logiciel, la cybersécurité et l'intelligence artificielle. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python.\n\nÀ la recherche de stages en génie logiciel, cybersécurité ou IA/apprentissage automatique.",
+    "aboutBody": "Je suis étudiant à l'Université Concordia, passionné par le génie logiciel, l'intelligence artificielle et la finance quantitative. J'aime résoudre des problèmes complexes et me dépasser à travers des projets pratiques, principalement en Python.\n\nÀ la recherche de stages en génie logiciel, développement quantitatif ou IA/apprentissage automatique.",
     "location": "Montréal, Québec, Canada",
     "viewOnMap": "Voir Montréal, Québec, Canada sur Google Maps",
     "resume": "CV",
-    "experiences": "Expériences",
+    "experiences": "Expérience",
     "education": "Formation",
     "projects": "Projets",
-    "extracurriculars": "Activités parascolaires",
+    "activities": "Activités",
     "certifications": "Certifications",
-    "stack": "Tech Stack"
+    "stack": "Compétences techniques"
   },
   "projects": {
     "empty": "Aucun projet à afficher pour le moment.",
     "viewCaseStudy": "Étude de cas",
-    "viewWebsite": "Site web",
+    "viewWebsite": "Site Web",
     "viewRepo": "GitHub",
     "visitLink": "Visiter",
     "present": "Aujourd'hui",
@@ -50,7 +50,7 @@
   },
   "education": {
     "empty": "Aucune formation à afficher pour le moment.",
-    "expected": "Prévu en {{year}}"
+    "expected": "Prévu en {{date}}"
   },
   "contact": {
     "email": "Courriel",

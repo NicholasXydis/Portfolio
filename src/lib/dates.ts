@@ -22,7 +22,7 @@ export function formatDateRange(
   const start = formatMonthYear(startDate, locale);
   if (endDate === startDate) return start;
   const end = endDate ? formatMonthYear(endDate, locale) : presentLabel;
-  return `${start} — ${end}`;
+  return `${start} – ${end}`;
 }
 
 export function futureYear(isoDate: string | null): number | null {
@@ -40,5 +40,5 @@ export function formatYearRange(
   const end = endDate
     ? String(new Date(`${endDate}T00:00:00`).getFullYear())
     : presentLabel;
-  return `${start} — ${end}`;
+  return `${start} – ${end}`;
 }

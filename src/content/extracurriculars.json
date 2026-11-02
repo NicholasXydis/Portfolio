@@ -1,28 +1,5 @@
 [
   {
-    "slug": "mcgill-fiam-hackathon",
-    "role": {
-      "en": "International Finalist",
-      "fr": "Finaliste international"
-    },
-    "company": {
-      "en": "McGill-FIAM Asset Management Hackathon",
-      "fr": "Hackathon en gestion d'actifs McGill-FIAM"
-    },
-    "companyUrl": "https://hackathonfiam-ia.com/",
-    "logo": "/project-icons/mcgill.png",
-    "location": {
-      "en": "Montreal, QC",
-      "fr": "Montréal, QC"
-    },
-    "startDate": "2026-09-01",
-    "endDate": null,
-    "description": {
-      "en": "Designed a LightGBM market neutral equity strategy, backtesting 12.8% net annualized returns over 5.5 years.\nDeployed 7 AI agents acting as rival investors across 265K trades, catching hidden risk in 42% of our stocks.",
-      "fr": "Élaboré une stratégie actions neutre au marché via LightGBM, avec 12,8 % net annualisé sur 5,5 ans de backtest.\nDéployé 7 agents IA imitant des fonds rivaux sur 265 000 transactions, décelant un risque caché dans 42 % des titres."
-    }
-  },
-  {
     "slug": "quarcc",
     "role": {
       "en": "Quantitative Analyst",
@@ -41,8 +18,31 @@
     "startDate": "2026-09-01",
     "endDate": null,
     "description": {
-      "en": "Developing HeapStreet, a C++ quant game where players outcode 12 AI rivals in 470+ algorithmic challenges.\nContribute to weekly research meetings, helping organize club events for the quant finance community.",
-      "fr": "Crée HeapStreet, un jeu quant en C++ où le joueur affronte 12 rivaux IA dans plus de 470 défis algorithmiques.\nParticipe aux réunions de recherche hebdomadaires et coorganise les activités de finance quantitative du club."
+      "en": "Architecting HeapStreet, a C++ quant platform pitting players against 12 AI rivals in 470+ algorithmic challenges.\nTrading in the Global Market Making Games, a competition of 1,400+ students from 49 societies in 16 countries.\nDiscussing quant research with 25+ members in weekly meetings, from market making to machine learning.",
+      "fr": "Crée HeapStreet, plateforme quant en C++ où les joueurs affrontent 12 rivaux IA dans 470+ défis algorithmiques.\nParticipe aux Global Market Making Games, compétition de 1 400+ étudiants de 49 associations dans 16 pays.\nÉchange chaque semaine avec 25+ membres sur la recherche quantitative, de la tenue de marché à l'IA."
+    }
+  },
+  {
+    "slug": "asna-case-competition",
+    "role": {
+      "en": "Top 16 Nationally",
+      "fr": "Top 16 national"
+    },
+    "company": {
+      "en": "ASNA Actuarial Case Competition",
+      "fr": "Concours de cas actuariels de l'ASNA"
+    },
+    "companyUrl": "https://anea-asna.ca/case-competition/",
+    "logo": "/project-icons/asna.png",
+    "location": {
+      "en": "Montreal, QC",
+      "fr": "Montréal, QC"
+    },
+    "startDate": "2026-10-01",
+    "endDate": null,
+    "description": {
+      "en": "Modeled death risk for 10,000 insurance clients in Python and scikit-learn, finishing 5th of 56 teams in Round 1.\nTrained an interpretable logistic regression ensemble that beat gradient boosting in 95 of 100 cross-validation runs.",
+      "fr": "Modélisé le risque de décès de 10 000 assurés en Python et scikit-learn, terminant 5e sur 56 équipes au 1er tour.\nEntraîné un ensemble de régressions logistiques interprétable, meilleur que le gradient boosting 95 fois sur 100."
     }
   }
 ]

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import type { Project } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { formatDateRange } from "@/lib/dates";
-import { localizedPath, pickLocalized } from "@/lib/localized";
+import { localizedPath, pickLocalized, pickUrl } from "@/lib/localized";
 import { track } from "@/lib/analytics";
 import {
   buttonHover,
@@ -66,7 +66,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Link>
           </h3>
           {subtitle && (
-            <p className="mt-0.5 text-sm text-white/80">{subtitle}</p>
+            <p className="mt-0.5 text-sm text-white/80">
+              {project.subtitleUrl ? (
+                <ExternalLink
+                  href={pickUrl(project.subtitleUrl, locale)}
+                  className="hover:underline"
+                >
+                  {subtitle}
+                </ExternalLink>
+              ) : (
+                subtitle
+              )}
+            </p>
           )}
           {project.startDate && (
             <p className="mt-1 font-mono text-xs text-white/50">
@@ -104,7 +115,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-4 flex flex-wrap gap-2">
           {project.website && (
             <ExternalLink
-              href={project.website}
+              href={pickUrl(project.website, locale)}
               className={actionClass}
               aria-label={`${name} ${t("projects.viewWebsite")}`}
               onClick={() => track.projectLink(project.slug, "website", "card")}

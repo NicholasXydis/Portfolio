@@ -11,7 +11,6 @@
     },
     "companyUrl": "https://akunacapital.teachable.com/p/options101",
     "logo": "/project-icons/akuna.png",
-    "companyFirst": true,
     "startDate": "2026-09-01",
     "endDate": "2026-09-01"
   },
@@ -27,7 +26,6 @@
     },
     "companyUrl": "https://learn.unity.com/pathway/junior-programmer",
     "logo": "/project-icons/unity.svg",
-    "companyFirst": true,
     "startDate": "2026-03-01",
     "endDate": "2026-03-01"
   }

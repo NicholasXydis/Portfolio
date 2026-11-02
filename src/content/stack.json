@@ -4,38 +4,34 @@
       "en": "Languages",
       "fr": "Langages"
     },
-    "items": ["Python", "C#", "C++", "SQL", "TypeScript", "JavaScript"]
+    "items": ["Python", "C#", "C++", "Bash", "SQL", "TypeScript", "JavaScript"]
   },
   {
     "label": {
-      "en": "Data & ML",
-      "fr": "Données et ML"
+      "en": "Machine Learning & Data",
+      "fr": "Apprentissage automatique et données"
     },
     "items": [
       "PyTorch",
       "scikit-learn",
-      "Pandas",
+      "pandas",
       "NumPy",
-      "XGBoost",
       "LightGBM",
-      "Matplotlib",
-      "Jupyter"
+      "XGBoost"
     ]
   },
   {
     "label": {
-      "en": "Frameworks & Databases",
-      "fr": "Frameworks et BD"
+      "en": "Databases & Frameworks",
+      "fr": "Bases de données et frameworks"
     },
     "items": [
-      ".NET",
-      "ASP.NET Core",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
       "PostgreSQL",
+      "SQLite",
       "SQL Server",
-      "SQLite"
+      "React",
+      ".NET",
+      "ASP.NET Core"
     ]
   },
   {
@@ -47,20 +43,12 @@
       "Linux",
       "Docker",
       "Git",
-      "Bash",
       "Azure",
+      "CI/CD",
       "GitHub Actions",
-      "PowerShell",
       "Nginx",
       "Playwright",
       "Unity"
     ]
-  },
-  {
-    "label": {
-      "en": "Cybersecurity",
-      "fr": "Cybersécurité"
-    },
-    "items": ["Nmap", "Wireshark", "Burp Suite", "Metasploit", "OWASP ZAP"]
   }
 ]

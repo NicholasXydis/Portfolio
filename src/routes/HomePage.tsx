@@ -132,7 +132,7 @@ export function HomePage() {
       </Section>
 
       {extracurriculars.length > 0 && (
-        <Section id="extracurriculars" title={t("home.extracurriculars")}>
+        <Section id="activities" title={t("home.activities")}>
           <ExperienceList experiences={extracurriculars} showActions={false} />
         </Section>
       )}

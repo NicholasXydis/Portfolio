@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { getProjectBySlug } from "@/content";
 import { useLocale } from "@/hooks/useLocale";
 import { formatDateRange } from "@/lib/dates";
-import { localizedPath, pickLocalized } from "@/lib/localized";
+import { localizedPath, pickLocalized, pickUrl } from "@/lib/localized";
 import { track } from "@/lib/analytics";
 import {
   buttonHover,
@@ -70,7 +70,16 @@ export function ProjectDetailPage() {
       </motion.h1>
       {subtitle && (
         <motion.p variants={staggerItem} className="mt-2 text-lg text-white/70">
-          {subtitle}
+          {project.subtitleUrl ? (
+            <ExternalLink
+              href={pickUrl(project.subtitleUrl, locale)}
+              className="hover:underline"
+            >
+              {subtitle}
+            </ExternalLink>
+          ) : (
+            subtitle
+          )}
         </motion.p>
       )}
 
@@ -109,7 +118,7 @@ export function ProjectDetailPage() {
       <motion.div variants={staggerItem} className="mt-6 flex flex-wrap gap-2">
         {project.website && (
           <ExternalLink
-            href={project.website}
+            href={pickUrl(project.website, locale)}
             className={actionClass}
             aria-label={`${name} ${t("projects.viewWebsite")}`}
             onClick={() => track.projectLink(project.slug, "website", "detail")}
@@ -143,16 +152,19 @@ export function ProjectDetailPage() {
         ))}
       </motion.div>
 
-      {project.images[0] && (
+      {project.images.map((image, index) => (
         <motion.img
+          key={image.src}
           variants={staggerItem}
-          src={project.images[0].src}
-          alt={pickLocalized(project.images[0].alt, locale)}
-          width={project.images[0].width}
-          height={project.images[0].height}
+          src={image.src}
+          alt={pickLocalized(image.alt, locale)}
+          width={image.width}
+          height={image.height}
+          fetchPriority={index === 0 ? "high" : undefined}
+          loading={index === 0 ? undefined : "lazy"}
           className="mt-6 w-full rounded-lg border border-white/10"
         />
-      )}
+      ))}
 
       {!project.caseStudy && (
         <motion.p variants={staggerItem} className="mt-6 text-lg text-white/80">

@@ -97,7 +97,7 @@ describe("ExperienceList", () => {
       { locale: "en" },
     );
     expect(screen.getByText("Course")).toBeInTheDocument();
-    expect(screen.getByText(/Mar.*2024/)).not.toHaveTextContent("—");
+    expect(screen.getByText(/Mar.*2024/)).not.toHaveTextContent("–");
     expect(screen.getAllByRole("list")).toHaveLength(1);
   });
 });

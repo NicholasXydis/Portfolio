@@ -7,6 +7,11 @@ const LocalizedTextSchema = z.object({
   fr: z.string().min(1),
 });
 
+const LocalizedUrlSchema = z.union([
+  z.string().url(),
+  z.object({ en: z.string().url(), fr: z.string().url() }),
+]);
+
 const ImageSchema = z.object({
   src: z.string().min(1),
   alt: LocalizedTextSchema,
@@ -29,6 +34,7 @@ export const ProjectSchema = z.object({
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be kebab-case"),
   title: LocalizedTextSchema,
   subtitle: LocalizedTextSchema.optional(),
+  subtitleUrl: LocalizedUrlSchema.optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.nullable().optional(),
   lastUpdated: isoDate,
@@ -36,7 +42,7 @@ export const ProjectSchema = z.object({
   summary: LocalizedTextSchema,
   body: LocalizedTextSchema,
   caseStudy: LocalizedTextSchema.optional(),
-  website: z.string().url().optional(),
+  website: LocalizedUrlSchema.optional(),
   repo: z.string().url().optional(),
   icon: z.string().optional(),
   links: z.array(LinkSchema).default([]),
@@ -50,7 +56,7 @@ export const ExperienceSchema = z.object({
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be kebab-case"),
   role: LocalizedTextSchema,
   company: LocalizedTextSchema,
-  companyUrl: z.string().url().optional(),
+  companyUrl: LocalizedUrlSchema.optional(),
   location: LocalizedTextSchema.optional(),
   repo: z.string().url().optional(),
   logo: z.string().optional(),
@@ -65,7 +71,7 @@ export const EducationSchema = z.object({
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug must be kebab-case"),
   institution: LocalizedTextSchema,
-  institutionUrl: z.string().url().optional(),
+  institutionUrl: LocalizedUrlSchema.optional(),
   logo: z.string().optional(),
   credential: LocalizedTextSchema,
   field: LocalizedTextSchema.optional(),
@@ -87,6 +93,7 @@ export const StackFileSchema = z.array(StackGroupSchema);
 
 export type { Locale } from "@/lib/i18n";
 export type LocalizedText = z.infer<typeof LocalizedTextSchema>;
+export type LocalizedUrl = z.infer<typeof LocalizedUrlSchema>;
 export type Project = z.infer<typeof ProjectSchema>;
 export type Experience = z.infer<typeof ExperienceSchema>;
 export type Education = z.infer<typeof EducationSchema>;

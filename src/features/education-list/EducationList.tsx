@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import type { Education } from "@/content/schemas";
 import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
-import { formatYearRange, futureYear } from "@/lib/dates";
-import { pickLocalized } from "@/lib/localized";
+import { formatMonthYear, formatYearRange, futureYear } from "@/lib/dates";
+import { pickLocalized, pickUrl } from "@/lib/localized";
 import { duration, ease, staggerContainer, staggerItem } from "@/lib/motion";
 import { EntryLogo, ExternalLink } from "@/components";
 
@@ -17,7 +17,10 @@ function EducationCard({ education }: { education: Education }) {
   const locale = useLocale();
   const card = useCardHover<HTMLLIElement>();
   const institution = pickLocalized(education.institution, locale);
-  const expectedYear = futureYear(education.endDate);
+  const expectedDate =
+    education.endDate && futureYear(education.endDate)
+      ? formatMonthYear(education.endDate, locale)
+      : null;
 
   return (
     <motion.li
@@ -38,7 +41,7 @@ function EducationCard({ education }: { education: Education }) {
           <h3 className="font-semibold">
             {education.institutionUrl ? (
               <ExternalLink
-                href={education.institutionUrl}
+                href={pickUrl(education.institutionUrl, locale)}
                 className="hover:underline"
               >
                 {institution}
@@ -54,8 +57,8 @@ function EducationCard({ education }: { education: Education }) {
               : ""}
           </p>
           <p className="mt-1 font-mono text-xs text-white/50">
-            {expectedYear
-              ? t("education.expected", { year: expectedYear })
+            {expectedDate
+              ? t("education.expected", { date: expectedDate })
               : formatYearRange(
                   education.startDate,
                   education.endDate,

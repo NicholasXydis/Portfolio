@@ -49,7 +49,7 @@ describe("EducationList", () => {
     renderWithProviders(<EducationList educations={[upcoming]} />, {
       locale: "en",
     });
-    expect(screen.getByText(/Expected 2099/)).toBeInTheDocument();
+    expect(screen.getByText(/Expected May 2099/)).toBeInTheDocument();
   });
 
   it("localizes the expected graduation year to French", () => {
@@ -57,6 +57,6 @@ describe("EducationList", () => {
     renderWithProviders(<EducationList educations={[upcoming]} />, {
       locale: "fr",
     });
-    expect(screen.getByText(/Prévu en 2099/)).toBeInTheDocument();
+    expect(screen.getByText(/Prévu en mai 2099/)).toBeInTheDocument();
   });
 });

@@ -8,14 +8,14 @@ test("scrolls to top entering a case study and restores on back", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/en", { waitUntil: "networkidle" });
 
-  await page.evaluate(() => window.scrollTo(0, 1200));
+  const link = page.getByRole("link", { name: /case study/i }).first();
+  await link.evaluate((el) =>
+    el.scrollIntoView({ block: "center", behavior: "instant" }),
+  );
   await page.waitForFunction(() => window.scrollY > 1000);
   const before = await scrollY(page);
 
-  await page
-    .getByRole("link", { name: /case study/i })
-    .first()
-    .click();
+  await link.click();
   await page.waitForURL(/\/projects\//);
   await expect.poll(() => scrollY(page), { timeout: 5000 }).toBeLessThan(50);
 

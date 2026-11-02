@@ -65,7 +65,7 @@ export function LanguageToggle() {
     <motion.button
       type="button"
       onClick={handleSwitch}
-      aria-label={t(`language.${nextLocale}`)}
+      aria-label={`${label}, ${t(`language.${nextLocale}`)}`}
       whileHover={shouldReduceMotion ? undefined : buttonHover}
       whileTap={shouldReduceMotion ? undefined : tapPress}
       className="flex h-[38px] touch-manipulation items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-3 text-[13px] font-bold text-white shadow-[0_4px_16px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-colors hover:bg-white/10"

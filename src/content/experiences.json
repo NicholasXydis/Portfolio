@@ -2,14 +2,17 @@
   {
     "slug": "centre-auto-allard-it",
     "role": {
-      "en": "IT Administrator & Operations",
-      "fr": "Administrateur informatique et opérations"
+      "en": "Software Developer & IT Administrator",
+      "fr": "Développeur logiciel et administrateur informatique"
     },
     "company": {
       "en": "Centre D'Auto Allard",
       "fr": "Centre D'Auto Allard"
     },
-    "companyUrl": "https://centredautoallard.ca",
+    "companyUrl": {
+      "en": "https://centredautoallard.ca/en/",
+      "fr": "https://centredautoallard.ca/fr/"
+    },
     "logo": "/project-icons/cda.webp",
     "location": {
       "en": "Montreal, QC",
@@ -18,8 +21,8 @@
     "startDate": "2022-04-01",
     "endDate": "2026-02-01",
     "description": {
-      "en": "Developed the company website using TypeScript and React, serving 50+ daily users and contributing to a 55% increase in customer appointments.\nImplemented a SQL database for inventory and operational data, reducing manual tracking by 7 hours per week.\nManaged Google Business Profile and analytics, generating 40+ reviews and 1,200+ monthly profile views.\nCoordinated customers, parts suppliers, and service vendors across procurement and scheduling.\nMaintained computers, networking equipment, and security systems, resolving hardware and connectivity issues.",
-      "fr": "Développé le site Web de l'entreprise en TypeScript et React, servant 50+ utilisateurs par jour et faisant croître les rendez-vous clients de 55 %.\nImplanté une base de données SQL pour l'inventaire, éliminant 7 heures de suivi manuel par semaine.\nGéré le profil Google Business et les analyses, générant 40+ avis et 1 200+ vues mensuelles.\nCoordonné clients, fournisseurs de pièces et prestataires pour l'approvisionnement et la planification.\nMaintenu les ordinateurs, les équipements réseau et les systèmes de sécurité en service continu."
+      "en": "Developed and deployed the auto shop's bilingual website in TypeScript and React with GitHub Actions CI/CD and 67 automated tests, serving 75+ daily users and contributing to a 55% increase in appointments.\nGenerated $12K+ in annual revenue with a Python XGBoost machine learning model for service reminders.\nImplemented a PostgreSQL database for inventory and operations, reducing manual tracking by 12 hours per week.\nGrew the shop's Google Business Profile to 70+ reviews and 1,500+ monthly views, tracked through analytics.\nAdministered company computers, network, and security systems, troubleshooting hardware and connection issues.",
+      "fr": "Développé et déployé le site Web bilingue du garage en TypeScript et React, avec CI/CD GitHub Actions et 67 tests automatisés, fréquenté par 75+ utilisateurs par jour et contribuant à une hausse de 55 % des rendez-vous.\nGénéré plus de 12 000 $ par an grâce à un modèle d'apprentissage automatique XGBoost de relance des clients.\nImplanté une base PostgreSQL pour l'inventaire et les opérations, éliminant 12 h de suivi manuel par semaine.\nObtenu 70+ avis et 1 500+ vues par mois sur le Profil d'entreprise Google, suivis avec des outils d'analyse.\nAdministré les ordinateurs, le réseau et les systèmes de sécurité, et réglé les pannes de matériel et de connexion."
     }
   }
 ]

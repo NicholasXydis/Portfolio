@@ -39,14 +39,14 @@ function renderWithLocationDisplay(initialRoute: string) {
 describe("LanguageToggle", () => {
   it("shows a single toggle labelled with the target language and its label", () => {
     renderWithProviders(<LanguageToggle />, { locale: "en" });
-    const button = screen.getByRole("button", { name: "Français" });
+    const button = screen.getByRole("button", { name: "FR, Français" });
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent("FR");
   });
 
   it("targets English when the active locale is French", () => {
     renderWithProviders(<LanguageToggle />, { locale: "fr" });
-    const button = screen.getByRole("button", { name: "English" });
+    const button = screen.getByRole("button", { name: "EN, English" });
     expect(button).toHaveTextContent("EN");
   });
 
@@ -57,10 +57,10 @@ describe("LanguageToggle", () => {
       path: "/:locale/*",
     });
 
-    await user.click(screen.getByRole("button", { name: "Français" }));
+    await user.click(screen.getByRole("button", { name: "FR, Français" }));
 
     expect(
-      await screen.findByRole("button", { name: "English" }),
+      await screen.findByRole("button", { name: "EN, English" }),
     ).toBeInTheDocument();
   });
 
@@ -68,7 +68,7 @@ describe("LanguageToggle", () => {
     const user = userEvent.setup();
     renderWithLocationDisplay("/en/projects?ref=card");
 
-    await user.click(screen.getByRole("button", { name: "Français" }));
+    await user.click(screen.getByRole("button", { name: "FR, Français" }));
 
     expect(await screen.findByTestId("location")).toHaveTextContent(
       "/fr/projects?ref=card",
@@ -79,7 +79,7 @@ describe("LanguageToggle", () => {
     const user = userEvent.setup();
     renderWithLocationDisplay("/en/this-page-does-not-exist");
 
-    await user.click(screen.getByRole("button", { name: "Français" }));
+    await user.click(screen.getByRole("button", { name: "FR, Français" }));
 
     expect(await screen.findByTestId("location")).toHaveTextContent(
       "/fr/this-page-does-not-exist",

@@ -2,7 +2,7 @@
 
 # Nicholas Xydis | Portfolio
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Bilingual+Developer+Portfolio;TypeScript+%7C+React+%7C+Vite;English+%2F+French+%7C+SEO+%7C+Motion;217+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Bilingual+Developer+Portfolio;TypeScript+%7C+React+%7C+Vite;English+%2F+French+%7C+SEO+%7C+Motion;252+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages)](https://git.io/typing-svg)
 
 A bilingual personal portfolio built to showcase my work, case studies, and engineering practices.
 
@@ -24,7 +24,7 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
 
 <p align="center">
   <strong>English + French</strong> &nbsp;|&nbsp;
-  <strong>217 automated tests</strong> &nbsp;|&nbsp;
+  <strong>252 automated tests</strong> &nbsp;|&nbsp;
   <strong>Lighthouse 90+</strong>
 </p>
 
@@ -53,14 +53,14 @@ A bilingual personal portfolio built to showcase my work, case studies, and engi
 Portfolio/
 ├─ src/
 │  ├─ components/     Shared UI primitives (Seo, ErrorBoundary, icons, motion helpers)
-│  ├─ content/         Zod schemas + JSON content (projects, experience, education, stack)
+│  ├─ content/         Zod schemas + JSON content (projects, experience, education, activities, certifications, skills)
 │  ├─ features/        Page sections (project-list, experience-list, education-list, contact, tech-stack)
 │  ├─ hooks/           useLocale, useScrollRestoration, usePageViews, and other shared hooks
 │  ├─ lib/             i18n, SEO metadata, analytics, dates, and other utilities
 │  ├─ locales/         English and French translation dictionaries
 │  ├─ routes/          HomePage, ProjectDetailPage, NotFoundPage, LocaleLayout
 │  └─ test/            Shared test render helpers
-├─ e2e/                Playwright navigation, accessibility, responsive, and SEO specs
+├─ e2e/                Playwright navigation, accessibility, responsive, scroll, and SEO specs
 ├─ scripts/            Content validation and sitemap generation scripts
 └─ .github/workflows/  CI, security, and production deploy workflows
 ```
@@ -96,9 +96,9 @@ Portfolio/
 
 | Suite                  |   Count | Tools                                           |
 | ---------------------- | ------: | ----------------------------------------------- |
-| Unit / component tests |     123 | Vitest, Testing Library                         |
-| End-to-end checks      |      94 | Playwright, axe-core, desktop + mobile Chromium |
-| **Total**              | **217** | CI-enforced                                     |
+| Unit / component tests |     142 | Vitest, Testing Library                         |
+| End-to-end checks      |     110 | Playwright, axe-core, desktop + mobile Chromium |
+| **Total**              | **252** | CI-enforced                                     |
 
 End-to-end coverage includes automated accessibility scans against WCAG 2.1 A/AA on every public route, the 404 page, and both locales.
 

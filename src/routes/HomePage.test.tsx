@@ -10,18 +10,19 @@ describe("HomePage", () => {
       screen.getByRole("heading", { level: 1, name: "Nicholas Xydis" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: "Experiences" }),
+      screen.getByRole("heading", { name: "Experience" }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "Projects" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", {
-        name: "Extra\u00adcurriculars",
-      }),
+      screen.getByRole("heading", { name: "Activities" }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "Certifications" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Technical Skills" }),
     ).toBeInTheDocument();
   });
 

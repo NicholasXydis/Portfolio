@@ -63,10 +63,10 @@ describe("App routing", () => {
   it("navigates to a project detail page when a card is clicked", async () => {
     const user = userEvent.setup();
     renderApp("/en");
-    const links = await screen.findAllByRole("link", {
-      name: /case study/i,
+    const link = await screen.findByRole("link", {
+      name: /BankLite case study/i,
     });
-    await user.click(links[0]!);
+    await user.click(link);
     expect(
       await screen.findByRole("heading", { level: 1, name: /BankLite/i }),
     ).toBeInTheDocument();
