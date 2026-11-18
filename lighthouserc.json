@@ -6,12 +6,13 @@
       "startServerReadyTimeout": 60000,
       "url": [
         "http://localhost:4173/en",
-        "http://localhost:4173/fr",
-        "http://localhost:4173/en/projects/banklite"
+        "http://localhost:4173/en/lite",
+        "http://localhost:4173/fr/lite"
       ],
-      "numberOfRuns": 3,
+      "numberOfRuns": 2,
       "settings": {
-        "preset": "desktop"
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate"
       }
     },
     "assert": {
@@ -23,7 +24,8 @@
       }
     },
     "upload": {
-      "target": "temporary-public-storage"
+      "target": "filesystem",
+      "outputDir": ".lighthouseci/reports"
     }
   }
 }

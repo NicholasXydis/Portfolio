@@ -1,0 +1,7 @@
+{
+  "name": "portfolio-deploy",
+  "private": true,
+  "dependencies": {
+    "wrangler": "4.42.0"
+  }
+}

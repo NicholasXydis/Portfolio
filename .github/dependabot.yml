@@ -1,7 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directories:
+      - "/"
+      - "/.github/deploy"
     schedule:
       interval: monthly
       time: "09:00"
