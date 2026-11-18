@@ -55,14 +55,6 @@ export function GlobeIcon(props: IconProps) {
   );
 }
 
-export function CaseStudyIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 12h8v1.8H8V12zm0 3.4h8v1.8H8v-1.8zm0-6.8h3v1.8H8V8.6z" />
-    </Icon>
-  );
-}
-
 export function CheckIcon(props: IconProps) {
   return (
     <Icon {...props}>
@@ -75,22 +67,6 @@ export function ChevronDownIcon(props: IconProps) {
   return (
     <Icon {...props}>
       <path d="M6.7 8.3a1 1 0 0 0-1.4 1.4l6 6a1 1 0 0 0 1.4 0l6-6a1 1 0 0 0-1.4-1.4L12 13.6 6.7 8.3z" />
-    </Icon>
-  );
-}
-
-export function ArrowLeftIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M11.3 4.3 4.6 11a1 1 0 0 0 0 1.4l6.7 6.7 1.4-1.4L7.4 13H20v-2H7.4l5.3-5.3-1.4-1.4z" />
-    </Icon>
-  );
-}
-
-export function ArrowUpIcon(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M12 3.6 5.3 10.3l1.4 1.4L11 7.4V20h2V7.4l4.3 4.3 1.4-1.4L12 3.6z" />
     </Icon>
   );
 }

@@ -1,14 +1,4 @@
-import {
-  EducationsFileSchema,
-  ExperiencesFileSchema,
-  ProjectsFileSchema,
-  StackFileSchema,
-  type Education,
-  type Experience,
-  type Project,
-  type StackGroup,
-} from "./schemas";
-import { parseOrThrow } from "@/lib/parseContent";
+import type { Education, Experience, Project, StackGroup } from "./schemas";
 import projectsData from "./projects.json";
 import experiencesData from "./experiences.json";
 import certificationsData from "./certifications.json";
@@ -16,44 +6,9 @@ import educationsData from "./educations.json";
 import extracurricularsData from "./extracurriculars.json";
 import stackData from "./stack.json";
 
-export const projects: Project[] = parseOrThrow(
-  ProjectsFileSchema,
-  projectsData,
-  "projects",
-);
-
-export const experiences: Experience[] = parseOrThrow(
-  ExperiencesFileSchema,
-  experiencesData,
-  "experiences",
-);
-
-export const educations: Education[] = parseOrThrow(
-  EducationsFileSchema,
-  educationsData,
-  "educations",
-);
-
-export const extracurriculars: Experience[] = parseOrThrow(
-  ExperiencesFileSchema,
-  extracurricularsData,
-  "extracurriculars",
-);
-
-export const certifications: Experience[] = parseOrThrow(
-  ExperiencesFileSchema,
-  certificationsData,
-  "certifications",
-);
-
-export const stack: StackGroup[] = parseOrThrow(
-  StackFileSchema,
-  stackData,
-  "stack",
-);
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug);
-}
-
-export * from "./schemas";
+export const projects: Project[] = projectsData;
+export const experiences: Experience[] = experiencesData;
+export const educations: Education[] = educationsData;
+export const extracurriculars: Experience[] = extracurricularsData;
+export const certifications: Experience[] = certificationsData;
+export const stack: StackGroup[] = stackData;

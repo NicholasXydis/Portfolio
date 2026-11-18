@@ -7,8 +7,10 @@ describe("formatMonthYear", () => {
   });
 
   it("localizes the month to French", () => {
-    expect(formatMonthYear("2025-02-01", "fr")).toMatch(/2025/);
-    expect(formatMonthYear("2025-02-01", "fr").toLowerCase()).toContain("f");
+    expect(formatMonthYear("2025-02-01", "fr")).toBe("févr. 2025");
+    expect(formatMonthYear("2026-07-01", "fr")).toBe("juill. 2026");
+    expect(formatMonthYear("2026-05-01", "fr")).toBe("mai 2026");
+    expect(formatMonthYear("2029-12-01", "fr")).toBe("déc. 2029");
   });
 });
 

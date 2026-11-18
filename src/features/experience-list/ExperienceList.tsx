@@ -5,13 +5,7 @@ import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
 import { formatDateRange } from "@/lib/dates";
 import { pickLocalized, pickUrl } from "@/lib/localized";
-import {
-  buttonHover,
-  duration,
-  ease,
-  staggerContainer,
-  staggerItem,
-} from "@/lib/motion";
+import { buttonHover, staggerContainer, staggerItem } from "@/lib/motion";
 import {
   CollapsibleBullets,
   EntryLogo,
@@ -41,7 +35,7 @@ function ExperienceCard({
   const companyName = experience.companyUrl ? (
     <ExternalLink
       href={pickUrl(experience.companyUrl, locale)}
-      className="hover:underline"
+      className="koi-textlink hover:underline"
     >
       {company}
     </ExternalLink>
@@ -53,13 +47,8 @@ function ExperienceCard({
     <motion.li
       ref={card.ref}
       {...card.handlers}
-      className="relative rounded-lg border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+      className="relative rounded-lg border border-koi-line bg-koi-surface p-5 transition-colors duration-[var(--koi-dur)] hover:border-koi-line-strong hover:bg-koi-surface-2"
       variants={staggerItem}
-      whileHover={{
-        boxShadow:
-          "0 24px 60px -30px rgba(0,0,0,0.95), 0 0 40px -14px rgba(255,255,255,0.1)",
-        transition: { duration: duration.base, ease },
-      }}
     >
       {card.glow}
       <div className="flex items-start gap-3">
@@ -68,10 +57,10 @@ function ExperienceCard({
           <h3 className="font-semibold">
             {experience.companyFirst ? companyName : role}
           </h3>
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-koi-ink-dim">
             {experience.companyFirst ? role : companyName}
           </p>
-          <p className="mt-1 font-mono text-xs text-white/50">
+          <p className="mt-1 font-mono text-xs text-koi-ink-faint">
             {formatDateRange(
               experience.startDate,
               experience.endDate,
@@ -88,7 +77,7 @@ function ExperienceCard({
         {experience.description && (
           <CollapsibleBullets
             text={pickLocalized(experience.description, locale)}
-            className="mt-3 space-y-2 text-sm text-white/80"
+            className="mt-3 space-y-2 text-sm text-koi-ink-dim"
           />
         )}
         {showActions && (experience.companyUrl || experience.repo) && (
@@ -129,7 +118,7 @@ export function ExperienceList({
   const { t } = useTranslation();
 
   if (experiences.length === 0) {
-    return <p className="text-white/60">{t("experience.empty")}</p>;
+    return <p className="text-koi-ink-faint">{t("experience.empty")}</p>;
   }
 
   return (

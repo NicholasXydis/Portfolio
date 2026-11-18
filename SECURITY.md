@@ -4,8 +4,8 @@
 
 | Version | Supported |
 | ------- | --------- |
-| 1.0.x   | Yes       |
-| < 1.0   | No        |
+| 2.0.x   | Yes       |
+| < 2.0   | No        |
 
 ## Reporting a Vulnerability
 
@@ -28,6 +28,7 @@ In scope:
 - security header or Content Security Policy misconfiguration
 - dependency or supply-chain vulnerabilities affecting the build
 - leaked secrets or credentials in the repository or build output
+- the 3D viewer and the world files it loads
 - deployment or Cloudflare Pages misconfiguration affecting this site
 
 Out of scope:

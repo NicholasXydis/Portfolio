@@ -12,18 +12,6 @@ const LocalizedUrlSchema = z.union([
   z.object({ en: z.string().url(), fr: z.string().url() }),
 ]);
 
-const ImageSchema = z.object({
-  src: z.string().min(1),
-  alt: LocalizedTextSchema,
-  width: z.number().int().positive().optional(),
-  height: z.number().int().positive().optional(),
-});
-
-const LinkSchema = z.object({
-  label: LocalizedTextSchema,
-  href: z.string().url(),
-});
-
 const isoDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format");
@@ -37,17 +25,15 @@ export const ProjectSchema = z.object({
   subtitleUrl: LocalizedUrlSchema.optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.nullable().optional(),
-  lastUpdated: isoDate,
+  lastUpdated: isoDate.optional(),
   tags: z.array(z.string().min(1)).min(1),
-  summary: LocalizedTextSchema,
+  summary: LocalizedTextSchema.optional(),
   body: LocalizedTextSchema,
-  caseStudy: LocalizedTextSchema.optional(),
   website: LocalizedUrlSchema.optional(),
   repo: z.string().url().optional(),
   icon: z.string().optional(),
-  links: z.array(LinkSchema).default([]),
-  images: z.array(ImageSchema).default([]),
-  featured: z.boolean().default(false),
+  image: z.string().optional(),
+  featured: z.boolean().optional(),
 });
 
 export const ExperienceSchema = z.object({

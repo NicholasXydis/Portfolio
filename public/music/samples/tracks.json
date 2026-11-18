@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sakuya3",
+    "file": "/music/samples/06-sakuya3.mp3",
+    "title": "Sakuya3",
+    "artist": "PeriTune",
+    "license": "PeriTune terms: free, credit optional (released under CC BY 4.0, credit waived by the artist)",
+    "licenseUrl": "https://peritune.com/about/",
+    "sourceUrl": "https://peritune.com/blog/2016/10/18/sakuya3/",
+    "credit": null,
+    "seconds": 200.9,
+    "lufs": -9.1,
+    "style": "koto, shakuhachi, gentle ensemble",
+    "description": "Like Ripples but with a shakuhachi flute, violin and piano joining the koto in a slow (85 bpm) \"elegant, relaxed\" Japanese piece with no drums, though a steady eighth-note koto/piano pattern runs through it, it is mastered much louder (-9 LUFS, so it must be turned down) and it has one quieter middle section; no credit needed.",
+    "loopNote": "Starts at full level with no fade-in; fades out over about 4 s, then 2.2 s of silence. The page offers an official loop version (zip) that should loop without a seam; otherwise trim the silence and crossfade 3 s.",
+    "needsCredit": false
+  }
+]

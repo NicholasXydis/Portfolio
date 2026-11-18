@@ -5,10 +5,28 @@ const INTL_LOCALE: Record<Locale, string> = {
   fr: "fr-CA",
 };
 
+const FR_MONTHS = [
+  "janv.",
+  "févr.",
+  "mars",
+  "avr.",
+  "mai",
+  "juin",
+  "juill.",
+  "août",
+  "sept.",
+  "oct.",
+  "nov.",
+  "déc.",
+] as const;
+
 export function formatMonthYear(isoDate: string, locale: Locale): string {
   const date = new Date(`${isoDate}T00:00:00`);
+  if (locale === "fr") {
+    return `${FR_MONTHS[date.getMonth()]} ${date.getFullYear()}`;
+  }
   return new Intl.DateTimeFormat(INTL_LOCALE[locale], {
-    month: locale === "fr" ? "long" : "short",
+    month: "short",
     year: "numeric",
   }).format(date);
 }

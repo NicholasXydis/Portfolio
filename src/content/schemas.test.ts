@@ -5,6 +5,7 @@ import {
   EducationSchema,
   StackGroupSchema,
 } from "./schemas";
+import { parseAllContent } from "./validate";
 
 const validProject = {
   slug: "example-project",
@@ -18,11 +19,8 @@ const validProject = {
 };
 
 describe("ProjectSchema", () => {
-  it("parses a valid project and applies defaults", () => {
-    const result = ProjectSchema.parse(validProject);
-    expect(result.links).toEqual([]);
-    expect(result.images).toEqual([]);
-    expect(result.featured).toBe(false);
+  it("parses a valid project", () => {
+    expect(ProjectSchema.safeParse(validProject).success).toBe(true);
   });
 
   it("rejects a non-kebab-case slug", () => {
@@ -54,14 +52,6 @@ describe("ProjectSchema", () => {
     expect(result.success).toBe(false);
   });
 
-  it("rejects a non-url link", () => {
-    const result = ProjectSchema.safeParse({
-      ...validProject,
-      links: [{ label: { en: "x", fr: "x" }, href: "not-a-url" }],
-    });
-    expect(result.success).toBe(false);
-  });
-
   it("rejects a non-url website", () => {
     const result = ProjectSchema.safeParse({
       ...validProject,
@@ -74,42 +64,6 @@ describe("ProjectSchema", () => {
     const result = ProjectSchema.safeParse({
       ...validProject,
       repo: "not-a-url",
-    });
-    expect(result.success).toBe(false);
-  });
-
-  it("rejects an image missing an alt locale variant", () => {
-    const result = ProjectSchema.safeParse({
-      ...validProject,
-      images: [{ src: "/x.jpg", alt: { en: "Only English" } }],
-    });
-    expect(result.success).toBe(false);
-  });
-
-  it("rejects an image with a zero or negative width", () => {
-    const result = ProjectSchema.safeParse({
-      ...validProject,
-      images: [
-        {
-          src: "/x.jpg",
-          alt: { en: "x", fr: "x" },
-          width: 0,
-        },
-      ],
-    });
-    expect(result.success).toBe(false);
-  });
-
-  it("rejects an image with a non-integer height", () => {
-    const result = ProjectSchema.safeParse({
-      ...validProject,
-      images: [
-        {
-          src: "/x.jpg",
-          alt: { en: "x", fr: "x" },
-          height: 100.5,
-        },
-      ],
     });
     expect(result.success).toBe(false);
   });
@@ -222,5 +176,11 @@ describe("StackGroupSchema", () => {
       items: ["TypeScript"],
     });
     expect(result.success).toBe(false);
+  });
+});
+
+describe("the content files", () => {
+  it("all pass their schemas", () => {
+    expect(() => parseAllContent()).not.toThrow();
   });
 });

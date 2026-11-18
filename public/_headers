@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data:; font-src 'self' data:; script-src 'self' https://us-assets.i.posthog.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://cloudflareinsights.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data:; font-src 'self' data:; script-src 'self' 'wasm-unsafe-eval' __INLINE_SCRIPT_HASHES__ https://us-assets.i.posthog.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://cloudflareinsights.com; worker-src 'self' blob:; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=()
@@ -24,17 +24,72 @@
 
 /cv-en.html
   Cache-Control: public, max-age=0, must-revalidate, no-transform
+  X-Robots-Tag: noindex
 
 /cv-fr.html
   Cache-Control: public, max-age=0, must-revalidate, no-transform
+  X-Robots-Tag: noindex
+
+/cv-en.pdf
+  X-Robots-Tag: noindex
+
+/cv-fr.pdf
+  X-Robots-Tag: noindex
+
+/404
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+  X-Robots-Tag: noindex
+
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+  X-Robots-Tag: noindex
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/worlds/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex
+
+/worlds/:version/koi/koi.glb
+  Content-Type: model/gltf-binary
+
+/worlds/:version/koi/koi.glb.gz
+  Content-Type: application/gzip
+
+/worlds/:version/koi/manifest.json
+  Content-Type: application/json; charset=utf-8
+
+/worlds/:version/draco/draco_decoder.wasm
+  Content-Type: application/wasm
+
+/worlds/:version/draco/draco_wasm_wrapper.js
+  Content-Type: text/javascript; charset=utf-8
+
+/music/*
+  Cache-Control: public, max-age=2592000
+  X-Robots-Tag: noindex
+
+/sounds/*
+  Cache-Control: public, max-age=2592000
+  X-Robots-Tag: noindex
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
 /portrait.*
   Cache-Control: public, max-age=2592000
 
-/og.png
+/og-koi.jpg
+  Cache-Control: public, max-age=604800
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+
+/projects/*
   Cache-Control: public, max-age=2592000
 
 /project-icons/*
@@ -42,3 +97,9 @@
 
 /tech-icons/*
   Cache-Control: public, max-age=2592000
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

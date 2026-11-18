@@ -2,8 +2,8 @@ import { Navigate, Route, Routes } from "react-router";
 import { DEFAULT_LOCALE } from "@/lib/i18n";
 import { localizedPath } from "@/lib/localized";
 import { LocaleLayout } from "@/routes/LocaleLayout";
-import { HomePage } from "@/routes/HomePage";
-import { ProjectDetailPage } from "@/routes/ProjectDetailPage";
+import { LandingPage } from "@/routes/LandingPage";
+import { LitePage } from "@/routes/LitePage";
 import { NotFoundPage } from "@/routes/NotFoundPage";
 
 export function App() {
@@ -13,10 +13,12 @@ export function App() {
         path="/"
         element={<Navigate to={localizedPath(DEFAULT_LOCALE)} replace />}
       />
-      <Route path="/:locale" element={<LocaleLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+      <Route path="/:locale">
+        <Route element={<LocaleLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="lite" element={<LitePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Route>
     </Routes>
   );

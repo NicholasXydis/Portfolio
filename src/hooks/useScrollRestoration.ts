@@ -1,11 +1,15 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router";
+import { SUPPORTED_LOCALES } from "@/lib/i18n";
+
+const LOCALE_PREFIX = new RegExp(`^/(${SUPPORTED_LOCALES.join("|")})(?=/|$)`);
 
 export function useScrollRestoration(): void {
   const location = useLocation();
   const navigationType = useNavigationType();
   const positions = useRef<Map<string, number>>(new Map());
   const currentKey = useRef(location.key);
+  const currentPlace = useRef<{ path: string; place: string } | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -19,18 +23,36 @@ export function useScrollRestoration(): void {
   }, []);
 
   useLayoutEffect(() => {
+    const previousKey = currentKey.current;
     currentKey.current = location.key;
+    const place = `${location.pathname.replace(LOCALE_PREFIX, "")}${location.search}${location.hash}`;
+    const previous = currentPlace.current;
+    currentPlace.current = { path: location.pathname, place };
+
+    if (
+      navigationType !== "POP" &&
+      previousKey !== location.key &&
+      previous?.path !== location.pathname &&
+      previous?.place === place
+    ) {
+      positions.current.set(location.key, window.scrollY);
+      return undefined;
+    }
 
     if (location.hash) {
-      const target = document.getElementById(location.hash.slice(1));
-      if (target)
-        target.scrollIntoView({ block: "start", behavior: "instant" });
-      window.history.replaceState(
-        window.history.state,
-        "",
-        window.location.pathname + window.location.search,
-      );
-      return;
+      const id = decodeURIComponent(location.hash.slice(1));
+      let tries = 0;
+      let frame = 0;
+      const land = () => {
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ block: "start", behavior: "instant" });
+          return;
+        }
+        if (tries++ < 60) frame = requestAnimationFrame(land);
+      };
+      land();
+      return () => cancelAnimationFrame(frame);
     }
 
     if (navigationType === "POP") {
@@ -38,9 +60,16 @@ export function useScrollRestoration(): void {
       requestAnimationFrame(() =>
         requestAnimationFrame(() => window.scrollTo(0, saved)),
       );
-      return;
+      return undefined;
     }
 
     window.scrollTo(0, 0);
-  }, [location.key, location.hash, navigationType]);
+    return undefined;
+  }, [
+    location.key,
+    location.pathname,
+    location.search,
+    location.hash,
+    navigationType,
+  ]);
 }

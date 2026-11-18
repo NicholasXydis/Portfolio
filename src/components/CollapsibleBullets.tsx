@@ -53,7 +53,7 @@ export function CollapsibleBullets({
           onClick={() => setExpanded((value) => !value)}
           aria-expanded={expanded}
           aria-controls={listId}
-          className="mt-3 inline-flex items-center gap-1 font-mono text-xs font-medium text-white/70 transition-colors hover:text-white"
+          className="mt-3 inline-flex items-center gap-1 font-mono text-xs font-medium text-koi-ink-faint transition-colors hover:text-koi-ink [@media(pointer:coarse)]:mt-0.5 [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:pr-3"
         >
           <motion.span
             animate={{ rotate: expanded ? 180 : 0 }}

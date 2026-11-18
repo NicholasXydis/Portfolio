@@ -1,13 +1,10 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
-import {
-  certifications,
-  experiences,
-  extracurriculars,
-  projects,
-  stack,
-} from "@/content";
+import { parseAllContent } from "@/content/validate";
 import { TECH_ICON_FILES } from "@/lib/techIcons";
+
+const { projects, experiences, extracurriculars, certifications, stack } =
+  parseAllContent();
 
 const projectCount = projects.length;
 const experienceCount = experiences.length;

@@ -12,7 +12,7 @@ function renderPoint(point: string) {
   const [, label, rest] = match;
   return (
     <>
-      <strong className="font-semibold text-white">{label}:</strong> {rest}
+      <strong className="font-semibold text-koi-ink">{label}:</strong> {rest}
     </>
   );
 }
@@ -26,7 +26,7 @@ export function BulletList({ text, className, id }: BulletListProps) {
         <li key={point} className="flex gap-2.5">
           <span
             aria-hidden="true"
-            className="mt-[0.5rem] h-1 w-1 shrink-0 rounded-full bg-white/40"
+            className="mt-[0.5rem] h-1 w-1 shrink-0 rounded-full bg-koi-ink-faint"
           />
           <span>{renderPoint(point)}</span>
         </li>

@@ -40,8 +40,36 @@ if (typeof window.matchMedia !== "function") {
   });
 }
 
+if (typeof window.PointerEvent === "undefined") {
+  class TestPointerEvent extends MouseEvent {
+    readonly pointerType: string;
+    readonly pointerId: number;
+    constructor(type: string, init: PointerEventInit = {}) {
+      super(type, init);
+      this.pointerType = init.pointerType ?? "";
+      this.pointerId = init.pointerId ?? 1;
+    }
+  }
+  window.PointerEvent = TestPointerEvent as unknown as typeof PointerEvent;
+}
+
+const nativeFrame = window.requestAnimationFrame.bind(window);
+const nativeCancelFrame = window.cancelAnimationFrame.bind(window);
+function frame(callback: FrameRequestCallback): number {
+  return window.requestAnimationFrame === frame
+    ? nativeFrame(callback)
+    : window.requestAnimationFrame(callback);
+}
+function cancelFrame(id: number): void {
+  if (window.cancelAnimationFrame === cancelFrame) nativeCancelFrame(id);
+  else window.cancelAnimationFrame(id);
+}
+window.requestAnimationFrame = frame;
+window.cancelAnimationFrame = cancelFrame;
+
 window.scrollTo = (() => {}) as typeof window.scrollTo;
 
 afterEach(() => {
   cleanup();
+  window.sessionStorage.clear();
 });

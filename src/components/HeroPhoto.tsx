@@ -8,10 +8,9 @@ export function HeroPhoto() {
 
   return (
     <motion.div
-      className="shrink-0 rounded-2xl bg-gradient-to-b from-white/12 via-white/10 to-white/35 p-px shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)]"
+      className="shrink-0 rounded-2xl bg-gradient-to-b from-koi-line via-koi-line to-koi-line-strong p-px shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)]"
       variants={photoReveal}
       whileHover={{ scale: 1.02, y: -2, transition: spring.soft }}
-      whileTap={{ scale: 0.99, transition: spring.snappy }}
     >
       <picture>
         <source srcSet="/portrait.webp" type="image/webp" />

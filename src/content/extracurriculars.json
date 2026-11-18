@@ -18,8 +18,8 @@
     "startDate": "2026-09-01",
     "endDate": null,
     "description": {
-      "en": "Architecting HeapStreet, a C++ quant platform pitting players against 12 AI rivals in 470+ algorithmic challenges.\nTrading in the Global Market Making Games, a competition of 1,400+ students from 49 societies in 16 countries.\nDiscussing quant research with 25+ members in weekly meetings, from market making to machine learning.",
-      "fr": "Crée HeapStreet, plateforme quant en C++ où les joueurs affrontent 12 rivaux IA dans 470+ défis algorithmiques.\nParticipe aux Global Market Making Games, compétition de 1 400+ étudiants de 49 associations dans 16 pays.\nÉchange chaque semaine avec 25+ membres sur la recherche quantitative, de la tenue de marché à l'IA."
+      "en": "Architecting HeapStreet, a C++ quant platform where players face 12 AI rivals in 470+ algorithmic challenges.\nQualified as a top-15 campus finalist in the Global Market Making Games, spanning 1,400+ students in 16 nations.\nPresenting quant research to 25+ members in weekly meetings, from market making to machine learning.",
+      "fr": "Crée HeapStreet, plateforme quant en C++ où les joueurs affrontent 12 rivaux IA dans 470+ défis algorithmiques.\nQualifié en finale de campus (top 15) des Global Market Making Games (1 400+ étudiants, 16 pays).\nPrésente chaque semaine de la recherche quantitative à 25+ membres, de la tenue de marché à l'IA."
     }
   },
   {
@@ -42,7 +42,7 @@
     "endDate": null,
     "description": {
       "en": "Modeled death risk for 10,000 insurance clients in Python and scikit-learn, finishing 5th of 56 teams in Round 1.\nTrained an interpretable logistic regression ensemble that beat gradient boosting in 95 of 100 cross-validation runs.",
-      "fr": "Modélisé le risque de décès de 10 000 assurés en Python et scikit-learn, terminant 5e sur 56 équipes au 1er tour.\nEntraîné un ensemble de régressions logistiques interprétable, meilleur que le gradient boosting 95 fois sur 100."
+      "fr": "Modélisé le risque de décès de 10 000 assurés en Python et scikit-learn, terminant 5e sur 56 équipes au 1er tour.\nEntraîné un ensemble interprétable de régressions logistiques, meilleur que le gradient boosting 95 fois sur 100."
     }
   }
 ]

@@ -1,1 +1,7 @@
-/*    /index.html   200
+/en/projects/:slug/  /en/lite#project-:slug  301
+/en/projects/:slug   /en/lite#project-:slug  301
+/fr/projects/:slug/  /fr/lite#project-:slug  301
+/fr/projects/:slug   /fr/lite#project-:slug  301
+
+/  /en  301
+/og.png  /og-koi.jpg  301

@@ -1,46 +1,62 @@
 {
-  "meta": {
-    "home.title": "Nicholas Xydis | Software Developer",
-    "home.description": "Bilingual portfolio of Nicholas Xydis | Student @ Concordia & Software Developer",
-    "projects.title": "Projects",
-    "projects.description": "Selected software projects by Nicholas Xydis, from production banking systems to bilingual web platforms.",
-    "notFound.title": "Page not found",
-    "notFound.description": "This page does not exist. Return to the portfolio home or browse the projects."
-  },
   "nav": {
-    "home": "Home",
-    "experience": "Experience",
-    "contact": "Contact",
-    "backToTop": "Back to top",
     "skipToContent": "Skip to content"
   },
   "language": {
-    "toggle": "Language",
     "en": "English",
     "fr": "Français"
   },
-  "footer": {
-    "rights": "All rights reserved"
+  "lite": {
+    "activitiesTitle": "Activities & Certifications",
+    "openWorld": "Open the 3D world",
+    "nav.label": "Sections",
+    "nav.about": "About",
+    "nav.experience": "Experience",
+    "nav.projects": "Projects",
+    "nav.education": "Education",
+    "nav.activities": "Activities",
+    "nav.skills": "Skills"
+  },
+  "koi": {
+    "brand": "Koi",
+    "by": "by Nicholas",
+    "musicPlay": "Play the music",
+    "musicMute": "Mute the music",
+    "language": "Language",
+    "loading": "Loading",
+    "here": "You are here",
+    "close": "Close",
+    "toWorld": "Enter the world",
+    "flat2d": "View the 2D version",
+    "filling": "Filling the pond…",
+    "pondReady": "The pond is ready.",
+    "stepInside": "Step inside. The tea master is waiting.",
+    "flatShort": "2D version",
+    "night": "Night",
+    "toNight": "Light the lanterns",
+    "toDay": "Bring back the daylight",
+    "radio": "Koi radio",
+    "credit": "{{name}}' portfolio © {{year}}",
+    "creditShort": "© {{year}} {{name}}"
   },
   "home": {
     "about": "About",
     "aboutBody": "I'm a student at Concordia University passionate about Software Engineering, Artificial Intelligence, and Quantitative Finance. I enjoy solving complex problems and challenging myself through hands-on projects, primarily in Python.\n\nSeeking internship opportunities in Software Engineering, Quantitative Development, or AI/ML.",
-    "location": "Montreal, Quebec, Canada",
-    "viewOnMap": "View Montreal, Quebec, Canada on Google Maps",
+    "location": "Montreal, Canada",
+    "viewOnMap": "View Montreal, Canada on Google Maps",
     "resume": "CV",
     "experiences": "Experience",
     "education": "Education",
     "projects": "Projects",
     "activities": "Activities",
     "certifications": "Certifications",
-    "stack": "Technical Skills"
+    "stack": "Skills"
   },
   "projects": {
     "empty": "No projects to show yet.",
-    "viewCaseStudy": "Case Study",
+    "openPicture": "Open the picture of {{name}}",
     "viewWebsite": "Website",
     "viewRepo": "GitHub",
-    "visitLink": "Visit",
     "present": "Present",
     "showMore": "Show {{count}} more",
     "showLess": "Show less"
@@ -62,6 +78,63 @@
     "code": "Error 404",
     "title": "Page not found",
     "description": "The page you are looking for does not exist.",
-    "backHome": "Back to home"
+    "toWorld": "Open the 3D world",
+    "toLite": "View the 2D version"
+  },
+  "world": {
+    "role": "CS @ Concordia & Software Developer",
+    "highlights": "Highlights",
+    "studyField": "Computer Science",
+    "noteFinalist": "Top 10 Internationally",
+    "hackathonName": "McGill-FIAM Asset Management Hackathon",
+    "noteInstalls": "500+ PyPI Installs",
+    "brandLabel": "Koi, back to the island",
+    "progressLabel": "Loading the world",
+    "hostQuestion": "Welcome. What brings you in?",
+    "justLooking": "Just looking around",
+    "tagAbout": "A short hello",
+    "tagExperience": "Where I have worked",
+    "tagProjects": "Things I have built",
+    "tagEducation": "What I study",
+    "placeAbout": "The tea counter",
+    "placeExperience": "The chess table",
+    "placeProjects": "The moon cinema",
+    "placeEducation": "The scholar's corner",
+    "askHost": "Ask the tea master",
+    "toolbar": "World tools",
+    "close": "Back to the island",
+    "scrollable": "Scrollable content",
+    "resize": "Resize the panel",
+    "marker": "{{name}}, at {{place}}",
+    "skills": "Skills",
+    "panelTabs": "Projects or skills",
+    "askHostShort": "Tea master",
+    "seen": "seen",
+    "moon": {
+      "new": "new moon",
+      "waxingCrescent": "waxing crescent",
+      "firstQuarter": "first quarter",
+      "waxingGibbous": "waxing gibbous",
+      "full": "full moon",
+      "waningGibbous": "waning gibbous",
+      "lastQuarter": "last quarter",
+      "waningCrescent": "waning crescent"
+    },
+    "moonShort": {
+      "new": "new moon",
+      "waxingCrescent": "crescent",
+      "firstQuarter": "first quarter",
+      "waxingGibbous": "gibbous",
+      "full": "full moon",
+      "waningGibbous": "gibbous",
+      "lastQuarter": "last quarter",
+      "waningCrescent": "crescent"
+    },
+    "lostTitle": "The 3D view has stopped.",
+    "lostLine": "Your device paused the graphics. Reload to bring the island back, or read everything in the 2D version.",
+    "lostReload": "Reload",
+    "noGraphics": "This device can’t show the 3D world, so here is the same content in 2D.",
+    "loadFailed": "The 3D world could not load right now, so here is the same content in 2D.",
+    "tryAgain": "Try again"
   }
 }

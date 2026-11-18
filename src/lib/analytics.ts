@@ -18,8 +18,26 @@ function withClient(fn: (ph: PostHog) => void): void {
 export function initAnalytics(): void {
   if (initialized || !KEY || typeof window === "undefined") return;
   initialized = true;
-  void import("posthog-js").then(({ default: posthog }) => {
-    posthog.init(KEY, {
+  const key = KEY;
+  whenSettled(() => void load(key));
+}
+
+function whenSettled(run: () => void): void {
+  const idle = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(run, { timeout: 4000 });
+    } else {
+      setTimeout(run, 1000);
+    }
+  };
+  const later = () => setTimeout(idle, 1500);
+  if (document.readyState === "complete") later();
+  else window.addEventListener("load", later, { once: true });
+}
+
+function load(key: string): Promise<void> {
+  return import("posthog-js").then(({ default: posthog }) => {
+    posthog.init(key, {
       api_host: HOST,
       persistence: "memory",
       person_profiles: "identified_only",
@@ -52,10 +70,7 @@ export const track = {
   contact: (channel: "email" | "github" | "linkedin") =>
     captureEvent("contact_click", { channel }),
   resumeDownload: () => captureEvent("resume_download"),
-  projectLink: (
-    project: string,
-    target: "website" | "repo" | "case_study",
-    source: "card" | "detail",
-  ) => captureEvent("project_link_click", { project, target, source }),
+  projectLink: (project: string, target: "website" | "repo", source: "card") =>
+    captureEvent("project_link_click", { project, target, source }),
   languageSwitch: (to: "en" | "fr") => captureEvent("language_switch", { to }),
 };

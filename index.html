@@ -2,46 +2,93 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#0a0b0d" />
+    <script>
+      var t = "dark";
+      try {
+        if (sessionStorage.getItem("koi-theme") === "light") t = "light";
+      } catch (e) {}
+      document.documentElement.classList.add(t);
+      if (t === "light")
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", "#f6f3ec");
+    </script>
+    <script>
+      try {
+        if (
+          /^\/(en|fr)\/?$/.test(location.pathname) &&
+          !/[?&]soft=1(&|$)/.test(location.search)
+        ) {
+          var o = { failIfMajorPerformanceCaveat: true },
+            c = document.createElement("canvas"),
+            g = c.getContext("webgl2", o) || c.getContext("webgl", o);
+          if (!g) throw 0;
+          var i = g.getExtension("WEBGL_debug_renderer_info"),
+            r = String(
+              g.getParameter(i ? i.UNMASKED_RENDERER_WEBGL : g.RENDERER),
+            ),
+            l = g.getExtension("WEBGL_lose_context");
+          l && l.loseContext();
+          if (/SwiftShader|llvmpipe|softpipe|Software/i.test(r)) throw 0;
+          var w = document.getElementById("koi-world-preload");
+          if (w) {
+            var p = JSON.parse(w.textContent),
+              h = document.head,
+              add = function (rel, href, as) {
+                if (typeof href !== "string" || !/^\/[\w.\-\/]+$/.test(href))
+                  return;
+                var k = document.createElement("link");
+                k.rel = rel;
+                if (as) k.as = as;
+                k.crossOrigin = "anonymous";
+                k.href = href;
+                h.appendChild(k);
+              };
+            p.module.forEach(function (u) {
+              add("modulepreload", u);
+            });
+            if (
+              !/AppleWebKit/.test(navigator.userAgent) ||
+              /Chrome\//.test(navigator.userAgent)
+            )
+              p.fetch
+                .concat(
+                  typeof DecompressionStream === "function"
+                    ? p.glb.gz
+                    : p.glb.plain,
+                  document.documentElement.classList.contains("light")
+                    ? p.light
+                    : [],
+                )
+                .forEach(function (u) {
+                  add("preload", u, "fetch");
+                });
+          }
+        }
+      } catch (e) {
+        window.__koiNoGL = true;
+        document.documentElement.classList.add("koi-nogl");
+        var f = document.createElement("link");
+        f.rel = "preload";
+        f.as = "image";
+        f.type = "image/webp";
+        f.href = "/portrait.webp";
+        f.setAttribute("fetchpriority", "high");
+        document.head.appendChild(f);
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="preload"
-      as="image"
-      href="/portrait.webp"
-      type="image/webp"
-      fetchpriority="high"
-    />
-    <link rel="preconnect" href="https://us.i.posthog.com" />
-    <link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin />
-
-    <title>Nicholas Xydis | Software Developer</title>
+    <!-- prerender:head -->
+    <title>Nicholas Xydis | CS @ Concordia & Software Developer (3D)</title>
     <meta
       name="description"
-      content="Bilingual portfolio of Nicholas Xydis | Student @ Concordia & Software Developer"
+      content="The 3D portfolio of Nicholas Xydis, set in a quiet tea house on a moonlit koi pond."
     />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Nicholas Xydis" />
-    <meta property="og:title" content="Nicholas Xydis | Software Developer" />
-    <meta
-      property="og:description"
-      content="Bilingual portfolio of Nicholas Xydis | Student @ Concordia & Software Developer"
-    />
-    <meta property="og:url" content="https://nicholasxydis.ca/" />
-    <meta property="og:image" content="https://nicholasxydis.ca/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Nicholas Xydis" />
-    <meta property="og:locale" content="en_CA" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nicholas Xydis | Software Developer" />
-    <meta
-      name="twitter:description"
-      content="Bilingual portfolio of Nicholas Xydis | Student @ Concordia & Software Developer"
-    />
-    <meta name="twitter:image" content="https://nicholasxydis.ca/og.png" />
+    <!-- /prerender:head -->
   </head>
   <body class="bg-black text-white">
     <div id="root"></div>
