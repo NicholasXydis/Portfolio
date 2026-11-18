@@ -3,11 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "vite",
     "validate:content": "vite-node scripts/validateContent.ts",
-    "build": "npm run validate:content && tsc -b && vite build && npm run generate:sitemap",
+    "build": "npm run validate:content && tsc -b && vite build && npm run generate:sitemap && npm run prerender",
     "generate:sitemap": "vite-node scripts/generateSitemap.ts",
+    "prerender": "vite-node scripts/prerender.ts",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -26,8 +30,7 @@
     "react-dom": "^19.3.1",
     "react-i18next": "^17.1.9",
     "react-router": "^8.5.1",
-    "simplex-noise": "^4.0.3",
-    "zod": "^4.6.7"
+    "three": "^0.187.0"
   },
   "overrides": {
     "brace-expansion": "^5.0.12",
@@ -58,7 +61,8 @@
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.72.1",
     "vite": "^7.3.7",
-    "vite-node": "^6.0.0",
-    "vitest": "^4.1.12"
+    "vite-node": "^5.3.0",
+    "vitest": "^4.1.12",
+    "zod": "^4.6.7"
   }
 }
