@@ -1,33 +1,58 @@
+import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { projects } from "@/content";
-import { SUPPORTED_LOCALES } from "@/lib/i18n";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/lib/i18n";
 import { normalizeSiteUrl } from "@/lib/site";
 import { localizedPath } from "@/lib/localized";
 
 const baseUrl = normalizeSiteUrl(process.env.VITE_SITE_URL);
 const outDir = resolve(process.cwd(), "dist");
+const CONTENT_SOURCES = ["src/content", "src/locales"];
 
 interface PageEntry {
   path: string;
   lastmod: string;
 }
 
-const today = new Date().toISOString().slice(0, 10);
+function git(args: string[]): string | null {
+  try {
+    return execFileSync("git", args, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return null;
+  }
+}
+
+function contentLastmod(paths: string[], fallback: string): string {
+  const pending = git(["status", "--porcelain", "--", ...paths]);
+  if (pending === null || pending.length > 0) return fallback;
+  const committed = git(["log", "-1", "--format=%cs", "--", ...paths]);
+  return committed && /^\d{4}-\d{2}-\d{2}$/.test(committed)
+    ? committed
+    : fallback;
+}
+
+const now = new Date();
+const today = [now.getFullYear(), now.getMonth() + 1, now.getDate()]
+  .map((part) => String(part).padStart(2, "0"))
+  .join("-");
+const lastmod = contentLastmod(CONTENT_SOURCES, today);
 
 const pages: PageEntry[] = [
-  { path: "", lastmod: today },
-  ...projects.map((project) => ({
-    path: `projects/${project.slug}`,
-    lastmod: project.lastUpdated,
-  })),
+  { path: "", lastmod },
+  { path: "lite", lastmod },
 ];
 
 function alternates(path: string): string {
-  return SUPPORTED_LOCALES.map(
-    (locale) =>
-      `    <xhtml:link rel="alternate" hreflang="${locale}" href="${baseUrl}${localizedPath(locale, path)}" />`,
-  ).join("\n");
+  return [
+    ...SUPPORTED_LOCALES.map(
+      (locale) =>
+        `    <xhtml:link rel="alternate" hreflang="${locale}" href="${baseUrl}${localizedPath(locale, path)}" />`,
+    ),
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${localizedPath(DEFAULT_LOCALE, path)}" />`,
+  ].join("\n");
 }
 
 const urls = pages
@@ -61,5 +86,5 @@ writeFileSync(resolve(outDir, "sitemap.xml"), sitemap, "utf8");
 writeFileSync(resolve(outDir, "robots.txt"), robots, "utf8");
 
 console.log(
-  `Generated sitemap.xml (${pages.length * SUPPORTED_LOCALES.length} urls) and robots.txt for ${baseUrl}`,
+  `Generated sitemap.xml (${pages.length * SUPPORTED_LOCALES.length} urls, lastmod ${lastmod}) and robots.txt for ${baseUrl}`,
 );
