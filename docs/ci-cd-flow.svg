@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="270" viewBox="0 0 1000 270" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio CI/CD flow</title>
+  <desc id="desc">A push to main runs CI and Security. CI builds once and tests that build. When both pass, the same build deploys to Cloudflare Pages. A failed check blocks the release.</desc>
+  <defs>
+    <marker id="a" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L11 5.5L0 11Z" fill="#f4e8cc"/></marker>
+    <marker id="f" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L11 5.5L0 11Z" fill="#c8504a"/></marker>
+  </defs>
+  <rect width="1000" height="270" rx="18" fill="#0a0b0d"/>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" text-anchor="middle" fill="#f2ede1">
+    <rect x="30" y="96" width="130" height="58" rx="29" fill="#111316" stroke="#f2ede1" stroke-opacity="0.34" stroke-width="1.5"/>
+    <text x="95" y="130">Push to main</text>
+
+    <path d="M160 125H200" stroke="#f4e8cc" stroke-width="2.5" marker-end="url(#a)"/>
+    <path d="M180 125V60H200" stroke="#f4e8cc" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+
+    <rect x="210" y="34" width="190" height="56" rx="14" fill="#111316" stroke="#f2ede1" stroke-opacity="0.34" stroke-width="1.5"/>
+    <text x="305" y="58">Security</text>
+    <text x="305" y="78" font-size="12" font-weight="400" fill="#bdb8ab">CodeQL</text>
+
+    <rect x="210" y="98" width="190" height="56" rx="14" fill="#111316" stroke="#f2ede1" stroke-opacity="0.34" stroke-width="1.5"/>
+    <text x="305" y="122">CI</text>
+    <text x="305" y="142" font-size="12" font-weight="400" fill="#bdb8ab">format, lint, unit tests, one build</text>
+
+    <path d="M400 126H440" stroke="#f4e8cc" stroke-width="2.5" marker-end="url(#a)"/>
+    <rect x="450" y="98" width="180" height="56" rx="14" fill="#111316" stroke="#f2ede1" stroke-opacity="0.34" stroke-width="1.5"/>
+    <text x="540" y="122">Test that build</text>
+    <text x="540" y="142" font-size="12" font-weight="400" fill="#bdb8ab">browser tests, Lighthouse</text>
+
+    <path d="M400 62H655V112" stroke="#f4e8cc" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+    <path d="M630 126H650" stroke="#f4e8cc" stroke-width="2.5"/>
+    <circle cx="660" cy="126" r="12" fill="#f4e8cc"/>
+    <path d="M654 126l4 4 8-8" stroke="#14120d" stroke-width="2.5" fill="none"/>
+    <path d="M672 126H700" stroke="#f4e8cc" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <rect x="710" y="98" width="140" height="56" rx="14" fill="#111316" stroke="#f2ede1" stroke-opacity="0.34" stroke-width="1.5"/>
+    <text x="780" y="122">Deploy</text>
+    <text x="780" y="142" font-size="12" font-weight="400" fill="#bdb8ab">Cloudflare Pages</text>
+
+    <path d="M850 126H880" stroke="#f4e8cc" stroke-width="2.5" marker-end="url(#a)"/>
+    <rect x="890" y="98" width="90" height="56" rx="28" fill="#f4e8cc"/>
+    <text x="935" y="131" fill="#14120d">Live</text>
+
+    <path d="M660 140V196" stroke="#c8504a" stroke-width="2.5" marker-end="url(#f)"/>
+    <rect x="585" y="206" width="150" height="40" rx="20" fill="#1a0f0e" stroke="#c8504a" stroke-width="1.5"/>
+    <text x="660" y="231" font-size="14">Release blocked</text>
+    <text x="760" y="222" font-size="12" font-weight="400" fill="#918d83" text-anchor="start">if any check fails</text>
+  </g>
+</svg>
