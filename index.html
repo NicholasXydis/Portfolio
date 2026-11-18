@@ -36,6 +36,8 @@
             var p = JSON.parse(w.textContent),
               h = document.head,
               add = function (rel, href, as) {
+                if (typeof href !== "string" || !/^\/[\w.\-\/]+$/.test(href))
+                  return;
                 var k = document.createElement("link");
                 k.rel = rel;
                 if (as) k.as = as;

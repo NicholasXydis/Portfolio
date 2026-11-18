@@ -3539,7 +3539,7 @@ export function createWorld(canvas, options = {}) {
         if (!o.isMesh || !o.material) return;
         const mn = o.material.name || '', nm = nameOf(o);
         let skip = false;
-        if (/^G_chess_|chess_piece|cup|kettle|jar/i.test(nm) || /SPRITE_needles/.test(mn)) skip = true;
+        if (/^G_chess_/i.test(nm) || /chess_piece|cup|kettle|jar/i.test(nm) || /SPRITE_needles/.test(mn)) skip = true;
         else if (o.isSkinnedMesh) { let q = o, sky = false; while (q) { if (/^G_sky_koi/.test(nameOf(q))) { sky = true; break; } q = q.parent; } skip = !sky; }
         else if (!/PAPER|GLOW|SCREEN|BEAM/.test(mn)) { box.setFromObject(o); if (!box.isEmpty() && box.getSize(sz).length() < 0.45) skip = true; }
         if (skip) mirrorList.push(o);

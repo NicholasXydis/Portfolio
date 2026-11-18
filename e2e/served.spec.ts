@@ -54,8 +54,8 @@ function attr(source: string, pattern: RegExp): string | null {
 
 function textOf(source: string): string {
   return source
-    .replace(/<script[\s\S]*?<\/script>/g, " ")
-    .replace(/<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<script\b[\s\S]*?<\/script[^>]*>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style[^>]*>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/&#x27;/g, "'")
     .replace(/&amp;/g, "&")

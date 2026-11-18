@@ -49,7 +49,7 @@ function splitHead(html: string): { head: string; body: string } {
 
 function inlineScriptHashes(html: string): string[] {
   const hashes: string[] = [];
-  const inline = /<script\b([^>]*)>([\s\S]*?)<\/script>/g;
+  const inline = /<script\b([^>]*)>([\s\S]*?)<\/script[^>]*>/gi;
   for (const [, attrs, code] of html.matchAll(inline)) {
     if (/\bsrc=/.test(attrs) || /type="application\/(ld\+)?json"/.test(attrs)) {
       continue;

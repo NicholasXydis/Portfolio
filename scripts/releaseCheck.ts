@@ -116,9 +116,9 @@ const pages = [
 ] as const;
 const unescape = (s: string) =>
   s
-    .replace(/&amp;/g, "&")
     .replace(/&#x27;/g, "'")
-    .replace(/&quot;/g, '"');
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&");
 for (const page of pages) {
   const html = text(join(dist, page.file));
   const title = buildSeo({
@@ -195,10 +195,12 @@ let legal = 0;
 for (const p of all) {
   const ext = extname(p);
   if (ext === ".html") {
-    const body = text(p)
-      .replace(/<!-- \/?prerender:head -->/g, "")
-      .replace(/<!--(?: |\$|\/\$|\$\?|\$!)?-->/g, "");
-    if (/<!--/.test(body)) commented.push(relative(dist, p));
+    const body = text(p);
+    const opened = body.match(/<!--/g)?.length ?? 0;
+    const allowed =
+      body.match(/<!-- \/?prerender:head -->|<!--(?: |\$|\/\$|\$\?|\$!)?-->/g)
+        ?.length ?? 0;
+    if (opened > allowed) commented.push(relative(dist, p));
   } else if (ext === ".css") {
     const body = text(p).replace(/\/\*![\s\S]*?\*\//g, "");
     if (/\/\*/.test(body)) commented.push(relative(dist, p));
