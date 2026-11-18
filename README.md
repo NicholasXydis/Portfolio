@@ -137,7 +137,7 @@ End-to-end coverage includes the 3D world on desktop and phone, the 2D fallback,
   <img src="docs/ci-cd-flow.svg" alt="A push to main runs CI and Security, the build is tested once, and the same build deploys to Cloudflare Pages, while any failed check blocks the release" width="100%">
 </div>
 
-Lighthouse CI enforces a minimum score of 90 across Performance, Accessibility, Best Practices and SEO on every push. Any required check failing blocks the release.
+Lighthouse CI enforces a minimum score of 90 across Performance, Accessibility, Best Practices and SEO on every push, with 85 for performance on the 3D page, which CI can only measure as its no GPU fallback. Any required check failing blocks the release.
 
 ## Quality Gates
 
