@@ -16,10 +16,8 @@ describe("localizedPath", () => {
   });
 
   it("appends a sub-path without double slashes", () => {
-    expect(localizedPath("en", "projects")).toBe("/en/projects");
-    expect(localizedPath("fr", "/projects/banklite")).toBe(
-      "/fr/projects/banklite",
-    );
+    expect(localizedPath("en", "lite")).toBe("/en/lite");
+    expect(localizedPath("fr", "/lite")).toBe("/fr/lite");
   });
 
   it("strips multiple leading slashes from the sub-path", () => {

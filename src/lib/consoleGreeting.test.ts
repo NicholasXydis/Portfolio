@@ -21,7 +21,7 @@ describe("printConsoleGreeting", () => {
   });
 
   it("logs the French greeting when the path starts with /fr", () => {
-    window.history.pushState({}, "", "/fr/projects/banklite");
+    window.history.pushState({}, "", "/fr/lite");
     printConsoleGreeting();
     expect(logSpy.mock.calls[0]?.[0]).toContain("CONSOLE DE DÉVELOPPEMENT");
   });

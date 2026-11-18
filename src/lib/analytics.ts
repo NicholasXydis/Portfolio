@@ -52,10 +52,7 @@ export const track = {
   contact: (channel: "email" | "github" | "linkedin") =>
     captureEvent("contact_click", { channel }),
   resumeDownload: () => captureEvent("resume_download"),
-  projectLink: (
-    project: string,
-    target: "website" | "repo" | "case_study",
-    source: "card" | "detail",
-  ) => captureEvent("project_link_click", { project, target, source }),
+  projectLink: (project: string, target: "website" | "repo", source: "card") =>
+    captureEvent("project_link_click", { project, target, source }),
   languageSwitch: (to: "en" | "fr") => captureEvent("language_switch", { to }),
 };

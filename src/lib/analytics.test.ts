@@ -63,11 +63,11 @@ describe("analytics with a key", () => {
   });
 
   it("captures pageviews with an absolute url", () => {
-    mod.capturePageView("/en/projects/banklite");
+    mod.capturePageView("/en/lite");
     expect(capture).toHaveBeenCalledWith(
       "$pageview",
       expect.objectContaining({
-        $current_url: expect.stringContaining("/en/projects/banklite"),
+        $current_url: expect.stringContaining("/en/lite"),
       }),
     );
   });
