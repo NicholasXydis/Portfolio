@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import { MotionConfig } from "framer-motion";
-import "@/lib/i18n";
+import i18n, { DEFAULT_LOCALE, isLocale } from "@/lib/i18n";
 import { App } from "@/App";
 import { ErrorBoundary } from "@/components";
 import { initAnalytics } from "@/lib/analytics";
@@ -17,7 +17,10 @@ if (!container) {
   throw new Error("Root element #root not found");
 }
 
-createRoot(container).render(
+const first = window.location.pathname.split("/")[1];
+await i18n.changeLanguage(isLocale(first) ? first : DEFAULT_LOCALE);
+
+const app = (
   <StrictMode>
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
@@ -26,5 +29,19 @@ createRoot(container).render(
         </BrowserRouter>
       </MotionConfig>
     </ErrorBoundary>
-  </StrictMode>,
+  </StrictMode>
 );
+
+if (container.dataset.prerendered === window.location.pathname) {
+  hydrateRoot(container, app);
+} else {
+  let inside = false;
+  for (const node of [...document.head.childNodes]) {
+    const marker =
+      node.nodeType === Node.COMMENT_NODE ? node.nodeValue?.trim() : undefined;
+    if (marker === "prerender:head") inside = true;
+    else if (marker === "/prerender:head") inside = false;
+    else if (inside) node.remove();
+  }
+  createRoot(container).render(app);
+}

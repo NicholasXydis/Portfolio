@@ -1,43 +1,62 @@
-import { motion } from "framer-motion";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import {
+  KoiLoader,
+  LanguagePill,
+  buttonClass,
+  useKoiTheme,
+} from "@/components/koi";
+import { Seo, SkipToContent } from "@/components";
 import { useLocale } from "@/hooks/useLocale";
 import { localizedPath } from "@/lib/localized";
-import { buttonHover, fadeInUp, tapPress } from "@/lib/motion";
-import { MotionLink, Seo } from "@/components";
+import { pageCopy } from "@/lib/meta";
 
 export function NotFoundPage() {
   const { t } = useTranslation();
   const locale = useLocale();
+  useKoiTheme();
 
   return (
-    <div className="flex min-h-70-dyn items-center justify-center">
-      <Seo
-        title={t("meta.notFound.title")}
-        description={t("meta.notFound.description")}
-        noindex
-      />
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        animate="visible"
-        className="w-full max-w-md rounded-xl border border-white/10 bg-white/[0.04] p-8 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.85)] backdrop-blur-sm"
+    <div
+      className="grid min-h-screen-dyn place-items-center bg-koi-bg p-6 font-koi-body text-koi-ink"
+      style={{
+        backgroundImage:
+          "radial-gradient(900px 620px at 50% -8%, var(--koi-surface-2), transparent 70%)",
+      }}
+    >
+      <Seo {...pageCopy("notFound", locale)} noindex />
+      <SkipToContent />
+      <div className="fixed right-[clamp(20px,5vw,56px)] top-4 z-10">
+        <LanguagePill />
+      </div>
+      <main
+        id="main-content"
+        aria-labelledby="not-found-title"
+        className="grid w-full max-w-[420px] justify-items-center text-center"
       >
-        <p className="font-mono text-sm font-semibold text-red-500">
-          {t("notFound.code")}
-        </p>
-        <h1 className="mt-2 text-2xl font-bold">{t("notFound.title")}</h1>
-        <p className="mt-3 text-sm text-white/70">
+        <KoiLoader progress={1} decorative showValue={false} size={136} />
+        <p className="koi-label mt-8">{t("notFound.code")}</p>
+        <h1
+          id="not-found-title"
+          className="mt-2 font-koi-display text-[30px] font-normal leading-[1.15] tracking-[-0.4px]"
+        >
+          {t("notFound.title")}
+        </h1>
+        <p className="mt-3 text-[14px] leading-[1.7] text-koi-ink-dim">
           {t("notFound.description")}
         </p>
-        <MotionLink
-          to={localizedPath(locale)}
-          className="mt-6 inline-flex items-center rounded-md bg-white px-4 py-2 font-mono text-sm font-medium text-black transition-colors hover:bg-white/85"
-          whileHover={buttonHover}
-          whileTap={tapPress}
-        >
-          {t("notFound.backHome")}
-        </MotionLink>
-      </motion.div>
+        <div className="mt-[26px] flex flex-wrap justify-center gap-3">
+          <Link to={localizedPath(locale)} className={buttonClass("solid")}>
+            {t("notFound.toWorld")}
+          </Link>
+          <Link
+            to={localizedPath(locale, "lite")}
+            className={buttonClass("outline")}
+          >
+            {t("notFound.toLite")}
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }
