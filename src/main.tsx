@@ -32,7 +32,10 @@ const app = (
   </StrictMode>
 );
 
-if (container.dataset.prerendered === window.location.pathname) {
+const noGraphics =
+  (window as unknown as { __koiNoGL?: boolean }).__koiNoGL === true;
+
+if (container.dataset.prerendered === window.location.pathname && !noGraphics) {
   hydrateRoot(container, app);
 } else {
   let inside = false;

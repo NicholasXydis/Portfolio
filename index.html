@@ -67,6 +67,13 @@
       } catch (e) {
         window.__koiNoGL = true;
         document.documentElement.classList.add("koi-nogl");
+        var f = document.createElement("link");
+        f.rel = "preload";
+        f.as = "image";
+        f.type = "image/webp";
+        f.href = "/portrait.webp";
+        f.setAttribute("fetchpriority", "high");
+        document.head.appendChild(f);
       }
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

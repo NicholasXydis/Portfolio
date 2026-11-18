@@ -83,7 +83,7 @@ export default defineConfig({
       ],
       use: {
         ...devices["Desktop Chrome"],
-        channel: "chromium",
+        channel: process.env.E2E_CHANNEL ?? "chromium",
         launchOptions: { args: softwareArgs },
       },
     },

@@ -52,7 +52,10 @@ describe("analytics with a key", () => {
 
   beforeEach(async () => {
     mod = await loadWithKey("phc_test");
+    vi.useFakeTimers();
     mod.initAnalytics();
+    await vi.advanceTimersByTimeAsync(3000);
+    vi.useRealTimers();
     await vi.waitFor(() => expect(init).toHaveBeenCalled());
   });
 
@@ -91,5 +94,23 @@ describe("analytics with a key", () => {
       source: "card",
     });
     expect(capture).toHaveBeenCalledWith("language_switch", { to: "fr" });
+  });
+});
+
+describe("analytics loading", () => {
+  it("waits until the page has settled, then sends what was queued", async () => {
+    const mod = await loadWithKey("phc_test");
+    vi.useFakeTimers();
+    mod.initAnalytics();
+    mod.capturePageView("/en");
+    await vi.advanceTimersByTimeAsync(1000);
+    expect(init).not.toHaveBeenCalled();
+    await vi.advanceTimersByTimeAsync(2000);
+    vi.useRealTimers();
+    await vi.waitFor(() => expect(init).toHaveBeenCalledTimes(1));
+    expect(capture).toHaveBeenCalledWith(
+      "$pageview",
+      expect.objectContaining({ $current_url: expect.stringContaining("/en") }),
+    );
   });
 });
