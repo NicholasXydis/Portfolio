@@ -33,13 +33,13 @@ export interface PageCopy {
 const PAGE_COPY: Record<SeoPage, Record<Locale, PageCopy>> = {
   home: {
     en: {
-      title: "Nicholas Xydis | CS @ Concordia & Software Developer (3D)",
+      title: "Nicholas Xydis | CS @ Concordia & Software Developer",
       description:
         "The 3D portfolio of Nicholas Xydis, set in a quiet tea house on a moonlit koi pond.",
     },
     fr: {
       title:
-        "Nicholas Xydis | Informatique @ Concordia et développeur logiciel (3D)",
+        "Nicholas Xydis | Informatique @ Concordia et développeur logiciel",
       description:
         "Le portfolio 3D de Nicholas Xydis, niché dans une paisible maison de thé sur un étang à koïs au clair de lune.",
     },

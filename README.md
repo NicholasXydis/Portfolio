@@ -3,8 +3,8 @@
 # Nicholas Xydis | Portfolio
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F2EDE1&center=true&vCenter=true&width=700&lines=Bilingual+3D+Portfolio;three.js+%7C+React+%7C+TypeScript;English+and+French+%7C+3D+and+2D;783+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages">
-  <img alt="Bilingual 3D Portfolio" src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=14120D&center=true&vCenter=true&width=700&lines=Bilingual+3D+Portfolio;three.js+%7C+React+%7C+TypeScript;English+and+French+%7C+3D+and+2D;783+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages">
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F2EDE1&center=true&vCenter=true&width=700&lines=Bilingual+3D+Portfolio;three.js+%7C+React+%7C+TypeScript;English+and+French+%7C+3D+and+2D;785+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages">
+  <img alt="Bilingual 3D Portfolio" src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=14120D&center=true&vCenter=true&width=700&lines=Bilingual+3D+Portfolio;three.js+%7C+React+%7C+TypeScript;English+and+French+%7C+3D+and+2D;785+Tests+%7C+Lighthouse+90%2B+%7C+Cloudflare+Pages">
 </picture>
 
 A bilingual portfolio set in a quiet tea house on a moonlit koi pond, built in 3D with a full 2D version beside it.
@@ -35,7 +35,7 @@ A bilingual portfolio set in a quiet tea house on a moonlit koi pond, built in 3
 <p align="center">
   <strong>English + French</strong> &nbsp;|&nbsp;
   <strong>3D + 2D</strong> &nbsp;|&nbsp;
-  <strong>783 automated tests</strong> &nbsp;|&nbsp;
+  <strong>785 automated tests</strong> &nbsp;|&nbsp;
   <strong>Lighthouse 90+</strong>
 </p>
 
@@ -119,9 +119,9 @@ Portfolio/
 
 | Suite                  |   Count | Tools                                           |
 | ---------------------- | ------: | ----------------------------------------------- |
-| Unit / component tests |     276 | Vitest, Testing Library                         |
-| End-to-end checks      |     507 | Playwright, axe-core, Chromium, WebKit, Firefox |
-| **Total**              | **783** | Desktop, phone, 3D, 2D, English and French      |
+| Unit / component tests |     277 | Vitest, Testing Library                         |
+| End-to-end checks      |     508 | Playwright, axe-core, Chromium, WebKit, Firefox |
+| **Total**              | **785** | Desktop, phone, 3D, 2D, English and French      |
 
 End-to-end coverage includes the 3D world on desktop and phone, the 2D fallback, every place in both languages, day and night, and accessibility scans against WCAG 2.1 A and AA.
 

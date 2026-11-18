@@ -6,7 +6,7 @@ test.describe("SEO metadata in the browser", () => {
   }) => {
     await page.goto("/en");
     await expect(page).toHaveTitle(
-      "Nicholas Xydis | CS @ Concordia & Software Developer (3D)",
+      "Nicholas Xydis | CS @ Concordia & Software Developer",
     );
     const canonical = page.locator("link[rel='canonical']");
     await expect(canonical).toHaveCount(1);

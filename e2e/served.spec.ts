@@ -9,7 +9,7 @@ const PAGES = [
   {
     path: "/en",
     lang: "en",
-    title: "Nicholas Xydis | CS @ Concordia & Software Developer (3D)",
+    title: "Nicholas Xydis | CS @ Concordia & Software Developer",
     siteName: "Koi",
     pair: "/fr",
     lite: "/en/lite",
@@ -17,8 +17,7 @@ const PAGES = [
   {
     path: "/fr",
     lang: "fr",
-    title:
-      "Nicholas Xydis | Informatique @ Concordia et développeur logiciel (3D)",
+    title: "Nicholas Xydis | Informatique @ Concordia et développeur logiciel",
     siteName: "Koi",
     pair: "/en",
     lite: "/fr/lite",
@@ -119,6 +118,7 @@ test.describe("prerendered head, as a crawler without JavaScript sees it", () =>
       ).toBeGreaterThan(50);
       expect(source).toContain('<meta name="theme-color"');
       expect(source).toContain('rel="apple-touch-icon"');
+      expect(source).toContain('rel="manifest" href="/site.webmanifest?v=2"');
 
       const ld = attr(
         source,
@@ -272,6 +272,8 @@ test.describe("host rules", () => {
       "/cv-fr.pdf",
       "/cv-en.html",
       "/cv-fr.html",
+      "/cv-en",
+      "/cv-fr",
     ])
       expect(headers.get(path)).toContain("X-Robots-Tag: noindex");
     expect(headers.get("https://:project.pages.dev/*")).toContain(
@@ -296,6 +298,9 @@ test.describe("share and tab assets", () => {
       "/apple-touch-icon.png",
       "/favicon.svg",
       "/favicon.ico",
+      "/icon-192.png",
+      "/icon-512.png",
+      "/icon-maskable-512.png",
     ]) {
       const response = await request.get(path);
       expect(response.ok()).toBeTruthy();
@@ -303,6 +308,28 @@ test.describe("share and tab assets", () => {
     }
     const og = await request.get("/og-koi.jpg");
     expect((await og.body()).length).toBeLessThan(300 * 1024);
+  });
+
+  test("the web manifest names the site and lists icons that load", async ({
+    request,
+  }) => {
+    const response = await request.get("/site.webmanifest");
+    expect(response.ok()).toBeTruthy();
+    const manifest = (await response.json()) as {
+      name: string;
+      display: string;
+      icons: { src: string; sizes: string; purpose?: string }[];
+    };
+    expect(manifest.name).toBe("Koi");
+    expect(manifest.display).toBe("browser");
+    expect(manifest.icons.some((icon) => icon.purpose === "maskable")).toBe(
+      true,
+    );
+    for (const icon of manifest.icons) {
+      const image = await request.get(icon.src);
+      expect(image.ok()).toBeTruthy();
+      expect(image.headers()["content-type"]).toContain("image/png");
+    }
   });
 });
 
@@ -314,7 +341,7 @@ test.describe("CV assets", () => {
       const wrapper = await request.get(`/cv-${locale}.html`);
       expect(wrapper.ok()).toBeTruthy();
       const source = await wrapper.text();
-      expect(source).toContain('href="/favicon.svg"');
+      expect(source).toContain('href="/favicon.svg?v=2"');
       expect(source).toContain(`src="/cv-${locale}.pdf"`);
 
       const pdf = await request.get(`/cv-${locale}.pdf`);

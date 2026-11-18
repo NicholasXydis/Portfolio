@@ -31,9 +31,7 @@ describe("buildSeo", () => {
     expect(meta.fullTitle).toBe(SITE_NAME);
     expect(
       buildSeo({ ...pageCopy("home", "fr"), locale: "fr" }).fullTitle,
-    ).toBe(
-      "Nicholas Xydis | Informatique @ Concordia et développeur logiciel (3D)",
-    );
+    ).toBe("Nicholas Xydis | Informatique @ Concordia et développeur logiciel");
   });
 
   it("names the site per language and shares the scene as the preview image", () => {
