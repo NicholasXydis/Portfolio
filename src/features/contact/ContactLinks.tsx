@@ -2,8 +2,7 @@ import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { CheckIcon, GithubIcon, LinkedinIcon, MailIcon } from "@/components";
-import { useMagnetic } from "@/hooks/useMagnetic";
-import { spring, transition } from "@/lib/motion";
+import { transition } from "@/lib/motion";
 import { CONTACT } from "@/lib/site";
 import { track } from "@/lib/analytics";
 
@@ -18,8 +17,7 @@ interface ContactItem {
   copyValue?: string;
 }
 
-const iconClass =
-  "inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-white/70 transition-colors hover:border-white/20 hover:text-white";
+const iconClass = "koi-iconbtn";
 
 interface ContactIconProps {
   item: ContactItem;
@@ -28,37 +26,24 @@ interface ContactIconProps {
 }
 
 function ContactIcon({ item, icon, onActivate }: ContactIconProps) {
-  const magnetic = useMagnetic<HTMLAnchorElement>();
-
   const shared = {
-    ref: magnetic.ref,
     "aria-label": item.label,
     className: iconClass,
-    style: magnetic.style,
-    onMouseMove: magnetic.onMouseMove,
-    onMouseLeave: magnetic.onMouseLeave,
-    whileHover: { scale: 1.12, transition: spring.magnetic },
-    whileTap: { scale: 0.9 },
     onClick: onActivate,
   };
 
   if (item.external) {
     return (
-      <motion.a
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...shared}
-      >
+      <a href={item.href} target="_blank" rel="noopener noreferrer" {...shared}>
         {icon}
-      </motion.a>
+      </a>
     );
   }
 
   return (
-    <motion.a href={item.href} {...shared}>
+    <a href={item.href} {...shared}>
       {icon}
-    </motion.a>
+    </a>
   );
 }
 
@@ -130,7 +115,7 @@ export function ContactLinks() {
                   animate={{ opacity: 1, x: "-50%", y: 0, scale: 1 }}
                   exit={{ opacity: 0, x: "-50%", y: 4, scale: 0.9 }}
                   transition={transition.fast}
-                  className="pointer-events-none absolute -top-9 left-1/2 whitespace-nowrap rounded-md bg-white px-2 py-1 font-mono text-xs font-medium text-black shadow-lg"
+                  className="pointer-events-none absolute -top-9 left-1/2 whitespace-nowrap rounded-md bg-koi-glow px-2 py-1 font-mono text-xs font-medium text-koi-on-glow shadow-lg"
                 >
                   {t("contact.copied")}
                 </motion.span>

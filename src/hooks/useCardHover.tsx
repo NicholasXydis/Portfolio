@@ -31,11 +31,7 @@ export function useCardHover<
   const springX = useSpring(x, { stiffness: 220, damping: 30, mass: 0.6 });
   const springY = useSpring(y, { stiffness: 220, damping: 30, mass: 0.6 });
   const springOpacity = useSpring(opacity, { stiffness: 160, damping: 26 });
-  const background = useMotionTemplate`radial-gradient(180px circle at ${springX}px ${springY}px, rgba(255,255,255,0.6), transparent 65%)`;
-
-  if (reduceMotion) {
-    return { ref, handlers: {}, glow: null };
-  }
+  const background = useMotionTemplate`radial-gradient(180px circle at ${springX}px ${springY}px, color-mix(in srgb, var(--koi-glow) 60%, transparent), transparent 65%)`;
 
   const onMouseMove = (event: MouseEvent<T>) => {
     const element = ref.current;
@@ -63,5 +59,9 @@ export function useCardHover<
     />
   );
 
-  return { ref, handlers: { onMouseMove, onMouseLeave }, glow };
+  return {
+    ref,
+    handlers: reduceMotion ? {} : { onMouseMove, onMouseLeave },
+    glow,
+  };
 }

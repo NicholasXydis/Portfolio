@@ -8,14 +8,25 @@ describe("EntryLogo", () => {
     expect(container).toBeEmptyDOMElement();
   });
 
-  it("renders a decorative image that fills the square", () => {
+  it("puts a transparent mark on the ink tile with room around it", () => {
     const { container } = render(
       <EntryLogo src="/project-icons/banklite.ico" />,
     );
+    const tile = container.firstElementChild;
     const img = container.querySelector("img");
+    expect(tile).toHaveAttribute("data-koi-theme", "dark");
+    expect(tile).toHaveClass("p-[6px]");
     expect(img).toHaveAttribute("src", "/project-icons/banklite.ico");
-    expect(img).toHaveClass("object-cover");
+    expect(img).toHaveClass("object-contain");
     expect(img).toHaveAttribute("aria-hidden", "true");
+  });
+
+  it("lets a logo with its own solid square fill the tile", () => {
+    const { container } = render(
+      <EntryLogo src="/project-icons/quarcc-purple.svg" />,
+    );
+    expect(container.firstElementChild).not.toHaveClass("p-[6px]");
+    expect(container.querySelector("img")).toHaveClass("object-cover");
   });
 
   it("hides itself when the image fails to load", () => {

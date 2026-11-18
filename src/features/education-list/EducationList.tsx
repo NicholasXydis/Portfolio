@@ -5,7 +5,7 @@ import { useLocale } from "@/hooks/useLocale";
 import { useCardHover } from "@/hooks/useCardHover";
 import { formatMonthYear, formatYearRange, futureYear } from "@/lib/dates";
 import { pickLocalized, pickUrl } from "@/lib/localized";
-import { duration, ease, staggerContainer, staggerItem } from "@/lib/motion";
+import { staggerContainer, staggerItem } from "@/lib/motion";
 import { EntryLogo, ExternalLink } from "@/components";
 
 export interface EducationListProps {
@@ -26,13 +26,8 @@ function EducationCard({ education }: { education: Education }) {
     <motion.li
       ref={card.ref}
       {...card.handlers}
-      className="relative rounded-lg border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+      className="relative rounded-lg border border-koi-line bg-koi-surface p-5 transition-colors duration-[var(--koi-dur)] hover:border-koi-line-strong hover:bg-koi-surface-2"
       variants={staggerItem}
-      whileHover={{
-        boxShadow:
-          "0 24px 60px -30px rgba(0,0,0,0.95), 0 0 40px -14px rgba(255,255,255,0.1)",
-        transition: { duration: duration.base, ease },
-      }}
     >
       {card.glow}
       <div className="flex items-start gap-3">
@@ -42,7 +37,7 @@ function EducationCard({ education }: { education: Education }) {
             {education.institutionUrl ? (
               <ExternalLink
                 href={pickUrl(education.institutionUrl, locale)}
-                className="hover:underline"
+                className="koi-textlink hover:underline"
               >
                 {institution}
               </ExternalLink>
@@ -50,13 +45,13 @@ function EducationCard({ education }: { education: Education }) {
               institution
             )}
           </h3>
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-koi-ink-dim">
             {pickLocalized(education.credential, locale)}
             {education.field
               ? ` · ${pickLocalized(education.field, locale)}`
               : ""}
           </p>
-          <p className="mt-1 font-mono text-xs text-white/50">
+          <p className="mt-1 font-mono text-xs text-koi-ink-faint">
             {expectedDate
               ? t("education.expected", { date: expectedDate })
               : formatYearRange(
@@ -71,7 +66,7 @@ function EducationCard({ education }: { education: Education }) {
       </div>
 
       {education.note && (
-        <p className="mt-3 text-sm text-white/80">
+        <p className="mt-3 text-sm text-koi-ink-dim">
           <span aria-hidden="true">· </span>
           {pickLocalized(education.note, locale)}
         </p>
@@ -84,7 +79,7 @@ export function EducationList({ educations }: EducationListProps) {
   const { t } = useTranslation();
 
   if (educations.length === 0) {
-    return <p className="text-white/60">{t("education.empty")}</p>;
+    return <p className="text-koi-ink-faint">{t("education.empty")}</p>;
   }
 
   return (

@@ -17,18 +17,104 @@ const project: Project = {
   website: "https://banklite.ca",
   repo: "https://github.com/NicholasXydis/BankLite",
   icon: "/project-icons/banklite.ico",
-  links: [],
-  images: [],
   featured: true,
 };
 
 describe("ProjectCard", () => {
-  it("renders the localized title and links to the detail page", () => {
+  it("shows the picture on top, sized and lazy, named after the project", () => {
+    renderWithProviders(
+      <ProjectCard project={{ ...project, image: "/projects/banklite.jpg" }} />,
+      { locale: "fr" },
+    );
+    const picture = screen.getByRole("img", { name: "BankLite FR" });
+    expect(picture).toHaveAttribute("src", "/projects/banklite.jpg");
+    expect(picture).toHaveAttribute("width", "960");
+    expect(picture).toHaveAttribute("height", "600");
+    expect(picture).toHaveAttribute("loading", "lazy");
+  });
+
+  it("keeps the subtitle link on the part after the bar", () => {
+    renderWithProviders(
+      <ProjectCard
+        project={{
+          ...project,
+          subtitle: {
+            en: "International Finalist | McGill-FIAM Asset Management Hackathon",
+            fr: "Finaliste international | Hackathon en gestion d'actifs McGill-FIAM",
+          },
+          subtitleUrl: "https://hackathonfiam-ia.com/",
+        }}
+      />,
+      { locale: "en" },
+    );
+    const link = screen.getByRole("link", {
+      name: "McGill-FIAM Asset Management Hackathon",
+    });
+    expect(link).toHaveAttribute("href", "https://hackathonfiam-ia.com/");
+    expect(link.closest("p")).toHaveTextContent(
+      "International Finalist | McGill-FIAM Asset Management Hackathon",
+    );
+    expect(
+      screen.queryByRole("link", { name: /International Finalist/ }),
+    ).toBeNull();
+  });
+
+  it("opens the picture large and gives focus back when it closes", () => {
+    const { container } = renderWithProviders(
+      <ProjectCard project={{ ...project, image: "/projects/banklite.jpg" }} />,
+      { locale: "en" },
+    );
+    const opener = screen.getByRole("button", {
+      name: "Open the picture of BankLite",
+    });
+    fireEvent.click(opener);
+    const dialog = container.querySelector("dialog");
+    expect(dialog).toHaveAttribute("open");
+    const large = dialog?.querySelector("img");
+    expect(large).toHaveAttribute("src", "/projects/banklite-large.jpg");
+    fireEvent.error(large as HTMLImageElement);
+    expect(dialog?.querySelector("img")).toHaveAttribute(
+      "src",
+      "/projects/banklite.jpg",
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Close" }));
+    expect(dialog).not.toHaveAttribute("open");
+    expect(document.activeElement).toBe(opener);
+  });
+
+  it("closes the picture with Escape and with a click outside it", () => {
+    const { container } = renderWithProviders(
+      <ProjectCard project={{ ...project, image: "/projects/banklite.jpg" }} />,
+      { locale: "en" },
+    );
+    const opener = screen.getByRole("button", {
+      name: "Open the picture of BankLite",
+    });
+    const dialog = container.querySelector("dialog") as HTMLDialogElement;
+    fireEvent.click(opener);
+    fireEvent(dialog, new Event("cancel", { cancelable: true }));
+    expect(dialog).not.toHaveAttribute("open");
+    fireEvent.click(opener);
+    fireEvent.click(dialog);
+    expect(dialog).not.toHaveAttribute("open");
+  });
+
+  it("has no picture when the project has none", () => {
     renderWithProviders(<ProjectCard project={project} />, { locale: "en" });
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
+
+  it("renders the localized title as text, with the card as an anchor target", () => {
+    const { container } = renderWithProviders(
+      <ProjectCard project={project} />,
+      { locale: "en" },
+    );
     const heading = screen.getByRole("heading", { name: "BankLite" });
     expect(heading).toBeInTheDocument();
-    const link = screen.getByRole("link", { name: "BankLite" });
-    expect(link).toHaveAttribute("href", "/en/projects/banklite");
+    expect(
+      screen.queryByRole("link", { name: "BankLite" }),
+    ).not.toBeInTheDocument();
+    expect(container.querySelector("#project-banklite")).toBeInTheDocument();
   });
 
   it("renders the French title under the fr locale", () => {
@@ -66,14 +152,11 @@ describe("ProjectCard", () => {
     expect(repo).toHaveAttribute("rel", expect.stringContaining("noopener"));
   });
 
-  it("handles clicks on the website, repo, and case study actions", () => {
+  it("handles clicks on the website and repo actions, with no case study link", () => {
     renderWithProviders(<ProjectCard project={project} />, { locale: "en" });
     fireEvent.click(screen.getByRole("link", { name: /Website/i }));
     fireEvent.click(screen.getByRole("link", { name: /GitHub/i }));
-    fireEvent.click(screen.getByRole("link", { name: /Case study/i }));
-    expect(
-      screen.getByRole("link", { name: /Case study/i }),
-    ).toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("renders without website, repo, subtitle, or icon when they are absent", () => {
@@ -93,8 +176,6 @@ describe("ProjectCard", () => {
     expect(
       screen.queryByRole("link", { name: /GitHub/i }),
     ).not.toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /Case study/i }),
-    ).toBeInTheDocument();
+    expect(screen.queryAllByRole("link")).toHaveLength(0);
   });
 });

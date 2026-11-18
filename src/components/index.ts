@@ -1,32 +1,17 @@
 export { SkipToContent } from "./SkipToContent";
-export { Footer } from "./Footer";
-export { BackToTop } from "./BackToTop";
 export { ExternalLink } from "./ExternalLink";
-export { LanguageToggle } from "./LanguageToggle";
 export { Seo } from "./Seo";
-export { Section } from "./Section";
 export { EntryLogo } from "./EntryLogo";
 export { ErrorBoundary } from "./ErrorBoundary";
-export { BulletList } from "./BulletList";
 export { CollapsibleBullets } from "./CollapsibleBullets";
 export { TechIcon } from "./TechIcon";
 export { HeroPhoto } from "./HeroPhoto";
-export { WaveBackground } from "./WaveBackground";
-export { ScrollProgress } from "./ScrollProgress";
-export { CursorGlow } from "./CursorGlow";
-export { RevealText } from "./motion/RevealText";
-export { MotionLink } from "./motion/MotionLink";
-export { PageTransition } from "./motion/PageTransition";
 export {
   MailIcon,
   GithubIcon,
   LinkedinIcon,
   GlobeIcon,
-  CaseStudyIcon,
   MapPinIcon,
   DownloadIcon,
-  ArrowLeftIcon,
-  ArrowUpIcon,
-  ChevronDownIcon,
   CheckIcon,
 } from "./icons";

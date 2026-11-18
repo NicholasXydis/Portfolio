@@ -1,10 +1,27 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { screen, fireEvent } from "@testing-library/react";
 import { ContactLinks } from "./ContactLinks";
 import { renderWithProviders } from "@/test/render";
 import { CONTACT } from "@/lib/site";
+import { track } from "@/lib/analytics";
+import type * as Analytics from "@/lib/analytics";
+
+vi.mock("@/lib/analytics", async (importOriginal) => {
+  const actual = await importOriginal<typeof Analytics>();
+  return { ...actual, track: { ...actual.track, contact: vi.fn() } };
+});
+
+const stayOnPage = (event: Event) => event.preventDefault();
 
 describe("ContactLinks", () => {
+  beforeEach(() => {
+    vi.mocked(track.contact).mockClear();
+    document.addEventListener("click", stayOnPage);
+  });
+  afterEach(() => {
+    document.removeEventListener("click", stayOnPage);
+  });
+
   it("renders a mailto link for email without opening a new tab", () => {
     renderWithProviders(<ContactLinks />, { locale: "en" });
     const email = screen.getByRole("link", { name: /Email/i });
@@ -48,9 +65,20 @@ describe("ContactLinks", () => {
     expect(await screen.findByRole("status")).toBeInTheDocument();
   });
 
-  it("handles clicks on external profiles", () => {
+  it("records which profile was opened, and copies nothing for it", () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText },
+      configurable: true,
+    });
     renderWithProviders(<ContactLinks />, { locale: "en" });
     fireEvent.click(screen.getByRole("link", { name: /GitHub/i }));
-    expect(screen.getByRole("link", { name: /GitHub/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("link", { name: /LinkedIn/i }));
+    expect(vi.mocked(track.contact).mock.calls).toEqual([
+      ["github"],
+      ["linkedin"],
+    ]);
+    expect(writeText).not.toHaveBeenCalled();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
   });
 });

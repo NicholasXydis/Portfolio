@@ -24,11 +24,12 @@ function attachElement(ref: { current: HTMLDivElement | null }) {
 }
 
 describe("useCardHover", () => {
-  it("drops the glow and handlers when motion is reduced", () => {
+  it("keeps the glow markup but drops the handlers when motion is reduced", () => {
     reduceMotion.current = true;
     const { result } = renderHook(() => useCardHover());
+    const { container } = render(<>{result.current.glow}</>);
 
-    expect(result.current.glow).toBeNull();
+    expect(container.querySelector("span")).not.toBeNull();
     expect(result.current.handlers.onMouseMove).toBeUndefined();
     expect(result.current.handlers.onMouseLeave).toBeUndefined();
     reduceMotion.current = false;

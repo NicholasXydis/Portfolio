@@ -7,7 +7,6 @@ import {
   staggerContainer,
   staggerContainerFast,
   staggerItem,
-  tapPress,
 } from "@/lib/motion";
 import { TechIcon } from "@/components";
 
@@ -23,7 +22,7 @@ export function TechStack({ groups }: TechStackProps) {
       {groups.map((group) => (
         <motion.div key={group.label.en} variants={staggerContainer}>
           <motion.dt
-            className="mb-2 font-mono text-xs uppercase tracking-wide text-white/60"
+            className="mb-2 font-mono text-xs uppercase tracking-wide text-koi-ink-faint"
             variants={staggerItem}
           >
             {pickLocalized(group.label, locale)}
@@ -36,10 +35,9 @@ export function TechStack({ groups }: TechStackProps) {
               {group.items.map((item) => (
                 <motion.li
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-sm text-white/75 transition-colors hover:border-white/20 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-md border border-koi-line bg-koi-surface px-3 py-1.5 font-mono text-sm text-koi-ink-dim transition-colors hover:border-koi-line-strong hover:text-koi-ink"
                   variants={staggerItem}
                   whileHover={buttonHover}
-                  whileTap={tapPress}
                 >
                   <TechIcon name={item} />
                   {item}
