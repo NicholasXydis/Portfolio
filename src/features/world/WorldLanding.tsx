@@ -729,6 +729,7 @@ export function WorldLanding({
 
       <header
         ref={headerRef}
+        data-nosnippet=""
         inert={!entered}
         className={`pointer-events-none absolute left-[18px] right-[18px] top-[18px] z-[8] flex items-start justify-between gap-3 max-[540px]:gap-2 min-[760px]:left-[30px] min-[760px]:right-[30px] min-[760px]:top-[25px] [@media(min-width:760px)_and_(max-height:650px)]:top-[19px] [@media(max-height:500px)_and_(orientation:landscape)]:!top-3 ${""}`}
       >

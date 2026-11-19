@@ -99,6 +99,7 @@ export const Toolbar = forwardRef<HTMLButtonElement, ToolbarProps>(
     const corner = false;
     return (
       <nav
+        data-nosnippet=""
         aria-label={t("world.toolbar")}
         aria-hidden={hidden || undefined}
         inert={hidden || inert}
@@ -186,6 +187,7 @@ export function Markers({
 
   return (
     <div
+      data-nosnippet=""
       aria-hidden={!show || undefined}
       inert={!show}
       className={`pointer-events-none absolute inset-0 z-[3] transition-opacity duration-[350ms] motion-reduce:transition-none ${

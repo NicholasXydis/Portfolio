@@ -170,6 +170,9 @@ test.describe("prerendered head, as a crawler without JavaScript sees it", () =>
         : ["À propos", "Formation", "Expérience", "Projets"])
         expect(text).toContain(section);
       expect(source).toContain(`href="${page.lite}"`);
+      expect(
+        source.match(/data-nosnippet/g)?.length ?? 0,
+      ).toBeGreaterThanOrEqual(4);
     });
   }
 

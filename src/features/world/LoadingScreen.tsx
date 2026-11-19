@@ -26,6 +26,7 @@ export function LoadingScreen({
 
   return (
     <div
+      data-nosnippet=""
       data-testid="loading-screen"
       className={`absolute inset-0 z-30 overflow-y-auto transition-opacity ease-[var(--koi-ease)] motion-reduce:transition-opacity ${
         leaving

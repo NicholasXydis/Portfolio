@@ -20,10 +20,17 @@ export function CornerCredit({
     </>
   );
   if (!children) {
-    return <p className={cx("koi-credit", className)}>{line}</p>;
+    return (
+      <p data-nosnippet="" className={cx("koi-credit", className)}>
+        {line}
+      </p>
+    );
   }
   return (
-    <details className={cx("koi-credit koi-credit--opens", className)}>
+    <details
+      data-nosnippet=""
+      className={cx("koi-credit koi-credit--opens", className)}
+    >
       <summary className="koi-credit__line">{line}</summary>
       <div className="koi-credit__card">{children}</div>
     </details>
